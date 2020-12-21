@@ -5,7 +5,7 @@
 %token Symbol 
 %token ADD SUB MUL DIV MOD
 %token A_STATIC A_EXTERN A_AUTO A_CONST
-%token ORM_ID
+%token ORM_ID ORM_FOREIGN 
 %%
 programs:
 		|programs statement EOS
