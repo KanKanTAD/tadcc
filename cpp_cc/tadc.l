@@ -11,6 +11,25 @@ NUM(L|l) {return LONG_VALUE;}
 FLOAT {return DOUBLE_VALUE;}
 FLOAT(F|f) {return FLOAT_VALUE;}
 
+"#" {return O_SHARP;}
+"+" {return O_PLUS;}
+"-" {return O_MINUS;}
+"*" {return O_STAR;}
+"/" {return O_DIV;}
+"%" {return O_MOD;}
+"&" {return O_AND;}
+"|" {return O_OR;}
+"^" {return O_XOR;}
+"~" {return O_NOT;}
+"->" {return O_TO;}
+"." {return O_DOT;}
+"=" {return O_ASIGN;}
+"+=" {return O_PLUS_ASIGN;}
+"-=" {return O_MINUS_ASIGN;}
+"*=" {return O_START_ASIGN;}
+"==" {return O_EQUALS;}
+"!=" {return O_NOT_EQUALS;}
+
 "bool" {return T_BOOL;}
 "int" {return T_INT;}
 "long" {return T_LONG;}
