@@ -53,6 +53,9 @@ class Bazel:
     def create(self) -> str:
         pass
 
+    def saveAsFile(self,file_path):
+        pass
+
     def selectByName(self, name) -> Target:
         pass
 
