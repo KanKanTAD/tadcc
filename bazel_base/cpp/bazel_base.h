@@ -34,24 +34,26 @@ extern std::ostream &operator<<(std::ostream &, const Value &);
 
 class Attribute : public Namiable {
   std::set<Value> values_;
+  bool is_multi_;
 
 public:
-  virtual ~Attribute();
   Attribute(const std::string &name, bool is_multi_);
   Attribute(bool is_multi_);
+  virtual ~Attribute();
   virtual bool is_multi() const;
-  virtual void add_value(const Value &);
+  virtual bool add_value(const Value &);
   virtual void list_value(const std::list<Value> &);
   virtual void remove_value(const Value &);
   virtual void search_value(const std::string &, std::list<Value> &);
-  virtual Value find_value(const std::string &);
+  virtual Value find_value(const std::string &) const;
 };
 
 class Target : public Namiable {
 public:
-  virtual void list_attribute(std::list<Attribute> &attributes);
+  virtual void list_attribute(std::list<Attribute> &attributes) const;
   virtual std::string get_rulename() const;
   virtual void set_rulename(const std::string &rule_name);
+  virtual Attribute &select_attr(const std::string &attr_name);
 };
 
 class BazelBase : public Namiable {
