@@ -58,39 +58,45 @@ programs:
 
 """
 
-_token_seq_ = '+-=|~!@#$%^&*()[]{}<>"\'\\/\n\t ,.?;:'
 
+class FileInfo:
+    def __init__(self, ctx: List[str]):
+        self.ctx = ctx
+        self.line = 0
+        self.column = 0
+        self.idx = 0
 
-def Tokenor(content: str) -> (str, int, int, int):
-    line_idx = 0
-    col_idx = 0
-    ctx = content[:]
-    tk = ''
-    for idx in range(len(ctx)):
-        c = ctx[idx]
-        if c in _token_seq_:
-            col_idx += 1
-            if c == '\n':
-                line_idx += 1
-                col_idx = 0
-            if len(tk) <= 0:
-                yield c, line_idx, col_idx, idx
-            else:
-                yield tk, line_idx, col_idx, idx
-                tk = ''
-        else:
-            tk += c
-    yield tk, line_idx, col_idx, idx
+    def __calcTotalChars(self) -> int:
+        pass
+
+    def getTotalChars(self) -> int:
+        pass
+
+    def putIdx(self, idx):
+        pass
+
+    def __str__(self):
+        pass
 
 
 class TokenMaster:
-    def __init__(self, content: str):
-        self.__ctx = content
-        self.__line = 0
-        self.__col = 0
+    @staticmethod
+    def split_line(content: str) -> List[str]:
+        res = []
+        begin = 0
+        for i in range(len(content)):
+            if content[i] == '\n':
+                res.append(content[begin:i+1])
+                begin = i+1
+        return res
 
-    def info(self) -> str:
-        pass
+    def __init__(self, content: str):
+        ctx = TokenMaster.split_line(content)
+        self.__info = FileInfo(ctx)
+        self.__info_bak = FileInfo(ctx)
+
+    def __str__(self) -> str:
+        return str(self.__info_bak)
 
     def isEnd(self) -> bool:
         pass
@@ -105,10 +111,10 @@ class TokenMaster:
         pass
 
     def matchBegin(self):
-        pass
+        self.__idx = self.__idx_back
 
     def matchEnd(self):
-        pass
+        self.__idx_back = self.__idx
 
 
 class ParseUtil:
@@ -151,6 +157,9 @@ class BazelParser:
 
     def __init__(self):
         self.__token = TokenMaster()
+
+    def _match_linecommet(self) -> bool, str:
+        pass
 
     def _match_symbol(self) -> bool, str:
         res = ''
