@@ -1,4 +1,4 @@
-# Generated from BazelBuild.y by ANTLR 4.7.1
+# Generated from ./BazelBuild.y by ANTLR 4.7.1
 # encoding: utf-8
 from __future__ import print_function
 from antlr4 import *
@@ -155,34 +155,88 @@ class BazelBuildParser ( Parser ):
             super(BazelBuildParser.StatContext, self).__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_stat
+
+     
+        def copyFrom(self, ctx):
+            super(BazelBuildParser.StatContext, self).copyFrom(ctx)
+
+
+
+    class LoadStatContext(StatContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.StatContext)
+            super(BazelBuildParser.LoadStatContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
         def load_exp(self):
             return self.getTypedRuleContext(BazelBuildParser.Load_expContext,0)
 
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterLoadStat"):
+                listener.enterLoadStat(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitLoadStat"):
+                listener.exitLoadStat(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitLoadStat"):
+                return visitor.visitLoadStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class TargetStatContext(StatContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.StatContext)
+            super(BazelBuildParser.TargetStatContext, self).__init__(parser)
+            self.copyFrom(ctx)
 
         def target_exp(self):
             return self.getTypedRuleContext(BazelBuildParser.Target_expContext,0)
 
 
-        def LongString(self):
-            return self.getToken(BazelBuildParser.LongString, 0)
-
-        def getRuleIndex(self):
-            return BazelBuildParser.RULE_stat
-
         def enterRule(self, listener):
-            if hasattr(listener, "enterStat"):
-                listener.enterStat(self)
+            if hasattr(listener, "enterTargetStat"):
+                listener.enterTargetStat(self)
 
         def exitRule(self, listener):
-            if hasattr(listener, "exitStat"):
-                listener.exitStat(self)
+            if hasattr(listener, "exitTargetStat"):
+                listener.exitTargetStat(self)
 
         def accept(self, visitor):
-            if hasattr(visitor, "visitStat"):
-                return visitor.visitStat(self)
+            if hasattr(visitor, "visitTargetStat"):
+                return visitor.visitTargetStat(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class LongStrStatContext(StatContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.StatContext)
+            super(BazelBuildParser.LongStrStatContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
+        def LongString(self):
+            return self.getToken(BazelBuildParser.LongString, 0)
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterLongStrStat"):
+                listener.enterLongStrStat(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitLongStrStat"):
+                listener.exitLongStrStat(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitLongStrStat"):
+                return visitor.visitLongStrStat(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -195,16 +249,19 @@ class BazelBuildParser ( Parser ):
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [BazelBuildParser.Load]:
+                localctx = BazelBuildParser.LoadStatContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 23
                 self.load_exp()
                 pass
             elif token in [BazelBuildParser.Symbol]:
+                localctx = BazelBuildParser.TargetStatContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 24
                 self.target_exp()
                 pass
             elif token in [BazelBuildParser.LongString]:
+                localctx = BazelBuildParser.LongStrStatContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 25
                 self.match(BazelBuildParser.LongString)
@@ -348,31 +405,67 @@ class BazelBuildParser ( Parser ):
             super(BazelBuildParser.Assign_itemsContext, self).__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_assign_items
+
+     
+        def copyFrom(self, ctx):
+            super(BazelBuildParser.Assign_itemsContext, self).copyFrom(ctx)
+
+
+
+    class MultiAttrContext(Assign_itemsContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.Assign_itemsContext)
+            super(BazelBuildParser.MultiAttrContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
         def assign_exp(self):
             return self.getTypedRuleContext(BazelBuildParser.Assign_expContext,0)
-
 
         def assign_items(self):
             return self.getTypedRuleContext(BazelBuildParser.Assign_itemsContext,0)
 
 
-        def getRuleIndex(self):
-            return BazelBuildParser.RULE_assign_items
-
         def enterRule(self, listener):
-            if hasattr(listener, "enterAssign_items"):
-                listener.enterAssign_items(self)
+            if hasattr(listener, "enterMultiAttr"):
+                listener.enterMultiAttr(self)
 
         def exitRule(self, listener):
-            if hasattr(listener, "exitAssign_items"):
-                listener.exitAssign_items(self)
+            if hasattr(listener, "exitMultiAttr"):
+                listener.exitMultiAttr(self)
 
         def accept(self, visitor):
-            if hasattr(visitor, "visitAssign_items"):
-                return visitor.visitAssign_items(self)
+            if hasattr(visitor, "visitMultiAttr"):
+                return visitor.visitMultiAttr(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class SingleAttrContext(Assign_itemsContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.Assign_itemsContext)
+            super(BazelBuildParser.SingleAttrContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
+        def assign_exp(self):
+            return self.getTypedRuleContext(BazelBuildParser.Assign_expContext,0)
+
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterSingleAttr"):
+                listener.enterSingleAttr(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitSingleAttr"):
+                listener.exitSingleAttr(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitSingleAttr"):
+                return visitor.visitSingleAttr(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -385,12 +478,14 @@ class BazelBuildParser ( Parser ):
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
             if la_ == 1:
+                localctx = BazelBuildParser.SingleAttrContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 38
                 self.assign_exp()
                 pass
 
             elif la_ == 2:
+                localctx = BazelBuildParser.MultiAttrContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 39
                 self.assign_exp()
@@ -470,30 +565,63 @@ class BazelBuildParser ( Parser ):
             super(BazelBuildParser.Value_expContext, self).__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_value_exp
+
+     
+        def copyFrom(self, ctx):
+            super(BazelBuildParser.Value_expContext, self).copyFrom(ctx)
+
+
+
+    class SingleValueContext(Value_expContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.Value_expContext)
+            super(BazelBuildParser.SingleValueContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
         def ShortString(self):
             return self.getToken(BazelBuildParser.ShortString, 0)
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterSingleValue"):
+                listener.enterSingleValue(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitSingleValue"):
+                listener.exitSingleValue(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitSingleValue"):
+                return visitor.visitSingleValue(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ListValueContext(Value_expContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.Value_expContext)
+            super(BazelBuildParser.ListValueContext, self).__init__(parser)
+            self.copyFrom(ctx)
 
         def list_exp(self):
             return self.getTypedRuleContext(BazelBuildParser.List_expContext,0)
 
 
-        def getRuleIndex(self):
-            return BazelBuildParser.RULE_value_exp
-
         def enterRule(self, listener):
-            if hasattr(listener, "enterValue_exp"):
-                listener.enterValue_exp(self)
+            if hasattr(listener, "enterListValue"):
+                listener.enterListValue(self)
 
         def exitRule(self, listener):
-            if hasattr(listener, "exitValue_exp"):
-                listener.exitValue_exp(self)
+            if hasattr(listener, "exitListValue"):
+                listener.exitListValue(self)
 
         def accept(self, visitor):
-            if hasattr(visitor, "visitValue_exp"):
-                return visitor.visitValue_exp(self)
+            if hasattr(visitor, "visitListValue"):
+                return visitor.visitListValue(self)
             else:
                 return visitor.visitChildren(self)
-
 
 
 
@@ -506,11 +634,13 @@ class BazelBuildParser ( Parser ):
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [BazelBuildParser.ShortString]:
+                localctx = BazelBuildParser.SingleValueContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 49
                 self.match(BazelBuildParser.ShortString)
                 pass
             elif token in [BazelBuildParser.OpenBracket]:
+                localctx = BazelBuildParser.ListValueContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 50
                 self.list_exp()
@@ -532,33 +662,69 @@ class BazelBuildParser ( Parser ):
             super(BazelBuildParser.List_expContext, self).__init__(parent, invokingState)
             self.parser = parser
 
-        def OpenBracket(self):
-            return self.getToken(BazelBuildParser.OpenBracket, 0)
-
-        def CloseBracket(self):
-            return self.getToken(BazelBuildParser.CloseBracket, 0)
-
-        def str_items(self):
-            return self.getTypedRuleContext(BazelBuildParser.Str_itemsContext,0)
-
 
         def getRuleIndex(self):
             return BazelBuildParser.RULE_list_exp
 
+     
+        def copyFrom(self, ctx):
+            super(BazelBuildParser.List_expContext, self).copyFrom(ctx)
+
+
+
+    class EmptyListValueContext(List_expContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.List_expContext)
+            super(BazelBuildParser.EmptyListValueContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
+        def OpenBracket(self):
+            return self.getToken(BazelBuildParser.OpenBracket, 0)
+        def CloseBracket(self):
+            return self.getToken(BazelBuildParser.CloseBracket, 0)
+
         def enterRule(self, listener):
-            if hasattr(listener, "enterList_exp"):
-                listener.enterList_exp(self)
+            if hasattr(listener, "enterEmptyListValue"):
+                listener.enterEmptyListValue(self)
 
         def exitRule(self, listener):
-            if hasattr(listener, "exitList_exp"):
-                listener.exitList_exp(self)
+            if hasattr(listener, "exitEmptyListValue"):
+                listener.exitEmptyListValue(self)
 
         def accept(self, visitor):
-            if hasattr(visitor, "visitList_exp"):
-                return visitor.visitList_exp(self)
+            if hasattr(visitor, "visitEmptyListValue"):
+                return visitor.visitEmptyListValue(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class NoEmptyListValueContext(List_expContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.List_expContext)
+            super(BazelBuildParser.NoEmptyListValueContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
+        def OpenBracket(self):
+            return self.getToken(BazelBuildParser.OpenBracket, 0)
+        def str_items(self):
+            return self.getTypedRuleContext(BazelBuildParser.Str_itemsContext,0)
+
+        def CloseBracket(self):
+            return self.getToken(BazelBuildParser.CloseBracket, 0)
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterNoEmptyListValue"):
+                listener.enterNoEmptyListValue(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitNoEmptyListValue"):
+                listener.exitNoEmptyListValue(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitNoEmptyListValue"):
+                return visitor.visitNoEmptyListValue(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -571,6 +737,7 @@ class BazelBuildParser ( Parser ):
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
             if la_ == 1:
+                localctx = BazelBuildParser.EmptyListValueContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 53
                 self.match(BazelBuildParser.OpenBracket)
@@ -579,6 +746,7 @@ class BazelBuildParser ( Parser ):
                 pass
 
             elif la_ == 2:
+                localctx = BazelBuildParser.NoEmptyListValueContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 55
                 self.match(BazelBuildParser.OpenBracket)
@@ -603,30 +771,65 @@ class BazelBuildParser ( Parser ):
             super(BazelBuildParser.Str_itemsContext, self).__init__(parent, invokingState)
             self.parser = parser
 
-        def ShortString(self):
-            return self.getToken(BazelBuildParser.ShortString, 0)
-
-        def str_items(self):
-            return self.getTypedRuleContext(BazelBuildParser.Str_itemsContext,0)
-
 
         def getRuleIndex(self):
             return BazelBuildParser.RULE_str_items
 
+     
+        def copyFrom(self, ctx):
+            super(BazelBuildParser.Str_itemsContext, self).copyFrom(ctx)
+
+
+
+    class SingleShortStringContext(Str_itemsContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.Str_itemsContext)
+            super(BazelBuildParser.SingleShortStringContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
+        def ShortString(self):
+            return self.getToken(BazelBuildParser.ShortString, 0)
+
         def enterRule(self, listener):
-            if hasattr(listener, "enterStr_items"):
-                listener.enterStr_items(self)
+            if hasattr(listener, "enterSingleShortString"):
+                listener.enterSingleShortString(self)
 
         def exitRule(self, listener):
-            if hasattr(listener, "exitStr_items"):
-                listener.exitStr_items(self)
+            if hasattr(listener, "exitSingleShortString"):
+                listener.exitSingleShortString(self)
 
         def accept(self, visitor):
-            if hasattr(visitor, "visitStr_items"):
-                return visitor.visitStr_items(self)
+            if hasattr(visitor, "visitSingleShortString"):
+                return visitor.visitSingleShortString(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class MultiShortStringContext(Str_itemsContext):
+
+        def __init__(self, parser, ctx): # actually a BazelBuildParser.Str_itemsContext)
+            super(BazelBuildParser.MultiShortStringContext, self).__init__(parser)
+            self.copyFrom(ctx)
+
+        def ShortString(self):
+            return self.getToken(BazelBuildParser.ShortString, 0)
+        def str_items(self):
+            return self.getTypedRuleContext(BazelBuildParser.Str_itemsContext,0)
+
+
+        def enterRule(self, listener):
+            if hasattr(listener, "enterMultiShortString"):
+                listener.enterMultiShortString(self)
+
+        def exitRule(self, listener):
+            if hasattr(listener, "exitMultiShortString"):
+                listener.exitMultiShortString(self)
+
+        def accept(self, visitor):
+            if hasattr(visitor, "visitMultiShortString"):
+                return visitor.visitMultiShortString(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -639,12 +842,14 @@ class BazelBuildParser ( Parser ):
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
             if la_ == 1:
+                localctx = BazelBuildParser.SingleShortStringContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 61
                 self.match(BazelBuildParser.ShortString)
                 pass
 
             elif la_ == 2:
+                localctx = BazelBuildParser.MultiShortStringContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 62
                 self.match(BazelBuildParser.ShortString)

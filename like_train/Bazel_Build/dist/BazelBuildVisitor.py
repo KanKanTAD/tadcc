@@ -1,4 +1,4 @@
-# Generated from BazelBuild.y by ANTLR 4.7.1
+# Generated from ./BazelBuild.y by ANTLR 4.7.1
 from antlr4 import *
 
 # This class defines a complete generic visitor for a parse tree produced by BazelBuildParser.
@@ -10,8 +10,18 @@ class BazelBuildVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#stat.
-    def visitStat(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#LoadStat.
+    def visitLoadStat(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#TargetStat.
+    def visitTargetStat(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#LongStrStat.
+    def visitLongStrStat(self, ctx):
         return self.visitChildren(ctx)
 
 
@@ -25,8 +35,13 @@ class BazelBuildVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#assign_items.
-    def visitAssign_items(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#SingleAttr.
+    def visitSingleAttr(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#MultiAttr.
+    def visitMultiAttr(self, ctx):
         return self.visitChildren(ctx)
 
 
@@ -35,18 +50,33 @@ class BazelBuildVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#value_exp.
-    def visitValue_exp(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#SingleValue.
+    def visitSingleValue(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#list_exp.
-    def visitList_exp(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#ListValue.
+    def visitListValue(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#str_items.
-    def visitStr_items(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#EmptyListValue.
+    def visitEmptyListValue(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#NoEmptyListValue.
+    def visitNoEmptyListValue(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#SingleShortString.
+    def visitSingleShortString(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#MultiShortString.
+    def visitMultiShortString(self, ctx):
         return self.visitChildren(ctx)
 
 

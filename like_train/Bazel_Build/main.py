@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- encoding:utf-8 -*-
+
 import sys
 import antlr4 as antlr
 from dist.BazelBuildLexer import BazelBuildLexer
@@ -6,9 +9,7 @@ from dist.BazelBuildVisitor import BazelBuildVisitor
 
 
 class BazelVisitor(BazelBuildVisitor):
-
-    @Override
-    def 
+    pass
 
 
 def main(f=None):
