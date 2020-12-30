@@ -2,22 +2,19 @@ grammar BazelBuild;
 
 prog: stat* EOF ;
 
-stat:action_exp
-	|target_exp
-	;
+stat:call_exp NEWLINE
+	|single_exp NEWLINE;
 
-action_exp:KEY_WORD '(' str_list? ')' 
-	;
+single_exp:STRING;
 
-target_exp:NAME '(' assign_list ')' 
-	;
+call_exp:NAME '(' argument_list? ')' ; 
 
-assign_list : assign_exp (',' assign_exp)* ','?;
+argument_list: argument (',' argument)* ','? ;
 
-assign_exp : NAME '=' value_exp;
+argument: (NAME '=' )? value_exp;
 
-value_exp : STRING
-	| '[' (str_list ',')? ']'
+value_exp : STRING 			  # signle_value
+	| '[' (str_list ','?)? ']' # multi_value
 	;
 
 str_list:STRING (',' STRING)*;
@@ -34,8 +31,7 @@ STRING :
 	|LONG_STRING
 	;
 
-KEY_WORD:
-	LOAD
+KEY_WORD:LOAD
 	|EXPORTS
 	|WORKSPACE
 	|LICENSES

@@ -15,28 +15,33 @@ class BazelBuildVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#action_exp.
-    def visitAction_exp(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#single_exp.
+    def visitSingle_exp(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#target_exp.
-    def visitTarget_exp(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#call_exp.
+    def visitCall_exp(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#assign_list.
-    def visitAssign_list(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#argument_list.
+    def visitArgument_list(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#assign_exp.
-    def visitAssign_exp(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#argument.
+    def visitArgument(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#value_exp.
-    def visitValue_exp(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#signle_value.
+    def visitSignle_value(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#multi_value.
+    def visitMulti_value(self, ctx):
         return self.visitChildren(ctx)
 
 
