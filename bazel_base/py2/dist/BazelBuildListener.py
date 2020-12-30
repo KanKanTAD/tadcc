@@ -22,21 +22,21 @@ class BazelBuildListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#key_word.
-    def enterKey_word(self, ctx):
+    # Enter a parse tree produced by BazelBuildParser#action_exp.
+    def enterAction_exp(self, ctx):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#key_word.
-    def exitKey_word(self, ctx):
+    # Exit a parse tree produced by BazelBuildParser#action_exp.
+    def exitAction_exp(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#arglist.
-    def enterArglist(self, ctx):
+    # Enter a parse tree produced by BazelBuildParser#target_exp.
+    def enterTarget_exp(self, ctx):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#arglist.
-    def exitArglist(self, ctx):
+    # Exit a parse tree produced by BazelBuildParser#target_exp.
+    def exitTarget_exp(self, ctx):
         pass
 
 
@@ -64,6 +64,15 @@ class BazelBuildListener(ParseTreeListener):
 
     # Exit a parse tree produced by BazelBuildParser#value_exp.
     def exitValue_exp(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by BazelBuildParser#str_list.
+    def enterStr_list(self, ctx):
+        pass
+
+    # Exit a parse tree produced by BazelBuildParser#str_list.
+    def exitStr_list(self, ctx):
         pass
 
 

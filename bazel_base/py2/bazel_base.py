@@ -1,3 +1,14 @@
+class Stringible:
+    def stringify(self, spaces=2):
+        pass
+
+
+class Stmt(Stringible):
+
+    def getType(self):
+        pass
+
+
 class Notiable:
     def __init__(self):
         self.__note = ''
@@ -20,24 +31,65 @@ class Namiable:
         return self.__name
 
 
-class Func(Notiable, Namiable):
-    pass
+class Action(Stmt, Notiable, Namiable):
+    def __init__(self, name, args=[]):
+        self.setName(name)
+        self.__args = args[:]
+
+    def stringify(self, spaces=2):
+        args = ', '.join(self.__args)
+        res = '' + self.getName() + '('+args+')'
+        return res
 
 
-class Attribute(Notiable, Namiable):
-    def __init__(self, name, multi=False):
-        pass
+class Attribute(Notiable, Namiable, Stringible):
+    def __init__(self, name, values=[]):
+        self.setName(name)
+        self.__values = values[:]
 
     def isMulti(self):
-        pass
+        return len(self.__values) > 1
 
     def getContent(self):
         pass
 
+    def stringify(self, spaces=2):
+        atp = ' ' * spaces
+        tab = atp + (' '*2)
+        s = atp + self.getName() + ' = '
+        if self.isMulti():
+            s += '['
+        s += ',\n'.join(self.__values)
+        if self.isMulti():
+            s += atp + ']'
+        return s
+
+
+class Rule(Namiable):
+    def __init__(self, name):
+        pass
+
 
 class Target:
-    def getName(self):
-        pass
+    def __init__(self, rule, attrs=[]):
+        self.__rule = rule
+        self.__attrs = attrs
+        self.__init_name()
+
+    def __init_name(self):
+        for attr in self.__attrs:
+            if attr.getName() == 'name':
+                self.setName(attr.getContent[1:-1])
+                break
+
+    def stringify(self, spaces=2):
+        tab = ''
+        s = '' + self.__rule.getName() + '(\n'
+        tab += ' ' * spaces
+        for attr in self.__attrs:
+            s += tab + attr.stringify(spaces+spaces) + '\n'
+        s += ')'
+        return s
 
     def addAttr(self, attr):
         pass
@@ -45,16 +97,16 @@ class Target:
     def listAttr(self):
         pass
 
-    def searchAttrByName(self, pattern: str) -> List[Attribute]:
+    def searchAttrByName(self, pattern):
         pass
 
-    def selectAttrByName(self, name: str) -> Attribute:
+    def selectAttrByName(self, name):
         pass
 
-    def selectAttrByContent(self, content: str) -> List[Attribute]:
+    def selectAttrByContent(self, content):
         pass
 
-    def searchAttrByContent(self, pattern: str) -> List[Attribute]:
+    def searchAttrByContent(self, pattern):
         pass
 
 
@@ -62,10 +114,13 @@ class BazelBuild:
     def load(self, file_path):
         pass
 
-    def create(self) -> str:
+    def create(self):
         pass
 
     def saveAsFile(self, file_path):
+        pass
+
+    def listStmt(self):
         pass
 
     def listTargets(self):

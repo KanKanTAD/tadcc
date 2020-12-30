@@ -15,13 +15,13 @@ class BazelBuildVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#key_word.
-    def visitKey_word(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#action_exp.
+    def visitAction_exp(self, ctx):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#arglist.
-    def visitArglist(self, ctx):
+    # Visit a parse tree produced by BazelBuildParser#target_exp.
+    def visitTarget_exp(self, ctx):
         return self.visitChildren(ctx)
 
 
@@ -37,6 +37,11 @@ class BazelBuildVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by BazelBuildParser#value_exp.
     def visitValue_exp(self, ctx):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#str_list.
+    def visitStr_list(self, ctx):
         return self.visitChildren(ctx)
 
 

@@ -2,41 +2,54 @@ grammar BazelBuild;
 
 prog: stat* EOF ;
 
-stat:key_word '(' arglist ')'
-	|NAME '(' assign_list ')'
+stat:action_exp
+	|target_exp
 	;
 
-key_word: LOAD | EXPORTS | LICENSES | WORKSPACE | PACKAGE_GROUP;
+action_exp:KEY_WORD '(' str_list? ')' 
+	;
 
-arglist:(STRING (',' STRING)*)?;
+target_exp:NAME '(' assign_list ')' 
+	;
 
 assign_list : assign_exp (',' assign_exp)* ','?;
 
 assign_exp : NAME '=' value_exp;
 
 value_exp : STRING
-	| '[' (STRING (',' STRING)* ','?)? ']'
+	| '[' str_list? ']'
 	;
+
+str_list:STRING (',' STRING)*;
 
 NAME : [a-zA-Z_][a-zA-Z_0-9]? ;
 
-LOAD : 'load';
-EXPORTS : 'exports_files';
-WORKSPACE : 'workspace';
-LICENSES : 'licenses';
-PACKAGE_GROUP : 'package_group';
 
 NEWLINE:RN -> skip;
 SP:SPACES -> skip;
+CMT:COMMENT -> skip;
 
 STRING :
 	SHORT_STRING
 	|LONG_STRING
 	;
 
+KEY_WORD:
+	LOAD
+	|EXPORTS
+	|WORKSPACE
+	|LICENSES
+	|PACKAGE_GROUP
+	;
+
 /*
  * fragments
  */
+fragment LOAD : 'load';
+fragment EXPORTS : 'exports_files';
+fragment WORKSPACE : 'workspace';
+fragment LICENSES : 'licenses';
+fragment PACKAGE_GROUP : 'package_group';
 
 fragment RN:
 	('\r'? '\n')|('\r')|('\f');
