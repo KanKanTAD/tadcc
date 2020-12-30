@@ -9,29 +9,30 @@ import sys
 def serializedATN():
     with StringIO() as buf:
         buf.write(u"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3")
-        buf.write(u"\16J\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write(u"\16L\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write(u"\4\b\t\b\4\t\t\t\3\2\7\2\24\n\2\f\2\16\2\27\13\2\3\2")
         buf.write(u"\3\2\3\3\3\3\5\3\35\n\3\3\4\3\4\3\4\5\4\"\n\4\3\4\3\4")
         buf.write(u"\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\7\6.\n\6\f\6\16\6\61")
-        buf.write(u"\13\6\3\6\5\6\64\n\6\3\7\3\7\3\7\3\7\3\b\3\b\3\b\5\b")
-        buf.write(u"=\n\b\3\b\5\b@\n\b\3\t\3\t\3\t\7\tE\n\t\f\t\16\tH\13")
-        buf.write(u"\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\2\2I\2\25\3\2\2\2\4")
-        buf.write(u"\34\3\2\2\2\6\36\3\2\2\2\b%\3\2\2\2\n*\3\2\2\2\f\65\3")
-        buf.write(u"\2\2\2\16?\3\2\2\2\20A\3\2\2\2\22\24\5\4\3\2\23\22\3")
-        buf.write(u"\2\2\2\24\27\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2\26\30")
-        buf.write(u"\3\2\2\2\27\25\3\2\2\2\30\31\7\2\2\3\31\3\3\2\2\2\32")
-        buf.write(u"\35\5\6\4\2\33\35\5\b\5\2\34\32\3\2\2\2\34\33\3\2\2\2")
-        buf.write(u"\35\5\3\2\2\2\36\37\7\16\2\2\37!\7\3\2\2 \"\5\20\t\2")
-        buf.write(u"! \3\2\2\2!\"\3\2\2\2\"#\3\2\2\2#$\7\4\2\2$\7\3\2\2\2")
-        buf.write(u"%&\7\t\2\2&\'\7\3\2\2\'(\5\n\6\2()\7\4\2\2)\t\3\2\2\2")
-        buf.write(u"*/\5\f\7\2+,\7\5\2\2,.\5\f\7\2-+\3\2\2\2.\61\3\2\2\2")
-        buf.write(u"/-\3\2\2\2/\60\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2\62\64")
-        buf.write(u"\7\5\2\2\63\62\3\2\2\2\63\64\3\2\2\2\64\13\3\2\2\2\65")
-        buf.write(u"\66\7\t\2\2\66\67\7\6\2\2\678\5\16\b\28\r\3\2\2\29@\7")
-        buf.write(u"\r\2\2:<\7\7\2\2;=\5\20\t\2<;\3\2\2\2<=\3\2\2\2=>\3\2")
-        buf.write(u"\2\2>@\7\b\2\2?9\3\2\2\2?:\3\2\2\2@\17\3\2\2\2AF\7\r")
-        buf.write(u"\2\2BC\7\5\2\2CE\7\r\2\2DB\3\2\2\2EH\3\2\2\2FD\3\2\2")
-        buf.write(u"\2FG\3\2\2\2G\21\3\2\2\2HF\3\2\2\2\n\25\34!/\63<?F")
+        buf.write(u"\13\6\3\6\5\6\64\n\6\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b")
+        buf.write(u"\3\b\5\b?\n\b\3\b\5\bB\n\b\3\t\3\t\3\t\7\tG\n\t\f\t\16")
+        buf.write(u"\tJ\13\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\2\2K\2\25\3\2")
+        buf.write(u"\2\2\4\34\3\2\2\2\6\36\3\2\2\2\b%\3\2\2\2\n*\3\2\2\2")
+        buf.write(u"\f\65\3\2\2\2\16A\3\2\2\2\20C\3\2\2\2\22\24\5\4\3\2\23")
+        buf.write(u"\22\3\2\2\2\24\27\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2")
+        buf.write(u"\26\30\3\2\2\2\27\25\3\2\2\2\30\31\7\2\2\3\31\3\3\2\2")
+        buf.write(u"\2\32\35\5\6\4\2\33\35\5\b\5\2\34\32\3\2\2\2\34\33\3")
+        buf.write(u"\2\2\2\35\5\3\2\2\2\36\37\7\16\2\2\37!\7\3\2\2 \"\5\20")
+        buf.write(u"\t\2! \3\2\2\2!\"\3\2\2\2\"#\3\2\2\2#$\7\4\2\2$\7\3\2")
+        buf.write(u"\2\2%&\7\t\2\2&\'\7\3\2\2\'(\5\n\6\2()\7\4\2\2)\t\3\2")
+        buf.write(u"\2\2*/\5\f\7\2+,\7\5\2\2,.\5\f\7\2-+\3\2\2\2.\61\3\2")
+        buf.write(u"\2\2/-\3\2\2\2/\60\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2")
+        buf.write(u"\62\64\7\5\2\2\63\62\3\2\2\2\63\64\3\2\2\2\64\13\3\2")
+        buf.write(u"\2\2\65\66\7\t\2\2\66\67\7\6\2\2\678\5\16\b\28\r\3\2")
+        buf.write(u"\2\29B\7\r\2\2:>\7\7\2\2;<\5\20\t\2<=\7\5\2\2=?\3\2\2")
+        buf.write(u"\2>;\3\2\2\2>?\3\2\2\2?@\3\2\2\2@B\7\b\2\2A9\3\2\2\2")
+        buf.write(u"A:\3\2\2\2B\17\3\2\2\2CH\7\r\2\2DE\7\5\2\2EG\7\r\2\2")
+        buf.write(u"FD\3\2\2\2GJ\3\2\2\2HF\3\2\2\2HI\3\2\2\2I\21\3\2\2\2")
+        buf.write(u"JH\3\2\2\2\n\25\34!/\63>AH")
         return buf.getvalue()
 
 
@@ -499,7 +500,7 @@ class BazelBuildParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_value_exp)
         self._la = 0 # Token type
         try:
-            self.state = 61
+            self.state = 63
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [BazelBuildParser.STRING]:
@@ -511,15 +512,17 @@ class BazelBuildParser ( Parser ):
                 self.enterOuterAlt(localctx, 2)
                 self.state = 56
                 self.match(BazelBuildParser.T__4)
-                self.state = 58
+                self.state = 60
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==BazelBuildParser.STRING:
                     self.state = 57
                     self.str_list()
+                    self.state = 58
+                    self.match(BazelBuildParser.T__2)
 
 
-                self.state = 60
+                self.state = 62
                 self.match(BazelBuildParser.T__5)
                 pass
             else:
@@ -570,22 +573,22 @@ class BazelBuildParser ( Parser ):
 
         localctx = BazelBuildParser.Str_listContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_str_list)
-        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 63
+            self.state = 65
             self.match(BazelBuildParser.STRING)
-            self.state = 68
+            self.state = 70
             self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==BazelBuildParser.T__2:
-                self.state = 64
-                self.match(BazelBuildParser.T__2)
-                self.state = 65
-                self.match(BazelBuildParser.STRING)
-                self.state = 70
+            _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
+                    self.state = 66
+                    self.match(BazelBuildParser.T__2)
+                    self.state = 67
+                    self.match(BazelBuildParser.STRING) 
+                self.state = 72
                 self._errHandler.sync(self)
-                _la = self._input.LA(1)
+                _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re

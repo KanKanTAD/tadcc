@@ -14,13 +14,17 @@ logging.basicConfig(level=logging.DEBUG,
 
 class MyVisitor(BazelBuildVisitor):
 
-    # Visit a parse tree produced by BazelBuildParser#prog.
-    def visitProg(self, ctx):
-        return self.visitChildren(ctx)
+    def visitTarget_exp(self, ctx):
+        rule = bazel_base.Rule(ctx.NAME().getText())
+        attrs = self.visit(ctx.assign_list())
+        target = bazel_base.Target(rule, attrs)
+        logging.debug(target.stringify())
+        return target
 
-    # Visit a parse tree produced by BazelBuildParser#stat.
+    def visitAssign_list(self, ctx):
+        return [self.visit(exp) for exp in ctx.assign_exp()]
 
-    def visitStat(self, ctx):
+    def visitAssign_exp(self, ctx):
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by BazelBuildParser#action_exp.
@@ -30,31 +34,12 @@ class MyVisitor(BazelBuildVisitor):
         arglist = self.visit(ctx.str_list())
         action = bazel_base.Action(name, args=arglist)
         logging.debug(action.stringify())
+        return action
 
     # Visit a parse tree produced by BazelBuildParser#target_exp.
 
     def visitTarget_exp(self, ctx):
         name = ctx.NAME()
-        return self.visitChildren(ctx)
-
-    # Visit a parse tree produced by BazelBuildParser#key_word.
-
-    def visitKey_word(self, ctx):
-        pass
-
-    # Visit a parse tree produced by BazelBuildParser#assign_list.
-
-    def visitAssign_list(self, ctx):
-        return self.visitChildren(ctx)
-
-    # Visit a parse tree produced by BazelBuildParser#assign_exp.
-
-    def visitAssign_exp(self, ctx):
-        return self.visitChildren(ctx)
-
-    # Visit a parse tree produced by BazelBuildParser#value_exp.
-
-    def visitValue_exp(self, ctx):
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by BazelBuildParser#str_list.

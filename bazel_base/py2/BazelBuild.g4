@@ -17,12 +17,12 @@ assign_list : assign_exp (',' assign_exp)* ','?;
 assign_exp : NAME '=' value_exp;
 
 value_exp : STRING
-	| '[' str_list? ']'
+	| '[' (str_list ',')? ']'
 	;
 
 str_list:STRING (',' STRING)*;
 
-NAME : [a-zA-Z_][a-zA-Z_0-9]? ;
+NAME : [a-zA-Z_][a-zA-Z_0-9]* ;
 
 
 NEWLINE:RN -> skip;

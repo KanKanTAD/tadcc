@@ -4,6 +4,8 @@ class Stringible:
 
 
 class Stmt(Stringible):
+    Ty_Target = 'target'
+    Ty_Action = 'action'
 
     def getType(self):
         pass
@@ -41,6 +43,9 @@ class Action(Stmt, Notiable, Namiable):
         res = '' + self.getName() + '('+args+')'
         return res
 
+    def getType(self):
+        return Stmt.Ty_Action
+
 
 class Attribute(Notiable, Namiable, Stringible):
     def __init__(self, name, values=[]):
@@ -75,6 +80,9 @@ class Target:
         self.__rule = rule
         self.__attrs = attrs
         self.__init_name()
+
+    def getType(self):
+        return Stmt.Ty_Target
 
     def __init_name(self):
         for attr in self.__attrs:

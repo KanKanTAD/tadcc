@@ -1,7 +1,3 @@
-# asdfasdfasdf
-# asdfasdf
-load('sdfasdf','asdfasdf','asdf')
-
 protoc(
     name = "mmpaymktmembercardmgrmedi_pb_h",
     srcs = [
