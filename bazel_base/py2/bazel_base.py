@@ -44,7 +44,7 @@ class Multible:
         self.__multi = False
 
 
-class Argument(Namiable, Multible):
+class Argument(Namiable, Multible, Stringify):
     def __init__(self, name='', isMulti=False, values=[]):
         self.set_name(name)
         if isMulti:
@@ -52,6 +52,15 @@ class Argument(Namiable, Multible):
         else:
             self.not_multi()
         self.__values = values
+
+    def stringify(self):
+        res = ''
+        if len(name) > 0:
+            res += self.get_name() + ' = '
+        values = ', '.join(self.__values)
+        if self.is_multi():
+            values = '['+values+']'
+        return res + value
 
 
 class Stmt(Stringify):
@@ -69,11 +78,19 @@ class NoteExp(Stmt):
     def get_content(self):
         return self.__content
 
+    def stringify(self):
+        return self.__content
+
 
 class CallExp(Stmt, Namiable):
     def __init__(self, name, arguments=[]):
         self.set_name(name)
         self.__arguments = arguments
+
+    def stringify(self):
+        return '' + self.get_name() + '(' + \
+            (', '.join([a.stringify() for a in self.__arguments])) \
+            + ')'
 
 
 class Action(CallExp):
@@ -93,6 +110,9 @@ class BuildFile(Stringify):
 
     def __getitem__(self, key):
         pass
+
+    def stringify(self):
+        return '\n'.join([s.stringify() for s in self.__stat_s])
 
 
 class _MyVisitor(BazelBuildVisitor):
