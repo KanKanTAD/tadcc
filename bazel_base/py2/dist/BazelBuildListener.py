@@ -22,30 +22,12 @@ class BazelBuildListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#single_exp.
-    def enterSingle_exp(self, ctx):
+    # Enter a parse tree produced by BazelBuildParser#arg_list.
+    def enterArg_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#single_exp.
-    def exitSingle_exp(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by BazelBuildParser#call_exp.
-    def enterCall_exp(self, ctx):
-        pass
-
-    # Exit a parse tree produced by BazelBuildParser#call_exp.
-    def exitCall_exp(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by BazelBuildParser#argument_list.
-    def enterArgument_list(self, ctx):
-        pass
-
-    # Exit a parse tree produced by BazelBuildParser#argument_list.
-    def exitArgument_list(self, ctx):
+    # Exit a parse tree produced by BazelBuildParser#arg_list.
+    def exitArg_list(self, ctx):
         pass
 
 
@@ -58,30 +40,21 @@ class BazelBuildListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#signle_value.
-    def enterSignle_value(self, ctx):
+    # Enter a parse tree produced by BazelBuildParser#value.
+    def enterValue(self, ctx):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#signle_value.
-    def exitSignle_value(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by BazelBuildParser#multi_value.
-    def enterMulti_value(self, ctx):
-        pass
-
-    # Exit a parse tree produced by BazelBuildParser#multi_value.
-    def exitMulti_value(self, ctx):
+    # Exit a parse tree produced by BazelBuildParser#value.
+    def exitValue(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#str_list.
-    def enterStr_list(self, ctx):
+    # Enter a parse tree produced by BazelBuildParser#val_list.
+    def enterVal_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#str_list.
-    def exitStr_list(self, ctx):
+    # Exit a parse tree produced by BazelBuildParser#val_list.
+    def exitVal_list(self, ctx):
         pass
 
 
