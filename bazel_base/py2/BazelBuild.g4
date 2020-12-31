@@ -2,20 +2,21 @@ grammar BazelBuild;
 
 prog : stat* EOF ; 
 
-stat : NAME '(' arg_list? ')' RN? 
-		| LONG_STRING RN?
+stat : NAME '(' arg_list? ')' RN?  # callExp
+		| LONG_STRING RN?          # noteExp
 		;
 
-NAME : [a-zA-Z_] [a-zA-Z_0-9]* ;            
 arg_list: argument (',' argument)* ','? ;
 
 argument:( NAME '=' )? value;
 
-value: STRING_VALUE
-	| '[' val_list ']'
+value: STRING_VALUE    # singleValue
+	| '[' val_list ']' # multiValue
 	;
 	
 val_list : STRING_VALUE (',' STRING_VALUE)* ',' ? ;
+
+NAME : [a-zA-Z_] [a-zA-Z_0-9]* ;            
 
 STRING_VALUE : '\'' ('\\' . | '\\' RN | ~[\\\r\n\f'])* '\''
 			| '"' ('\\' . | '\\' RN | ~[\\\r\n\f'])* '"'

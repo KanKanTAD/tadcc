@@ -13,12 +13,21 @@ class BazelBuildListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#stat.
-    def enterStat(self, ctx):
+    # Enter a parse tree produced by BazelBuildParser#callExp.
+    def enterCallExp(self, ctx):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#stat.
-    def exitStat(self, ctx):
+    # Exit a parse tree produced by BazelBuildParser#callExp.
+    def exitCallExp(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by BazelBuildParser#noteExp.
+    def enterNoteExp(self, ctx):
+        pass
+
+    # Exit a parse tree produced by BazelBuildParser#noteExp.
+    def exitNoteExp(self, ctx):
         pass
 
 
@@ -40,12 +49,21 @@ class BazelBuildListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#value.
-    def enterValue(self, ctx):
+    # Enter a parse tree produced by BazelBuildParser#singleValue.
+    def enterSingleValue(self, ctx):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#value.
-    def exitValue(self, ctx):
+    # Exit a parse tree produced by BazelBuildParser#singleValue.
+    def exitSingleValue(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by BazelBuildParser#multiValue.
+    def enterMultiValue(self, ctx):
+        pass
+
+    # Exit a parse tree produced by BazelBuildParser#multiValue.
+    def exitMultiValue(self, ctx):
         pass
 
 
