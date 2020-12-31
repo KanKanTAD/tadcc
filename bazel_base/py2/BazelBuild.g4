@@ -13,7 +13,7 @@ argument_list: argument (',' argument)* ','? ;
 
 argument: (NAME '=' )? value_exp;
 
-value_exp : STRING 			  # signle_value
+value_exp : STRING 			   # signle_value
 	| '[' (str_list ','?)? ']' # multi_value
 	;
 
