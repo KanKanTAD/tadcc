@@ -1,7 +1,7 @@
 import antlr4 as antlr
-import dist.BazelBuildLexer as BazelBuildLexer
-import dist.BazelBuildParser as BazelBuildParser
-import dist.BazelBuildVisitor as BazelBuildVisitor
+from dist.BazelBuildLexer import BazelBuildLexer
+from dist.BazelBuildParser import BazelBuildParser
+from dist.BazelBuildVisitor import BazelBuildVisitor
 
 
 class Namiable:
@@ -103,7 +103,7 @@ class Target(CallExp):
 
 class BuildFile(Stringify):
     def __init__(self, stat_s=[]):
-        self.__stat_s = stat_s[:]
+        self.__stat_s = stat_s
 
     def append(self, stat):
         self.__stat_s.append(stat)
@@ -116,6 +116,7 @@ class BuildFile(Stringify):
 
 
 class _MyVisitor(BazelBuildVisitor):
+
     # Visit a parse tree produced by BazelBuildParser#prog.
     def visitProg(self, ctx):
         stat_s = [self.visit(stat) for stat in ctx.stat()]
@@ -159,6 +160,7 @@ class _MyVisitor(BazelBuildVisitor):
 
 
 class BazelFileFactory:
+    @staticmethod
     def createFromString(content):
         stream = antlr.InputStream(content)
         lexer = BazelBuildLexer(stream)
@@ -168,9 +170,10 @@ class BazelFileFactory:
         visitor = _MyVisitor()
         return visitor.visit(tree)
 
+    @staticmethod
     def createFromFile(BUILD_file_path):
         with open(BUILD_file_path, 'r') as f:
-            return BazelBuildLexer.createFromString(f.read()+'\n')
+            return BazelFileFactory.createFromString(f.read().strip())
         return None
 
 

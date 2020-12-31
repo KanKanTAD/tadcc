@@ -4,7 +4,8 @@
 
 import bazel_base as bb
 
-build = bb.BazelBuildFactory.createFromFile('./example.BUILD')
+
+build = bb.BazelFileFactory.createFromFile('./test.BUILD')
 
 deleter = bb.DefaultDeleter(build)
 
