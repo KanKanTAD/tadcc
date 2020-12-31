@@ -1,9 +1,10 @@
 grammar BazelBuild;
 
-prog: stat* EOF ;
+prog: stat* ;
 
-stat:call_exp NEWLINE
-	|single_exp NEWLINE;
+stat:call_exp RN
+	| single_exp 
+	;
 
 single_exp:STRING;
 
@@ -17,14 +18,10 @@ value_exp : STRING 			   # signle_value
 	| '[' (str_list ','?)? ']' # multi_value
 	;
 
-str_list:STRING (',' STRING)*;
+str_list:STRING (',' STRING )*;
 
 NAME : [a-zA-Z_][a-zA-Z_0-9]* ;
-
-
-NEWLINE:RN -> skip;
-SP:SPACES -> skip;
-CMT:COMMENT -> skip;
+NEWLINE : RN ;
 
 STRING :
 	SHORT_STRING
@@ -37,6 +34,8 @@ KEY_WORD:LOAD
 	|LICENSES
 	|PACKAGE_GROUP
 	;
+
+SKIP_ : RN | SPACES | COMMENT -> skip();
 
 /*
  * fragments
