@@ -149,9 +149,12 @@ public class BazelBuildParser extends Parser {
 
 	public static class StatContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(BazelBuildParser.ID, 0); }
-		public TerminalNode Newline() { return getToken(BazelBuildParser.Newline, 0); }
 		public ArglistContext arglist() {
 			return getRuleContext(ArglistContext.class,0);
+		}
+		public List<TerminalNode> Newline() { return getTokens(BazelBuildParser.Newline); }
+		public TerminalNode Newline(int i) {
+			return getToken(BazelBuildParser.Newline, i);
 		}
 		public StatContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -172,6 +175,7 @@ public class BazelBuildParser extends Parser {
 		enterRule(_localctx, 2, RULE_stat);
 		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(22);
@@ -190,8 +194,22 @@ public class BazelBuildParser extends Parser {
 
 			setState(27);
 			match(T__1);
-			setState(28);
-			match(Newline);
+			setState(31);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1+1 ) {
+					{
+					{
+					setState(28);
+					match(Newline);
+					}
+					} 
+				}
+				setState(33);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -234,32 +252,32 @@ public class BazelBuildParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(30);
+			setState(34);
 			argument();
-			setState(35);
+			setState(39);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1+1 ) {
 					{
 					{
-					setState(31);
+					setState(35);
 					match(T__2);
-					setState(32);
+					setState(36);
 					argument();
 					}
 					} 
 				}
-				setState(37);
+				setState(41);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
-			setState(39);
+			setState(43);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__2) {
 				{
-				setState(38);
+				setState(42);
 				match(T__2);
 				}
 			}
@@ -303,12 +321,12 @@ public class BazelBuildParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(41);
+			setState(45);
 			match(ID);
-			setState(42);
+			setState(46);
 			match(T__3);
 			}
-			setState(44);
+			setState(48);
 			value();
 			}
 		}
@@ -348,20 +366,20 @@ public class BazelBuildParser extends Parser {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_value);
 		try {
-			setState(48);
+			setState(52);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case StringValue:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(46);
+				setState(50);
 				single_value();
 				}
 				break;
 			case T__4:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(47);
+				setState(51);
 				multi_value();
 				}
 				break;
@@ -405,19 +423,19 @@ public class BazelBuildParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(50);
+			setState(54);
 			match(T__4);
-			setState(52);
+			setState(56);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==StringValue) {
 				{
-				setState(51);
+				setState(55);
 				val_list();
 				}
 			}
 
-			setState(54);
+			setState(58);
 			match(T__5);
 			}
 		}
@@ -461,32 +479,32 @@ public class BazelBuildParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(56);
+			setState(60);
 			single_value();
-			setState(61);
+			setState(65);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			while ( _alt!=1 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1+1 ) {
 					{
 					{
-					setState(57);
+					setState(61);
 					match(T__2);
-					setState(58);
+					setState(62);
 					single_value();
 					}
 					} 
 				}
-				setState(63);
+				setState(67);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			}
-			setState(65);
+			setState(69);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__2) {
 				{
-				setState(64);
+				setState(68);
 				match(T__2);
 				}
 			}
@@ -526,7 +544,7 @@ public class BazelBuildParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(67);
+			setState(71);
 			match(StringValue);
 			}
 		}
@@ -542,24 +560,25 @@ public class BazelBuildParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16H\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16L\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\7\2\24\n\2\f\2"+
-		"\16\2\27\13\2\3\3\3\3\3\3\5\3\34\n\3\3\3\3\3\3\3\3\4\3\4\3\4\7\4$\n\4"+
-		"\f\4\16\4\'\13\4\3\4\5\4*\n\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\5\6\63\n\6\3"+
-		"\7\3\7\5\7\67\n\7\3\7\3\7\3\b\3\b\3\b\7\b>\n\b\f\b\16\bA\13\b\3\b\5\b"+
-		"D\n\b\3\t\3\t\3\t\4%?\2\n\2\4\6\b\n\f\16\20\2\2\2G\2\25\3\2\2\2\4\30\3"+
-		"\2\2\2\6 \3\2\2\2\b+\3\2\2\2\n\62\3\2\2\2\f\64\3\2\2\2\16:\3\2\2\2\20"+
-		"E\3\2\2\2\22\24\5\4\3\2\23\22\3\2\2\2\24\27\3\2\2\2\25\23\3\2\2\2\25\26"+
-		"\3\2\2\2\26\3\3\2\2\2\27\25\3\2\2\2\30\31\7\t\2\2\31\33\7\3\2\2\32\34"+
-		"\5\6\4\2\33\32\3\2\2\2\33\34\3\2\2\2\34\35\3\2\2\2\35\36\7\4\2\2\36\37"+
-		"\7\f\2\2\37\5\3\2\2\2 %\5\b\5\2!\"\7\5\2\2\"$\5\b\5\2#!\3\2\2\2$\'\3\2"+
-		"\2\2%&\3\2\2\2%#\3\2\2\2&)\3\2\2\2\'%\3\2\2\2(*\7\5\2\2)(\3\2\2\2)*\3"+
-		"\2\2\2*\7\3\2\2\2+,\7\t\2\2,-\7\6\2\2-.\3\2\2\2./\5\n\6\2/\t\3\2\2\2\60"+
-		"\63\5\20\t\2\61\63\5\f\7\2\62\60\3\2\2\2\62\61\3\2\2\2\63\13\3\2\2\2\64"+
-		"\66\7\7\2\2\65\67\5\16\b\2\66\65\3\2\2\2\66\67\3\2\2\2\678\3\2\2\289\7"+
-		"\b\2\29\r\3\2\2\2:?\5\20\t\2;<\7\5\2\2<>\5\20\t\2=;\3\2\2\2>A\3\2\2\2"+
-		"?@\3\2\2\2?=\3\2\2\2@C\3\2\2\2A?\3\2\2\2BD\7\5\2\2CB\3\2\2\2CD\3\2\2\2"+
-		"D\17\3\2\2\2EF\7\n\2\2F\21\3\2\2\2\n\25\33%)\62\66?C";
+		"\16\2\27\13\2\3\3\3\3\3\3\5\3\34\n\3\3\3\3\3\7\3 \n\3\f\3\16\3#\13\3\3"+
+		"\4\3\4\3\4\7\4(\n\4\f\4\16\4+\13\4\3\4\5\4.\n\4\3\5\3\5\3\5\3\5\3\5\3"+
+		"\6\3\6\5\6\67\n\6\3\7\3\7\5\7;\n\7\3\7\3\7\3\b\3\b\3\b\7\bB\n\b\f\b\16"+
+		"\bE\13\b\3\b\5\bH\n\b\3\t\3\t\3\t\5!)C\2\n\2\4\6\b\n\f\16\20\2\2\2L\2"+
+		"\25\3\2\2\2\4\30\3\2\2\2\6$\3\2\2\2\b/\3\2\2\2\n\66\3\2\2\2\f8\3\2\2\2"+
+		"\16>\3\2\2\2\20I\3\2\2\2\22\24\5\4\3\2\23\22\3\2\2\2\24\27\3\2\2\2\25"+
+		"\23\3\2\2\2\25\26\3\2\2\2\26\3\3\2\2\2\27\25\3\2\2\2\30\31\7\t\2\2\31"+
+		"\33\7\3\2\2\32\34\5\6\4\2\33\32\3\2\2\2\33\34\3\2\2\2\34\35\3\2\2\2\35"+
+		"!\7\4\2\2\36 \7\f\2\2\37\36\3\2\2\2 #\3\2\2\2!\"\3\2\2\2!\37\3\2\2\2\""+
+		"\5\3\2\2\2#!\3\2\2\2$)\5\b\5\2%&\7\5\2\2&(\5\b\5\2\'%\3\2\2\2(+\3\2\2"+
+		"\2)*\3\2\2\2)\'\3\2\2\2*-\3\2\2\2+)\3\2\2\2,.\7\5\2\2-,\3\2\2\2-.\3\2"+
+		"\2\2.\7\3\2\2\2/\60\7\t\2\2\60\61\7\6\2\2\61\62\3\2\2\2\62\63\5\n\6\2"+
+		"\63\t\3\2\2\2\64\67\5\20\t\2\65\67\5\f\7\2\66\64\3\2\2\2\66\65\3\2\2\2"+
+		"\67\13\3\2\2\28:\7\7\2\29;\5\16\b\2:9\3\2\2\2:;\3\2\2\2;<\3\2\2\2<=\7"+
+		"\b\2\2=\r\3\2\2\2>C\5\20\t\2?@\7\5\2\2@B\5\20\t\2A?\3\2\2\2BE\3\2\2\2"+
+		"CD\3\2\2\2CA\3\2\2\2DG\3\2\2\2EC\3\2\2\2FH\7\5\2\2GF\3\2\2\2GH\3\2\2\2"+
+		"H\17\3\2\2\2IJ\7\n\2\2J\21\3\2\2\2\13\25\33!)-\66:CG";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

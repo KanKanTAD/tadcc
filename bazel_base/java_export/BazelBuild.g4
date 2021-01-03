@@ -3,7 +3,7 @@ grammar BazelBuild;
 prog :
 	stat* ;
 
-stat:ID '(' arglist? ')' Newline 
+stat:ID '(' arglist? ')' Newline*?
 		;
 
 arglist: argument ( ',' argument )*? ','?

@@ -3,7 +3,7 @@ grammar BazelBuild;
 prog :
 	stat* ;
 
-stat:ID '(' arglist? ')' Newline 
+stat:ID '(' arglist? ')' Newline*?
 		;
 
 arglist: argument ( ',' argument )*? ','?
@@ -25,10 +25,8 @@ single_value: StringValue
 ID: [a-zA-Z_] [a-zA-Z_0-9]*
 		;
 
-StringValue : ( 
-		'"' ('\\"' | ~[\r\n\f"])*? '"'
-		| '\'' ('\\\'' | ~[\r\n\f'])*? '\''
-		)
+StringValue : ( '"' ('\\"' | ~[\r\n\f"])*? '"'
+		| '\'' ('\\\'' | ~[\r\n\f'])*? '\'')
 		;
 
 
