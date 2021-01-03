@@ -1,0 +1,3 @@
+class WorkClient
+!!!128386.python!!!	set_bazelbuild(in build : BazelBuild) : void
+self.__build = build

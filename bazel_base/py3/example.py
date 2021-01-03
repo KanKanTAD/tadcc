@@ -53,7 +53,7 @@ def main(data=None):
     token_stream = antlr.CommonTokenStream(lexer)
     parser = BazelBuildParser(token_stream)
     tree = parser.prog()
-    visitor = BazelBuildVisitor()
+    visitor = MyVisitor()
     visitor.visit(tree)
     pass
 

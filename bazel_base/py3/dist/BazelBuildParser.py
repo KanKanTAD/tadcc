@@ -1,4 +1,4 @@
-# Generated from ./BazelBuild.g4 by ANTLR 4.9
+# Generated from BazelBuild.g4 by ANTLR 4.9
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -12,29 +12,30 @@ else:
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16")
-        buf.write("H\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("L\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\3\2\7\2\24\n\2\f\2\16\2\27\13\2\3\3\3\3\3")
-        buf.write("\3\5\3\34\n\3\3\3\3\3\3\3\3\4\3\4\3\4\7\4$\n\4\f\4\16")
-        buf.write("\4\'\13\4\3\4\5\4*\n\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\5\6")
-        buf.write("\63\n\6\3\7\3\7\5\7\67\n\7\3\7\3\7\3\b\3\b\3\b\7\b>\n")
-        buf.write("\b\f\b\16\bA\13\b\3\b\5\bD\n\b\3\t\3\t\3\t\4%?\2\n\2\4")
-        buf.write("\6\b\n\f\16\20\2\2\2G\2\25\3\2\2\2\4\30\3\2\2\2\6 \3\2")
-        buf.write("\2\2\b+\3\2\2\2\n\62\3\2\2\2\f\64\3\2\2\2\16:\3\2\2\2")
-        buf.write("\20E\3\2\2\2\22\24\5\4\3\2\23\22\3\2\2\2\24\27\3\2\2\2")
-        buf.write("\25\23\3\2\2\2\25\26\3\2\2\2\26\3\3\2\2\2\27\25\3\2\2")
-        buf.write("\2\30\31\7\t\2\2\31\33\7\3\2\2\32\34\5\6\4\2\33\32\3\2")
-        buf.write("\2\2\33\34\3\2\2\2\34\35\3\2\2\2\35\36\7\4\2\2\36\37\7")
-        buf.write("\f\2\2\37\5\3\2\2\2 %\5\b\5\2!\"\7\5\2\2\"$\5\b\5\2#!")
-        buf.write("\3\2\2\2$\'\3\2\2\2%&\3\2\2\2%#\3\2\2\2&)\3\2\2\2\'%\3")
-        buf.write("\2\2\2(*\7\5\2\2)(\3\2\2\2)*\3\2\2\2*\7\3\2\2\2+,\7\t")
-        buf.write("\2\2,-\7\6\2\2-.\3\2\2\2./\5\n\6\2/\t\3\2\2\2\60\63\5")
-        buf.write("\20\t\2\61\63\5\f\7\2\62\60\3\2\2\2\62\61\3\2\2\2\63\13")
-        buf.write("\3\2\2\2\64\66\7\7\2\2\65\67\5\16\b\2\66\65\3\2\2\2\66")
-        buf.write("\67\3\2\2\2\678\3\2\2\289\7\b\2\29\r\3\2\2\2:?\5\20\t")
-        buf.write("\2;<\7\5\2\2<>\5\20\t\2=;\3\2\2\2>A\3\2\2\2?@\3\2\2\2")
-        buf.write("?=\3\2\2\2@C\3\2\2\2A?\3\2\2\2BD\7\5\2\2CB\3\2\2\2CD\3")
-        buf.write("\2\2\2D\17\3\2\2\2EF\7\n\2\2F\21\3\2\2\2\n\25\33%)\62")
-        buf.write("\66?C")
+        buf.write("\3\5\3\34\n\3\3\3\3\3\7\3 \n\3\f\3\16\3#\13\3\3\4\3\4")
+        buf.write("\3\4\7\4(\n\4\f\4\16\4+\13\4\3\4\5\4.\n\4\3\5\3\5\3\5")
+        buf.write("\3\5\3\5\3\6\3\6\5\6\67\n\6\3\7\3\7\5\7;\n\7\3\7\3\7\3")
+        buf.write("\b\3\b\3\b\7\bB\n\b\f\b\16\bE\13\b\3\b\5\bH\n\b\3\t\3")
+        buf.write("\t\3\t\5!)C\2\n\2\4\6\b\n\f\16\20\2\2\2L\2\25\3\2\2\2")
+        buf.write("\4\30\3\2\2\2\6$\3\2\2\2\b/\3\2\2\2\n\66\3\2\2\2\f8\3")
+        buf.write("\2\2\2\16>\3\2\2\2\20I\3\2\2\2\22\24\5\4\3\2\23\22\3\2")
+        buf.write("\2\2\24\27\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2\26\3\3")
+        buf.write("\2\2\2\27\25\3\2\2\2\30\31\7\t\2\2\31\33\7\3\2\2\32\34")
+        buf.write("\5\6\4\2\33\32\3\2\2\2\33\34\3\2\2\2\34\35\3\2\2\2\35")
+        buf.write("!\7\4\2\2\36 \7\f\2\2\37\36\3\2\2\2 #\3\2\2\2!\"\3\2\2")
+        buf.write("\2!\37\3\2\2\2\"\5\3\2\2\2#!\3\2\2\2$)\5\b\5\2%&\7\5\2")
+        buf.write("\2&(\5\b\5\2\'%\3\2\2\2(+\3\2\2\2)*\3\2\2\2)\'\3\2\2\2")
+        buf.write("*-\3\2\2\2+)\3\2\2\2,.\7\5\2\2-,\3\2\2\2-.\3\2\2\2.\7")
+        buf.write("\3\2\2\2/\60\7\t\2\2\60\61\7\6\2\2\61\62\3\2\2\2\62\63")
+        buf.write("\5\n\6\2\63\t\3\2\2\2\64\67\5\20\t\2\65\67\5\f\7\2\66")
+        buf.write("\64\3\2\2\2\66\65\3\2\2\2\67\13\3\2\2\28:\7\7\2\29;\5")
+        buf.write("\16\b\2:9\3\2\2\2:;\3\2\2\2;<\3\2\2\2<=\7\b\2\2=\r\3\2")
+        buf.write("\2\2>C\5\20\t\2?@\7\5\2\2@B\5\20\t\2A?\3\2\2\2BE\3\2\2")
+        buf.write("\2CD\3\2\2\2CA\3\2\2\2DG\3\2\2\2EC\3\2\2\2FH\7\5\2\2G")
+        buf.write("F\3\2\2\2GH\3\2\2\2H\17\3\2\2\2IJ\7\n\2\2J\21\3\2\2\2")
+        buf.write("\13\25\33!)-\66:CG")
         return buf.getvalue()
 
 
@@ -157,12 +158,15 @@ class BazelBuildParser ( Parser ):
         def ID(self):
             return self.getToken(BazelBuildParser.ID, 0)
 
-        def Newline(self):
-            return self.getToken(BazelBuildParser.Newline, 0)
-
         def arglist(self):
             return self.getTypedRuleContext(BazelBuildParser.ArglistContext,0)
 
+
+        def Newline(self, i:int=None):
+            if i is None:
+                return self.getTokens(BazelBuildParser.Newline)
+            else:
+                return self.getToken(BazelBuildParser.Newline, i)
 
         def getRuleIndex(self):
             return BazelBuildParser.RULE_stat
@@ -205,8 +209,17 @@ class BazelBuildParser ( Parser ):
 
             self.state = 27
             self.match(BazelBuildParser.T__1)
-            self.state = 28
-            self.match(BazelBuildParser.Newline)
+            self.state = 31
+            self._errHandler.sync(self)
+            _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
+            while _alt!=1 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1+1:
+                    self.state = 28
+                    self.match(BazelBuildParser.Newline) 
+                self.state = 33
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -256,26 +269,26 @@ class BazelBuildParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 30
+            self.state = 34
             self.argument()
-            self.state = 35
+            self.state = 39
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,3,self._ctx)
             while _alt!=1 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1+1:
-                    self.state = 31
+                    self.state = 35
                     self.match(BazelBuildParser.T__2)
-                    self.state = 32
+                    self.state = 36
                     self.argument() 
-                self.state = 37
+                self.state = 41
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,3,self._ctx)
 
-            self.state = 39
+            self.state = 43
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==BazelBuildParser.T__2:
-                self.state = 38
+                self.state = 42
                 self.match(BazelBuildParser.T__2)
 
 
@@ -327,11 +340,11 @@ class BazelBuildParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_argument)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 41
+            self.state = 45
             self.match(BazelBuildParser.ID)
-            self.state = 42
+            self.state = 46
             self.match(BazelBuildParser.T__3)
-            self.state = 44
+            self.state = 48
             self.value()
         except RecognitionException as re:
             localctx.exception = re
@@ -381,17 +394,17 @@ class BazelBuildParser ( Parser ):
         localctx = BazelBuildParser.ValueContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_value)
         try:
-            self.state = 48
+            self.state = 52
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [BazelBuildParser.StringValue]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 46
+                self.state = 50
                 self.single_value()
                 pass
             elif token in [BazelBuildParser.T__4]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 47
+                self.state = 51
                 self.multi_value()
                 pass
             else:
@@ -443,17 +456,17 @@ class BazelBuildParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 50
+            self.state = 54
             self.match(BazelBuildParser.T__4)
-            self.state = 52
+            self.state = 56
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==BazelBuildParser.StringValue:
-                self.state = 51
+                self.state = 55
                 self.val_list()
 
 
-            self.state = 54
+            self.state = 58
             self.match(BazelBuildParser.T__5)
         except RecognitionException as re:
             localctx.exception = re
@@ -504,26 +517,26 @@ class BazelBuildParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 56
+            self.state = 60
             self.single_value()
-            self.state = 61
+            self.state = 65
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
             while _alt!=1 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1+1:
-                    self.state = 57
+                    self.state = 61
                     self.match(BazelBuildParser.T__2)
-                    self.state = 58
+                    self.state = 62
                     self.single_value() 
-                self.state = 63
+                self.state = 67
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
 
-            self.state = 65
+            self.state = 69
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==BazelBuildParser.T__2:
-                self.state = 64
+                self.state = 68
                 self.match(BazelBuildParser.T__2)
 
 
@@ -571,7 +584,7 @@ class BazelBuildParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_single_value)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 67
+            self.state = 71
             self.match(BazelBuildParser.StringValue)
         except RecognitionException as re:
             localctx.exception = re

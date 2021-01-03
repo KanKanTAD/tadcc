@@ -1,0 +1,891 @@
+format 223
+"bazel_base" // bazel_base
+  revision 1
+  modified_by 2 "tad"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  stereotype "model library"
+  python_dir "/home/tad/Public/flexbison_demo/tadcc/bazel_base/py2/BazelBase/bazel_base"
+  python_package "bazel_base"
+  classview 128002 "b"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    associated_deployment_view deploymentview_ref 128002 // b
+    classdiagram 128002 "b"
+      classdiagramsettings draw_all_relations no member_max_width 0 end
+      size B
+    end
+
+    class 128002 "BazelBuild"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128130 // __call_metis (<directional composition>)
+	relation 128130 *-->
+	  stereotype "list"
+	  a role_name "__call_metis" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 128130 // __call_metis (<directional composition>)
+	  b parent class_ref 128130 // CallMeta
+      end
+
+      classrelation 129282 // <realization>
+	relation 129282 -_-|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 129282 // <realization>
+	  b parent class_ref 129154 // Stringify
+      end
+    end
+
+    class 128130 "CallMeta"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128002 // __arg_list (<directional composition>)
+	relation 128002 *-->
+	  stereotype "list"
+	  a role_name "__arg_list" multiplicity "*" private
+	    python "${comment}${self}${name} = ${stereotype}()
+"
+	    classrelation_ref 128002 // __arg_list (<directional composition>)
+	  b parent class_ref 128258 // Argment
+      end
+
+      classrelation 129410 // <realization>
+	relation 129410 -_-|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 129410 // <realization>
+	  b parent class_ref 129154 // Stringify
+      end
+    end
+
+    class 128258 "Argment"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128642 // <realization>
+	relation 128642 -_-|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 128642 // <realization>
+	  b parent class_ref 128642 // Namiable
+      end
+
+      classrelation 129026 // __value (<directional composition>)
+	relation 129026 *-->
+	  a role_name "__value" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 129026 // __value (<directional composition>)
+	  b parent class_ref 128770 // Value
+      end
+    end
+
+    class 128386 "Action"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128258 // <generalisation>
+	relation 128258 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 128258 // <generalisation>
+	  b parent class_ref 128130 // CallMeta
+      end
+    end
+
+    class 128514 "Target"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128386 // <generalisation>
+	relation 128386 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 128386 // <generalisation>
+	  b parent class_ref 128130 // CallMeta
+      end
+
+      classrelation 129666 // <realization>
+	relation 129666 -_-|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 129666 // <realization>
+	  b parent class_ref 128642 // Namiable
+      end
+    end
+
+    class 128642 "Namiable"
+      abstract visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}interface ${name}${extends} {
+${members}}
+"
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 128130 "set_name"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" explicit_type ""
+	  param in name "name" explicit_type "string"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}, ${p1}${v1}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 128258 "get_name"
+	public explicit_return_type "string"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    class 128770 "Value"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl "${comment}${abstract}${custom}valuetype ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 129154 // <realization>
+	relation 129154 -_-|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 129154 // <realization>
+	  b parent class_ref 129154 // Stringify
+      end
+
+      operation 128514 "get_source"
+	abstract cpp_virtual public explicit_return_type "string"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 128642 "get_valuetype"
+	abstract cpp_virtual public explicit_return_type "string"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    class 128898 "SingleValue"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128898 // <generalisation>
+	relation 128898 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 128898 // <generalisation>
+	  b parent class_ref 128770 // Value
+      end
+    end
+
+    class 129026 "MultiValue"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128770 // <generalisation>
+	relation 128770 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 128770 // <generalisation>
+	  b parent class_ref 128770 // Value
+      end
+    end
+
+    class 129154 "Stringify"
+      abstract visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}interface ${name}${extends} {
+${members}}
+"
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 128002 "stringify"
+	abstract force_body_gen cpp_virtual public explicit_return_type "string"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    class 129282 "Searcher"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl "${comment}${abstract}${custom}valuetype ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130562 // <generalisation>
+	relation 130562 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 130562 // <generalisation>
+	  b parent class_ref 130050 // WorkClient
+      end
+
+      operation 129026 "__len__"
+	abstract cpp_virtual public explicit_return_type "int"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    class 129410 "Deleter"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl "${comment}${abstract}${custom}valuetype ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130690 // <generalisation>
+	relation 130690 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 130690 // <generalisation>
+	  b parent class_ref 130050 // WorkClient
+      end
+
+      operation 128898 "by_index"
+	abstract cpp_virtual public explicit_return_type "bool"
+	nparams 2
+	  param in name "self" explicit_type ""
+	  param in name "idx" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}, ${p1}${v1}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    class 129538 "Inseter"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl "${comment}${abstract}${custom}valuetype ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130818 // <generalisation>
+	relation 130818 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 130818 // <generalisation>
+	  b parent class_ref 130050 // WorkClient
+      end
+    end
+
+    class 129666 "DefaultSearcher"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130178 // <generalisation>
+	relation 130178 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 130178 // <generalisation>
+	  b parent class_ref 129282 // Searcher
+      end
+    end
+
+    class 129794 "DefaultDeleter"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130306 // <generalisation>
+	relation 130306 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 130306 // <generalisation>
+	  b parent class_ref 129410 // Deleter
+      end
+
+    end
+
+    class 129922 "DefaultInseter"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130434 // <generalisation>
+	relation 130434 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 130434 // <generalisation>
+	  b parent class_ref 129538 // Inseter
+      end
+    end
+
+    class 130050 "WorkClient"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130946 // __build (<directional aggregation>)
+	relation 130946 o-->
+	  a role_name "__build" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 130946 // __build (<directional aggregation>)
+	  b parent class_ref 128002 // BazelBuild
+      end
+
+      operation 128386 "set_bazelbuild"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "build" type class_ref 128002 // BazelBuild
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+  end
+
+  deploymentview 128002 "b"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 128002 "BazelBuild"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 128002 // BazelBuild
+      end
+    end
+
+    artifact 128130 "CallMeta"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 128130 // CallMeta
+      end
+    end
+
+    artifact 128258 "Argment"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 128258 // Argment
+      end
+    end
+
+    artifact 128386 "Action"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 128386 // Action
+      end
+    end
+
+    artifact 128514 "Target"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 128514 // Target
+      end
+    end
+
+    artifact 128642 "Namiable"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 128642 // Namiable
+      end
+    end
+
+    artifact 128770 "Value"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 128770 // Value
+      end
+    end
+
+    artifact 128898 "SingleValue"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 128898 // SingleValue
+      end
+    end
+
+    artifact 129026 "MultiValue"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 129026 // MultiValue
+      end
+    end
+
+    artifact 129154 "Stringify"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 129154 // Stringify
+      end
+    end
+
+    artifact 129282 "Searcher"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 129282 // Searcher
+      end
+    end
+
+    artifact 129410 "Deleter"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 129410 // Deleter
+      end
+    end
+
+    artifact 129538 "Inseter"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 129538 // Inseter
+      end
+    end
+
+    artifact 129666 "DefaultSearcher"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 129666 // DefaultSearcher
+      end
+    end
+
+    artifact 129794 "DefaultDeleter"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 129794 // DefaultDeleter
+      end
+    end
+
+    artifact 129922 "DefaultInseter"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 129922 // DefaultInseter
+      end
+    end
+
+    artifact 130050 "WorkClient"
+      stereotype "source"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 130050 // WorkClient
+      end
+    end
+  end
+end
