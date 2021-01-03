@@ -1,38 +1,56 @@
 grammar BazelBuild;
 
-prog : stat* EOF ; 
+prog :
+	stat* ;
 
-stat : NAME '(' arg_list? ')' RN?  # callExp
-		| LONG_STRING RN?          # noteExp
+stat:ID '(' arglist? ')' Newline 
 		;
 
-arg_list: argument (',' argument)* ','? ;
+arglist: argument ( ',' argument )*? ','?
+		;
 
-argument:( NAME '=' )? value;
+argument: ( ID '=' ) value ;
 
-value: STRING_VALUE    # singleValue
-	| '[' val_list ']' # multiValue
+value : single_value | multi_value ;
+
+multi_value:'[' val_list? ']'
 	;
-	
-val_list : STRING_VALUE (',' STRING_VALUE)* ',' ? ;
 
-NAME : [a-zA-Z_] [a-zA-Z_0-9]* ;            
+val_list: single_value ( ',' single_value )*? ','? 
+		;
 
-STRING_VALUE : '\'' ('\\' . | '\\' RN | ~[\\\r\n\f'])* '\''
-			| '"' ('\\' . | '\\' RN | ~[\\\r\n\f'])* '"'
-			;
+single_value: StringValue
+		;
 
-LONG_STRING : '"""' LONG_STRING_ITEM*? '"""' 
-			| '\'\'\'' LONG_STRING_ITEM*? '\'\'\''
-			;
-			
-LONG_STRING_ITEM : ~'\\' | '\\' . | '\\' RN ;
+ID: [a-zA-Z_] [a-zA-Z_0-9]*
+		;
 
-
-RN : ('\r'? '\n') | ('\r') | ('\f' ) ;
+StringValue : ( '"' ('\\"' | ~[\r\n\f"])*? '"'
+		| '\'' ('\\\'' | ~[\r\n\f'])*? '\'')
+		;
 
 
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+Whitespace
+	:    [ \t]+
+		-> skip 
+	;
 
-CMT: '#' ~[\r\n\f]* -> skip ;
+Newline
+	:   ( '\r' '\n'?
+	|    '\n'
+	|    '\f'
+	)
+		-> skip
+	;
 
+BlockComment:
+	('"""' .*? '"""'
+	| '\'\'\'' .*? '\'\'\''
+	)
+		-> skip
+	;
+
+LineComment
+	:   '#' ~[\r\n\f]*
+	-> skip
+	;

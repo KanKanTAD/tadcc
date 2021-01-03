@@ -1,4 +1,5 @@
 *.pyc
 *.log
+*.class
 .ccls-cache
 build
