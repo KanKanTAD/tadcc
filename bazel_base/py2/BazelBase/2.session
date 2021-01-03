@@ -1,8 +1,8 @@
-window_sizes 1518 884 450 1062 711 120
+window_sizes 1920 1016 450 1464 843 120
 cleanlooks_style
 diagrams
   active  classdiagram_ref 128002 // b
-    1062 711 81 B 336 0
+    1464 843 81 B 72 0
 end
 show_stereotypes
 selected operation_ref 129026 // __len__

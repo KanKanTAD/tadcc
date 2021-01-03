@@ -208,6 +208,7 @@ ${members}}
   ${body}}
 "
   php_param_typed php_out_inout_by_ref python_2_2
+  python_3_operation
   python_indent_step "    "
   python_default_src_content "${comment}
 ${import}
@@ -328,5 +329,5 @@ CREATE TABLE ${name} ${definition}${comment};
 "
   mysql_default_column_decl "  ${name} ${type}${notnull}${default}${autoincr}${comment}"
   mysql_default_key_decl "  ${constraint}${modifier}KEY${name}${type} (${columns})${ref}${comment}"
-  uml_get_name uml uml_set_name uml
+  uml_get_name python uml_set_name python
 end
