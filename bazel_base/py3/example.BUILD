@@ -1,6 +1,5 @@
 load("/code_generator/sktools", "protoc")
 
-
 protoc(
     name = "mmpayauthoritypo_pb_h",
     srcs = [

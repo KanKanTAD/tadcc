@@ -1,0 +1,587 @@
+# Generated from ./BazelBuild.g4 by ANTLR 4.9
+# encoding: utf-8
+from antlr4 import *
+from io import StringIO
+import sys
+if sys.version_info[1] > 5:
+	from typing import TextIO
+else:
+	from typing.io import TextIO
+
+
+def serializedATN():
+    with StringIO() as buf:
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16")
+        buf.write("H\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\t\b\4\t\t\t\3\2\7\2\24\n\2\f\2\16\2\27\13\2\3\3\3\3\3")
+        buf.write("\3\5\3\34\n\3\3\3\3\3\3\3\3\4\3\4\3\4\7\4$\n\4\f\4\16")
+        buf.write("\4\'\13\4\3\4\5\4*\n\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\5\6")
+        buf.write("\63\n\6\3\7\3\7\5\7\67\n\7\3\7\3\7\3\b\3\b\3\b\7\b>\n")
+        buf.write("\b\f\b\16\bA\13\b\3\b\5\bD\n\b\3\t\3\t\3\t\4%?\2\n\2\4")
+        buf.write("\6\b\n\f\16\20\2\2\2G\2\25\3\2\2\2\4\30\3\2\2\2\6 \3\2")
+        buf.write("\2\2\b+\3\2\2\2\n\62\3\2\2\2\f\64\3\2\2\2\16:\3\2\2\2")
+        buf.write("\20E\3\2\2\2\22\24\5\4\3\2\23\22\3\2\2\2\24\27\3\2\2\2")
+        buf.write("\25\23\3\2\2\2\25\26\3\2\2\2\26\3\3\2\2\2\27\25\3\2\2")
+        buf.write("\2\30\31\7\t\2\2\31\33\7\3\2\2\32\34\5\6\4\2\33\32\3\2")
+        buf.write("\2\2\33\34\3\2\2\2\34\35\3\2\2\2\35\36\7\4\2\2\36\37\7")
+        buf.write("\f\2\2\37\5\3\2\2\2 %\5\b\5\2!\"\7\5\2\2\"$\5\b\5\2#!")
+        buf.write("\3\2\2\2$\'\3\2\2\2%&\3\2\2\2%#\3\2\2\2&)\3\2\2\2\'%\3")
+        buf.write("\2\2\2(*\7\5\2\2)(\3\2\2\2)*\3\2\2\2*\7\3\2\2\2+,\7\t")
+        buf.write("\2\2,-\7\6\2\2-.\3\2\2\2./\5\n\6\2/\t\3\2\2\2\60\63\5")
+        buf.write("\20\t\2\61\63\5\f\7\2\62\60\3\2\2\2\62\61\3\2\2\2\63\13")
+        buf.write("\3\2\2\2\64\66\7\7\2\2\65\67\5\16\b\2\66\65\3\2\2\2\66")
+        buf.write("\67\3\2\2\2\678\3\2\2\289\7\b\2\29\r\3\2\2\2:?\5\20\t")
+        buf.write("\2;<\7\5\2\2<>\5\20\t\2=;\3\2\2\2>A\3\2\2\2?@\3\2\2\2")
+        buf.write("?=\3\2\2\2@C\3\2\2\2A?\3\2\2\2BD\7\5\2\2CB\3\2\2\2CD\3")
+        buf.write("\2\2\2D\17\3\2\2\2EF\7\n\2\2F\21\3\2\2\2\n\25\33%)\62")
+        buf.write("\66?C")
+        return buf.getvalue()
+
+
+class BazelBuildParser ( Parser ):
+
+    grammarFileName = "BazelBuild.g4"
+
+    atn = ATNDeserializer().deserialize(serializedATN())
+
+    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+
+    sharedContextCache = PredictionContextCache()
+
+    literalNames = [ "<INVALID>", "'('", "')'", "','", "'='", "'['", "']'" ]
+
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "ID", "StringValue", 
+                      "Whitespace", "Newline", "BlockComment", "LineComment" ]
+
+    RULE_prog = 0
+    RULE_stat = 1
+    RULE_arglist = 2
+    RULE_argument = 3
+    RULE_value = 4
+    RULE_multi_value = 5
+    RULE_val_list = 6
+    RULE_single_value = 7
+
+    ruleNames =  [ "prog", "stat", "arglist", "argument", "value", "multi_value", 
+                   "val_list", "single_value" ]
+
+    EOF = Token.EOF
+    T__0=1
+    T__1=2
+    T__2=3
+    T__3=4
+    T__4=5
+    T__5=6
+    ID=7
+    StringValue=8
+    Whitespace=9
+    Newline=10
+    BlockComment=11
+    LineComment=12
+
+    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+        super().__init__(input, output)
+        self.checkVersion("4.9")
+        self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
+        self._predicates = None
+
+
+
+
+    class ProgContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def stat(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(BazelBuildParser.StatContext)
+            else:
+                return self.getTypedRuleContext(BazelBuildParser.StatContext,i)
+
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_prog
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterProg" ):
+                listener.enterProg(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitProg" ):
+                listener.exitProg(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitProg" ):
+                return visitor.visitProg(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def prog(self):
+
+        localctx = BazelBuildParser.ProgContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 0, self.RULE_prog)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 19
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==BazelBuildParser.ID:
+                self.state = 16
+                self.stat()
+                self.state = 21
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class StatContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(BazelBuildParser.ID, 0)
+
+        def Newline(self):
+            return self.getToken(BazelBuildParser.Newline, 0)
+
+        def arglist(self):
+            return self.getTypedRuleContext(BazelBuildParser.ArglistContext,0)
+
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_stat
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterStat" ):
+                listener.enterStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitStat" ):
+                listener.exitStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStat" ):
+                return visitor.visitStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def stat(self):
+
+        localctx = BazelBuildParser.StatContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 2, self.RULE_stat)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 22
+            self.match(BazelBuildParser.ID)
+            self.state = 23
+            self.match(BazelBuildParser.T__0)
+            self.state = 25
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==BazelBuildParser.ID:
+                self.state = 24
+                self.arglist()
+
+
+            self.state = 27
+            self.match(BazelBuildParser.T__1)
+            self.state = 28
+            self.match(BazelBuildParser.Newline)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ArglistContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def argument(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(BazelBuildParser.ArgumentContext)
+            else:
+                return self.getTypedRuleContext(BazelBuildParser.ArgumentContext,i)
+
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_arglist
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArglist" ):
+                listener.enterArglist(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArglist" ):
+                listener.exitArglist(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArglist" ):
+                return visitor.visitArglist(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def arglist(self):
+
+        localctx = BazelBuildParser.ArglistContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 4, self.RULE_arglist)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 30
+            self.argument()
+            self.state = 35
+            self._errHandler.sync(self)
+            _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
+            while _alt!=1 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1+1:
+                    self.state = 31
+                    self.match(BazelBuildParser.T__2)
+                    self.state = 32
+                    self.argument() 
+                self.state = 37
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
+
+            self.state = 39
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==BazelBuildParser.T__2:
+                self.state = 38
+                self.match(BazelBuildParser.T__2)
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ArgumentContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def value(self):
+            return self.getTypedRuleContext(BazelBuildParser.ValueContext,0)
+
+
+        def ID(self):
+            return self.getToken(BazelBuildParser.ID, 0)
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_argument
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArgument" ):
+                listener.enterArgument(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArgument" ):
+                listener.exitArgument(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArgument" ):
+                return visitor.visitArgument(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def argument(self):
+
+        localctx = BazelBuildParser.ArgumentContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 6, self.RULE_argument)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 41
+            self.match(BazelBuildParser.ID)
+            self.state = 42
+            self.match(BazelBuildParser.T__3)
+            self.state = 44
+            self.value()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ValueContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def single_value(self):
+            return self.getTypedRuleContext(BazelBuildParser.Single_valueContext,0)
+
+
+        def multi_value(self):
+            return self.getTypedRuleContext(BazelBuildParser.Multi_valueContext,0)
+
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_value
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterValue" ):
+                listener.enterValue(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitValue" ):
+                listener.exitValue(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitValue" ):
+                return visitor.visitValue(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def value(self):
+
+        localctx = BazelBuildParser.ValueContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_value)
+        try:
+            self.state = 48
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [BazelBuildParser.StringValue]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 46
+                self.single_value()
+                pass
+            elif token in [BazelBuildParser.T__4]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 47
+                self.multi_value()
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Multi_valueContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def val_list(self):
+            return self.getTypedRuleContext(BazelBuildParser.Val_listContext,0)
+
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_multi_value
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMulti_value" ):
+                listener.enterMulti_value(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMulti_value" ):
+                listener.exitMulti_value(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMulti_value" ):
+                return visitor.visitMulti_value(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def multi_value(self):
+
+        localctx = BazelBuildParser.Multi_valueContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 10, self.RULE_multi_value)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 50
+            self.match(BazelBuildParser.T__4)
+            self.state = 52
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==BazelBuildParser.StringValue:
+                self.state = 51
+                self.val_list()
+
+
+            self.state = 54
+            self.match(BazelBuildParser.T__5)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Val_listContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def single_value(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(BazelBuildParser.Single_valueContext)
+            else:
+                return self.getTypedRuleContext(BazelBuildParser.Single_valueContext,i)
+
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_val_list
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterVal_list" ):
+                listener.enterVal_list(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitVal_list" ):
+                listener.exitVal_list(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVal_list" ):
+                return visitor.visitVal_list(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def val_list(self):
+
+        localctx = BazelBuildParser.Val_listContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 12, self.RULE_val_list)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 56
+            self.single_value()
+            self.state = 61
+            self._errHandler.sync(self)
+            _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
+            while _alt!=1 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1+1:
+                    self.state = 57
+                    self.match(BazelBuildParser.T__2)
+                    self.state = 58
+                    self.single_value() 
+                self.state = 63
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
+
+            self.state = 65
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==BazelBuildParser.T__2:
+                self.state = 64
+                self.match(BazelBuildParser.T__2)
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Single_valueContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def StringValue(self):
+            return self.getToken(BazelBuildParser.StringValue, 0)
+
+        def getRuleIndex(self):
+            return BazelBuildParser.RULE_single_value
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterSingle_value" ):
+                listener.enterSingle_value(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitSingle_value" ):
+                listener.exitSingle_value(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitSingle_value" ):
+                return visitor.visitSingle_value(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def single_value(self):
+
+        localctx = BazelBuildParser.Single_valueContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 14, self.RULE_single_value)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 67
+            self.match(BazelBuildParser.StringValue)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+
+
+
