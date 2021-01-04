@@ -1,0 +1,1 @@
+return ValueType.Single

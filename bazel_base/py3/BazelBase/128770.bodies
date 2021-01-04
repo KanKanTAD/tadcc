@@ -1,0 +1,3 @@
+class Value
+!!!135810.python!!!	set_source(in self : Value, in source : string) : void
+self.__source = source

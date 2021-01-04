@@ -1,6 +1,6 @@
 format 223
 "BazelBase"
-  revision 6
+  revision 7
   modified_by 2 "v_fantnzeng"
   python_root_dir "base\\"
 

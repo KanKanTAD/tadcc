@@ -1,0 +1,11 @@
+class Target
+!!!137218.python!!!	get_deps(in self : CallMeta) : Tuple[int,Argument]
+arg_list = self.get_arglist()
+for i in range(len(arg_list)):
+    arg = arg_list[i]
+    if arg.get_name() == 'deps':
+        return i,arg
+return -1,None 
+    
+!!!137346.python!!!	__init__(inout self : Target, in proto : CallMeta)
+self.__proto = proto

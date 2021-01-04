@@ -1,0 +1,5 @@
+class SingleValue
+!!!135938.python!!!	get_valuetype(in self : ) : int
+return ValueType.Single
+!!!136194.python!!!	value(in self : SingleValue) : string
+return self.__value

@@ -2,9 +2,15 @@
 import base.Namiable
 import base.Value
 
-class Argment(base.Namiable.Namiable):
+class Argument(base.Namiable.Namiable):
+    def set_value(self: Argument, value: base.Value.Value) -> void:
+        self.__value= value
+        
+    def get_value(self: Argument) -> base.Value.Value:
+        return self.__value
+        
     def __init__(self):
-        super(Argment, self).__init__()
+        super(Argument, self).__init__()
         self.__value = base.Value.Value()
         pass
     

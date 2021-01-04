@@ -56,7 +56,7 @@ format 223
     associated_deployment_view deploymentview_ref 128002 // b
     classdiagram 128002 "b"
       classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no show_members_visibility yes member_max_width 0 show_parameter_dir yes show_parameter_name yes show_relation_modifiers yes show_relation_visibility yes end
-      size A3
+      size B-Landscape
     end
 
     class 128002 "BazelBuild"
@@ -88,6 +88,34 @@ ${docstring}${members}
 	    classrelation_ref 129282 // <realization>
 	  b parent class_ref 129154 // Stringify
       end
+
+      operation 136450 "set_call_metis"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" type class_ref 128002 // BazelBuild
+	  param in name "call_metis" explicit_type "List[CallMeta]"
+	multiplicity "*"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 137090 "get_call_metis"
+	public explicit_return_type "List[CallMeta]"
+	nparams 1
+	  param in name "self" type class_ref 128002 // BazelBuild
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
     end
 
     class 128130 "CallMeta"
@@ -109,7 +137,7 @@ ${docstring}${members}
 	    python "${comment}${self}${name} = ${stereotype}()
 "
 	    classrelation_ref 128002 // __arg_list (<directional composition>)
-	  b parent class_ref 128258 // Argment
+	  b parent class_ref 128258 // Argument
       end
 
       classrelation 129410 // <realization>
@@ -121,7 +149,7 @@ ${docstring}${members}
       end
 
       operation 135554 "get_funcname"
-	public explicit_return_type ""
+	public explicit_return_type "str"
 	nparams 0
 	
 	
@@ -136,7 +164,7 @@ ${docstring}${body}
 	public explicit_return_type "void"
 	nparams 2
 	  param in name "self" type class_ref 128130 // CallMeta
-	  param in name "name" explicit_type "string"
+	  param in name "name" explicit_type "str"
 	
 	
 	
@@ -145,9 +173,22 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 137474 "get_arglist"
+	public explicit_return_type "List[Argument]"
+	nparams 1
+	  param in name "self" type class_ref 128130 // CallMeta
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
     end
 
-    class 128258 "Argment"
+    class 128258 "Argument"
       abstract visibility public 
       cpp_decl ""
       java_decl ""
@@ -174,6 +215,33 @@ ${docstring}${members}
 "
 	    classrelation_ref 129026 // __value (<directional composition>)
 	  b parent class_ref 128770 // Value
+      end
+
+      operation 137602 "set_value"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" type class_ref 128258 // Argument
+	  param in name "value" type class_ref 128770 // Value
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 137730 "get_value"
+	public return_type class_ref 128770 // Value
+	nparams 1
+	  param in name "self" type class_ref 128258 // Argument
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
       end
     end
 
@@ -225,6 +293,43 @@ ${docstring}${members}
 	    classrelation_ref 129666 // <realization>
 	  b parent class_ref 128642 // Namiable
       end
+
+      operation 137218 "get_deps"
+	public explicit_return_type "Tuple[int,Argument]"
+	nparams 1
+	  param in name "self" type class_ref 128130 // CallMeta
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      classrelation 137602 // __proto (<directional aggregation>)
+	relation 137602 o-->
+	  a role_name "__proto" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 137602 // __proto (<directional aggregation>)
+	  b parent class_ref 128130 // CallMeta
+      end
+
+      operation 137346 "__init__"
+	public explicit_return_type ""
+	nparams 2
+	  param inout name "self" type class_ref 128514 // Target
+	  param in name "proto" type class_ref 128130 // CallMeta
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}super(${class}, ${p0}).__init__()
+${body}
+"
+	
+      end
     end
 
     class 128642 "Namiable"
@@ -249,7 +354,7 @@ ${members}};
 	public explicit_return_type "void"
 	nparams 2
 	  param in name "self" type class_ref 128642 // Namiable
-	  param in name "name" explicit_type "string"
+	  param in name "name" explicit_type "str"
 	
 	
 	
@@ -260,7 +365,7 @@ ${docstring}${body}
       end
 
       operation 128258 "get_name"
-	public explicit_return_type "string"
+	public explicit_return_type "str"
 	nparams 1
 	  param in name "self" type class_ref 128642 // Namiable
 	
@@ -274,7 +379,7 @@ ${docstring}${body}
     end
 
     class 128770 "Value"
-      visibility public 
+      abstract visibility public 
       cpp_decl ""
       java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
 ${members}}
@@ -300,7 +405,7 @@ ${members}};
       end
 
       operation 128514 "get_source"
-	cpp_virtual public explicit_return_type "string"
+	cpp_virtual public explicit_return_type "str"
 	nparams 1
 	  param in name "self" type class_ref 128770 // Value
 	
@@ -313,16 +418,38 @@ ${docstring}${body}
       end
 
       operation 128642 "get_valuetype"
-	abstract cpp_virtual public explicit_return_type "string"
+	abstract cpp_virtual public explicit_return_type "int"
 	nparams 1
 	  param in name "self" explicit_type ""
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
 ${docstring}${body}
 "
 	
+      end
+
+      operation 135810 "set_source"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" type class_ref 128770 // Value
+	  param in name "source" explicit_type "str"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      classrelation 137474 // <dependency>
+	relation 137474 -_->
+	  a public
+	    python "${type}"
+	    classrelation_ref 137474 // <dependency>
+	  b parent class_ref 136578 // ValueType
       end
     end
 
@@ -345,6 +472,32 @@ ${docstring}${members}
 	    classrelation_ref 128898 // <generalisation>
 	  b parent class_ref 128770 // Value
       end
+
+      operation 135938 "get_valuetype"
+	cpp_virtual public explicit_return_type "int"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 136194 "value"
+	public explicit_return_type "string"
+	nparams 1
+	  param in name "self" type class_ref 128898 // SingleValue
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
     end
 
     class 129026 "MultiValue"
@@ -365,6 +518,33 @@ ${docstring}${members}
 	    python "${type}"
 	    classrelation_ref 128770 // <generalisation>
 	  b parent class_ref 128770 // Value
+      end
+
+      operation 136066 "get_valuetype"
+	cpp_virtual public explicit_return_type "int"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 136322 "list"
+	force_body_gen public explicit_return_type "List[str]"
+	multiplicity "*"
+	nparams 1
+	  param in name "self" type class_ref 129026 // MultiValue
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
       end
     end
 
@@ -387,7 +567,7 @@ ${members}};
       mysql_decl ""
       
       operation 128002 "stringify"
-	abstract force_body_gen cpp_virtual public explicit_return_type "string"
+	abstract force_body_gen cpp_virtual public explicit_return_type "str"
 	nparams 0
 	
 	
@@ -426,13 +606,40 @@ ${members}};
       end
 
       operation 129026 "__len__"
-	abstract cpp_virtual public explicit_return_type "int"
+	cpp_virtual public explicit_return_type "int"
 	nparams 1
 	  param in name "self" explicit_type ""
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 136706 "list"
+	public explicit_return_type "List[CallMeta]"
+	nparams 1
+	  param in name "self" type class_ref 129282 // Searcher
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 136962 "by_index"
+	public return_type class_ref 128130 // CallMeta
+	nparams 2
+	  param in name "self" type class_ref 129282 // Searcher
+	  param in name "idx" explicit_type "int"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -466,7 +673,7 @@ ${members}};
       end
 
       operation 128898 "by_index"
-	abstract cpp_virtual public explicit_return_type "bool"
+	cpp_virtual public explicit_return_type "bool"
 	nparams 1
 	  param in name "idx" explicit_type "int"
 	
@@ -503,6 +710,21 @@ ${members}};
 	    python "${type}"
 	    classrelation_ref 130818 // <generalisation>
 	  b parent class_ref 130050 // WorkClient
+      end
+
+      operation 136578 "into"
+	public explicit_return_type "void"
+	nparams 3
+	  param in name "self" type class_ref 129538 // Inseter
+	  param in name "idx" explicit_type "int"
+	  param in name "call_meta" type class_ref 128130 // CallMeta
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}, ${p2}${t2}${v2}${)}${type}:
+${docstring}${body}
+"
+	
       end
     end
 
@@ -545,6 +767,20 @@ ${docstring}${members}
 	    python "${type}"
 	    classrelation_ref 130306 // <generalisation>
 	  b parent class_ref 129410 // Deleter
+      end
+
+      operation 136834 "deep_remove_target"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" type class_ref 129410 // Deleter
+	  param in name "target_name" explicit_type "str"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
       end
     end
 
@@ -592,15 +828,64 @@ ${docstring}${members}
 
       operation 128386 "set_bazelbuild"
 	public explicit_return_type "void"
-	nparams 1
+	nparams 2
+	  param in name "self" type class_ref 130050 // WorkClient
 	  param in name "build" type class_ref 128002 // BazelBuild
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}, ${p1}${t1}${v1}${)}${type}:
 ${docstring}${body}
 "
 	
+      end
+    end
+
+    class 136578 "ValueType"
+      visibility public stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl "${comment}${visibility}final class ${name} {
+${items}}
+"
+      python_2_2 python_decl "class ${name}:
+${docstring}${members}
+"
+      idl_decl "${comment}enum ${name} {
+${items}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128002 "Single"
+	class_attribute public explicit_type "int"
+	init_value "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128130 "Multi"
+	class_attribute public explicit_type "int"
+	init_value "2"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
   end
@@ -612,6 +897,7 @@ ${docstring}${body}
     artifact 128002 "BazelBuild"
       stereotype "source"
       python_src "${comment}
+from Typing import List,Set,Tuple
 ${import}
 ${definition}"
       associated_elems
@@ -635,7 +921,7 @@ ${definition}"
 ${import}
 ${definition}"
       associated_elems
-	class_ref 128258 // Argment
+	class_ref 128258 // Argument
       end
     end
 
@@ -653,6 +939,7 @@ ${definition}"
       stereotype "source"
       python_src "${comment}
 ${import}
+from Typing import List,Tuple,Set,Dict
 ${definition}"
       associated_elems
 	class_ref 128514 // Target
@@ -777,31 +1064,10 @@ ${module_end}
 
     artifact 129282 "Searcher"
       stereotype "source"
-      java_src "${comment}
-${package}
-${imports}
-${definition}"
-      php_src "<?php
-${comment}
-${namespace}
-${require_once}
-${use}
-${definition}
-?>
-"
       python_src "${comment}
 ${import}
+from Typing import List,Set,Tuple
 ${definition}"
-      idl_src "#ifndef ${MODULE}_${NAME}_H
-#define ${MODULE}_${NAME}_H
-
-${comment}
-${includes}
-${module_start}
-${definition}
-${module_end}
-#endif
-"
       associated_elems
 	class_ref 129282 // Searcher
       end
@@ -908,6 +1174,54 @@ ${import}
 ${definition}"
       associated_elems
 	class_ref 130050 // WorkClient
+      end
+    end
+
+    artifact 136578 "ValueType"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 136578 // ValueType
       end
     end
   end

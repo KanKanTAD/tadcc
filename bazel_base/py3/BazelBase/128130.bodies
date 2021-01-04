@@ -1,3 +1,5 @@
 class CallMeta
-!!!135682.python!!!	set_funcname(in self : CallMeta, in name : string) : void
+!!!135682.python!!!	set_funcname(in self : CallMeta, in name : str) : void
 self.__func_name = name
+!!!137474.python!!!	get_arglist(in self : CallMeta) : List[Argument]
+return self.__arg_list

@@ -1,0 +1,5 @@
+class Argument
+!!!137602.python!!!	set_value(in self : Argument, in value : Value) : void
+self.__value= value
+!!!137730.python!!!	get_value(in self : Argument) : Value
+return self.__value

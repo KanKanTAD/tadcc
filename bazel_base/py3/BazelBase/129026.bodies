@@ -1,0 +1,3 @@
+class MultiValue
+!!!136066.python!!!	get_valuetype(in self : ) : int
+return ValueType.Multi
