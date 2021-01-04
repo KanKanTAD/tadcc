@@ -5,7 +5,7 @@ class MultiValue(Value.Value):
     def get_valuetype(self) -> int:
         return ValueType.Multi
         
-    def list(self) -> List[str]:
+    def list(self):
         pass
         
     def init_by_singlevalues(self, values) -> None:
