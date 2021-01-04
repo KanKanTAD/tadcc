@@ -1,6 +1,6 @@
 res = '['
 val_list = self.list()
-val = [v for v in val_list].join(', \n')
+val = ', \n'.join([v for v in val_list])
 res += val
 res += ']'
 return res
