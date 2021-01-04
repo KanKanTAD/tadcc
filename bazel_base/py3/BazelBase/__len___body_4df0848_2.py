@@ -1,1 +1,0 @@
-return len(self.__build.get_call_metis())

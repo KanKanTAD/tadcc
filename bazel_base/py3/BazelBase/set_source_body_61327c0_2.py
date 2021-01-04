@@ -1,1 +1,0 @@
-self.__source = source

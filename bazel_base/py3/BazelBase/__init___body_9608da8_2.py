@@ -1,1 +1,0 @@
-self.__proto = proto

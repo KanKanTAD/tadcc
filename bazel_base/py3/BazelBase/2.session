@@ -1,14 +1,13 @@
-window_sizes 1245 790 315 924 618 120
+window_sizes 1329 848 315 1008 676 120
 cleanlooks_style
 diagrams
   active  classdiagram_ref 128002 // b
-    924 618 66 A3 282 0
-  sequencediagram_ref 134530 // b
-    112 98 100 A4 0 0
+    1008 676 66 B-Landscape 49 29
 end
 show_stereotypes
-selected classdiagram_ref 128002 // b
+selected deploymentview_ref 128002 // b
 open
-  classview_ref 128002 // b
+  
+  package_ref 128002 // bazel_base
 end
 end
