@@ -1,8 +1,7 @@
 
-import Argment
+import Argument
 import Stringify
 
-from typing import List,Set,Tuple,Dict
 class CallMeta(Stringify.Stringify):
     def get_funcname(self):
         pass

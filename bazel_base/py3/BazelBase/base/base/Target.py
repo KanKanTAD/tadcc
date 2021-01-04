@@ -2,7 +2,6 @@
 import CallMeta
 import Namiable
 
-from Typing import List,Tuple,Set,Dict
 class Target(CallMeta.CallMeta, Namiable.Namiable):
     def get_deps(self) -> Tuple[int,Argument]:
         arg_list = self.get_arglist()

@@ -226,6 +226,15 @@ ${docstring}${body}
 "
 	
       end
+
+      classrelation 144130 // <dependency>
+	relation 144130 -_->
+	  stereotype "import"
+	  a public
+	    python "${type}"
+	    classrelation_ref 144130 // <dependency>
+	  b parent class_ref 128258 // Argument
+      end
     end
 
     class 128258 "Argument"
@@ -982,7 +991,6 @@ ${items}};
     artifact 128002 "BazelBuild"
       stereotype "source"
       python_src "${comment}
-from typing import List,Set,Tuple
 ${import}
 ${definition}"
       associated_elems
@@ -994,18 +1002,16 @@ ${definition}"
       stereotype "source"
       python_src "${comment}
 ${import}
-from typing import List,Set,Tuple,Dict
 ${definition}"
       associated_elems
 	class_ref 128130 // CallMeta
       end
     end
 
-    artifact 128258 "Argment"
+    artifact 128258 "Argument"
       stereotype "source"
       python_src "${comment}
 ${import}
-from typing import List,Set,Dict,Tuple
 ${definition}"
       associated_elems
 	class_ref 128258 // Argument
@@ -1026,7 +1032,6 @@ ${definition}"
       stereotype "source"
       python_src "${comment}
 ${import}
-from Typing import List,Tuple,Set,Dict
 ${definition}"
       associated_elems
 	class_ref 128514 // Target
@@ -1151,10 +1156,31 @@ ${module_end}
 
     artifact 129282 "Searcher"
       stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
       python_src "${comment}
 ${import}
-from Typing import List,Set,Tuple
 ${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
       associated_elems
 	class_ref 129282 // Searcher
       end

@@ -2,7 +2,6 @@
 import WorkClient
 import CallMeta
 
-from Typing import List,Set,Tuple
 class Searcher(WorkClient.WorkClient):
     def __len__(self) -> int:
         return len(self.__build.get_call_metis())
