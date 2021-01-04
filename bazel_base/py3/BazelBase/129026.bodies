@@ -1,6 +1,8 @@
 class MultiValue
 !!!136066.python!!!	get_valuetype(in self : ) : int
 return ValueType.Multi
+!!!136322.python!!!	list(in self : ) :  [*]
+return self.__values
 !!!138370.python!!!	__init__(inout self : , in values : )
 self.__values = values
 !!!145538.python!!!	stringify(in self : ) : str

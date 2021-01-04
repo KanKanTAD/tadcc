@@ -6,7 +6,7 @@ class MultiValue(Value.Value):
         return ValueType.Multi
         
     def list(self):
-        pass
+        return self.__values
         
     def init_by_singlevalues(self, values) -> None:
         pass
