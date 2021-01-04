@@ -17,7 +17,12 @@ class CallMeta(Stringify.Stringify):
         self.__arg_list = arg_list
         
     def stringify(self) -> str:
-        pass
+        res = '' + self.get_funcname()
+        res += '(\n'
+        arg_list = self.get_arglist()
+        arg = [a.stringify() for a in arg_list].join(', \n')
+        res += ')'
+        return res
         
     def __init__(self):
         super(CallMeta, self).__init__()

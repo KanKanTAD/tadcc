@@ -13,6 +13,6 @@ class SingleValue(Value.Value):
         self.__value = value
         
     def stringify(self) -> str:
-        pass
+        return self.__value
         
     

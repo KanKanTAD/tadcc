@@ -12,7 +12,11 @@ class BazelBuild(Stringify.Stringify):
         
     def stringify(self) -> str:
         metis = self.get_call_metis()
-        return '' + str(len(metis))
+        res = ''
+        for m in metis:
+            res += m.stringify()
+            res += '\n'
+        return res
         
     def __init__(self):
         super(BazelBuild, self).__init__()

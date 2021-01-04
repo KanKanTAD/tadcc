@@ -1,5 +1,13 @@
 class Argument
-!!!137602.python!!!	set_value(in self : Argument, in value : Value) : void
+!!!137602.python!!!	set_value(in self : , in value : ) : None
 self.__value= value
-!!!137730.python!!!	get_value(in self : Argument) : Value
+!!!137730.python!!!	get_value(in self : ) : Value
 return self.__value
+!!!145666.python!!!	stringify(in self : ) : str
+res = ''
+name = self.get_name()
+if name != '':
+    res += name + ' = '
+value = self.get_value()
+res += value.stringify()
+return res

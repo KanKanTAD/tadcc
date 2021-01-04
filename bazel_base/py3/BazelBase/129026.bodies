@@ -1,5 +1,12 @@
 class MultiValue
 !!!136066.python!!!	get_valuetype(in self : ) : int
 return ValueType.Multi
-!!!138370.python!!!	__init__(inout self : , in values : List[str])
+!!!138370.python!!!	__init__(inout self : , in values : )
 self.__values = values
+!!!145538.python!!!	stringify(in self : ) : str
+res = '['
+val_list = self.list()
+val = [v for v in val_list].join(', \n')
+res += val
+res += ']'
+return res

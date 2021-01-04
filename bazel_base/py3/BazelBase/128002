@@ -55,7 +55,7 @@ format 223
     associated_deployment_view deploymentview_ref 128002 // b
     classdiagram 128002 "b"
       classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no show_members_visibility yes member_max_width 0 show_parameter_dir yes show_parameter_name yes show_relation_modifiers yes show_relation_visibility yes end
-      size B-Landscape
+      size A3
     end
 
     class 128002 "BazelBuild"
@@ -282,6 +282,27 @@ ${docstring}${body}
 
       operation 137730 "get_value"
 	public return_type class_ref 128770 // Value
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      classrelation 144258 // <realization>
+	relation 144258 -_-|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 144258 // <realization>
+	  b parent class_ref 129154 // Stringify
+      end
+
+      operation 145666 "stringify"
+	force_body_gen cpp_virtual public explicit_return_type "str"
 	nparams 1
 	  param in name "self" explicit_type ""
 	
