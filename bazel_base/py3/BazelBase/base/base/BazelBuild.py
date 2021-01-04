@@ -1,5 +1,5 @@
 
-from Typing import List,Set,Tuple
+from typing import List,Set,Tuple
 import base.CallMeta
 import base.Stringify
 
@@ -9,6 +9,9 @@ class BazelBuild(base.Stringify.Stringify):
         
     def get_call_metis(self: BazelBuild) -> List[CallMeta]:
         return self.__call_metis
+        
+    def stringify() -> str:
+        pass
         
     def __init__(self):
         super(BazelBuild, self).__init__()

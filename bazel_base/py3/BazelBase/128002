@@ -116,6 +116,18 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 138626 "stringify"
+	force_body_gen cpp_virtual public explicit_return_type "str"
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
+${docstring}${body}
+"
+	
+      end
     end
 
     class 128130 "CallMeta"
@@ -952,7 +964,7 @@ ${items}};
     artifact 128002 "BazelBuild"
       stereotype "source"
       python_src "${comment}
-from Typing import List,Set,Tuple
+from typing import List,Set,Tuple
 ${import}
 ${definition}"
       associated_elems
@@ -964,6 +976,7 @@ ${definition}"
       stereotype "source"
       python_src "${comment}
 ${import}
+from typing import List,Set,Tuple,Dict
 ${definition}"
       associated_elems
 	class_ref 128130 // CallMeta
@@ -974,6 +987,7 @@ ${definition}"
       stereotype "source"
       python_src "${comment}
 ${import}
+from typing import List,Set,Dict,Tuple
 ${definition}"
       associated_elems
 	class_ref 128258 // Argument
