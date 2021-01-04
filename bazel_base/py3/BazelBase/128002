@@ -204,7 +204,7 @@ ${docstring}${body}
 	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
-	  param in name "arg_list" explicit_type "List[Argument]"
+	  param in name "arg_list" explicit_type "List"
 	
 	
 	
