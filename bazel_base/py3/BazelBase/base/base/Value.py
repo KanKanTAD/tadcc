@@ -1,7 +1,7 @@
 
-import base.Stringify
+import Stringify
 
-class Value(base.Stringify.Stringify):
+class Value(Stringify.Stringify):
     @abstractmethod
     def get_valuetype(self) -> int:
         pass

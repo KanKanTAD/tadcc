@@ -1,7 +1,7 @@
 
-import base.Value
+import Value
 
-class MultiValue(base.Value.Value):
+class MultiValue(Value.Value):
     def get_valuetype(self) -> int:
         return ValueType.Multi
         

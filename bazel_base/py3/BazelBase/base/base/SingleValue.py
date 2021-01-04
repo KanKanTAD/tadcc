@@ -1,7 +1,7 @@
 
-import base.Value
+import Value
 
-class SingleValue(base.Value.Value):
+class SingleValue(Value.Value):
     def get_valuetype(self) -> int:
         return ValueType.Single
         

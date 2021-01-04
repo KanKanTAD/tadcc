@@ -1,7 +1,7 @@
 
-import base.WorkClient
+import WorkClient
 
-class Deleter(base.WorkClient.WorkClient):
+class Deleter(WorkClient.WorkClient):
     def by_index(idx: int) -> bool:
         ls = self.__build.get_call_metis()
         idx = idx if idx >= 0 else len(ls) + idx 

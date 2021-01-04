@@ -1,8 +1,8 @@
 
-import base.Deleter
+import Deleter
 
-class DefaultDeleter(base.Deleter.Deleter):
-    def deep_remove_target(self: base.Deleter.Deleter, target_name: str) -> void:
+class DefaultDeleter(Deleter.Deleter):
+    def deep_remove_target(self: Deleter.Deleter, target_name: str) -> void:
         ls = self.__build.get_call_metis()
         i = 0
         while i < len(ls):

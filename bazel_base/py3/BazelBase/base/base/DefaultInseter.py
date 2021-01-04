@@ -1,7 +1,7 @@
 
-import base.Inseter
+import Inseter
 
-class DefaultInseter(base.Inseter.Inseter):
+class DefaultInseter(Inseter.Inseter):
     def __init__(self):
         super(DefaultInseter, self).__init__()
         pass

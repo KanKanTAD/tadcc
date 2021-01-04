@@ -1,7 +1,7 @@
 
-import base.Searcher
+import Searcher
 
-class DefaultSearcher(base.Searcher.Searcher):
+class DefaultSearcher(Searcher.Searcher):
     def __init__(self):
         super(DefaultSearcher, self).__init__()
         pass

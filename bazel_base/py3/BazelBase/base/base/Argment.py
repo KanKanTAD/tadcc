@@ -1,17 +1,17 @@
 
-import base.Namiable
-import base.Value
+import Namiable
+import Value
 
 from typing import List,Set,Dict,Tuple
-class Argument(base.Namiable.Namiable):
-    def set_value(self: Argument, value: base.Value.Value) -> void:
+class Argument(Namiable.Namiable):
+    def set_value(self: Argument, value: Value.Value) -> void:
         self.__value= value
         
-    def get_value(self: Argument) -> base.Value.Value:
+    def get_value(self: Argument) -> Value.Value:
         return self.__value
         
     def __init__(self):
         super(Argument, self).__init__()
-        self.__value = base.Value.Value()
+        self.__value = Value.Value()
         pass
     

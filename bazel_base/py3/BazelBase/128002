@@ -32,7 +32,6 @@ format 223
   
   stereotype "model library"
   python_dir "base"
-  python_package "base"
   classview 128002 "b"
     
     classdiagramsettings member_max_width 0 end
