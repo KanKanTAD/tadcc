@@ -13,7 +13,7 @@ class MultiValue(Value.Value):
         
     def __init__(self, values):
         super(MultiValue, self).__init__()
-        self.__values = values
+        self.__values = values[:]
         
     def stringify(self) -> str:
         res = '['

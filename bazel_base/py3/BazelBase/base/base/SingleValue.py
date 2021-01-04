@@ -10,7 +10,7 @@ class SingleValue(Value.Value):
         
     def __init__(self, value: str):
         super(SingleValue, self).__init__()
-        self.__value = value
+        self.__value = value[:]
         
     def stringify(self) -> str:
         return self.__value
