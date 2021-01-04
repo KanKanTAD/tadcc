@@ -234,11 +234,11 @@ ${docstring}${members}
 " // multiplicity 1
   "${comment}${self}${name} = ${stereotype}()
 " // multiplicity != 1
-  python_default_operation_definition "${@}${static}${abstract}def ${name}${(}${)}:
+  python_default_operation_definition "${@}${static}${abstract}def ${name}${(}self${)}:
 ${docstring}${body}
 "
   python_default_initoperation_definition "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
-${docstring}super(${class}, ${p0}).__init__()
+${docstring}super(${class}, ${p0}).__init__(self)
 ${body}
 "
   python_get "get${Name}"

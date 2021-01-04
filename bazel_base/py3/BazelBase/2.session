@@ -1,0 +1,12 @@
+window_sizes 1139 786 315 818 614 120
+cleanlooks_style
+diagrams
+  active  classdiagram_ref 128002 // b
+    818 614 60 B 0 0
+end
+show_stereotypes
+selected artifact_ref 136578 // example
+open
+  deploymentview_ref 128002 // b
+end
+end
