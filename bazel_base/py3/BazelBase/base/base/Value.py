@@ -1,9 +1,9 @@
 
-import bazel_base.Stringify
+import base.Stringify
 
-class Value(bazel_base.Stringify.Stringify):
+class Value(base.Stringify.Stringify):
     @abstractmethod
-    def get_source(self):
+    def get_source() -> string:
         pass
         
     @abstractmethod

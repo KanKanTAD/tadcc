@@ -1,0 +1,3 @@
+class CallMeta
+!!!135682.python!!!	set_funcname(in self : CallMeta, in name : string) : void
+self.__func_name = name

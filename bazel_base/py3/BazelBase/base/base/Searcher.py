@@ -1,7 +1,7 @@
 
-import bazel_base.WorkClient
+import base.WorkClient
 
-class Searcher(bazel_base.WorkClient.WorkClient):
+class Searcher(base.WorkClient.WorkClient):
     @abstractmethod
     def __len__(self):
         pass

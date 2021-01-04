@@ -1,5 +1,5 @@
 
-import bazel_base.BazelBuild
+import base.BazelBuild
 
 class WorkClient(object):
     def set_bazelbuild(build):

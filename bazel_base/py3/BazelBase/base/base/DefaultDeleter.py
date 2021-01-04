@@ -1,7 +1,7 @@
 
-import bazel_base.Deleter
+import base.Deleter
 
-class DefaultDeleter(bazel_base.Deleter.Deleter):
+class DefaultDeleter(base.Deleter.Deleter):
     def __init__(self):
         super(DefaultDeleter, self).__init__()
         pass

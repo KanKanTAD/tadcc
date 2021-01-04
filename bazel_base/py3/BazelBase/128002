@@ -1,6 +1,6 @@
 format 223
 "bazel_base" // bazel_base
-  revision 2
+  revision 6
   modified_by 2 "v_fantnzeng"
   // class settings
   
@@ -31,8 +31,8 @@ format 223
    end
   
   stereotype "model library"
-  python_dir "/home/tad/Public/flexbison_demo/tadcc/bazel_base/py2/BazelBase/bazel_base"
-  python_package "bazel_base"
+  python_dir "base"
+  python_package "base"
   classview 128002 "b"
     
     classdiagramsettings member_max_width 0 end
@@ -55,8 +55,8 @@ format 223
      end
     associated_deployment_view deploymentview_ref 128002 // b
     classdiagram 128002 "b"
-      classdiagramsettings draw_all_relations no member_max_width 0 end
-      size B
+      classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no show_members_visibility yes member_max_width 0 show_parameter_dir yes show_parameter_name yes show_relation_modifiers yes show_relation_visibility yes end
+      size A3
     end
 
     class 128002 "BazelBuild"
@@ -118,6 +118,32 @@ ${docstring}${members}
 	    python "${type}"
 	    classrelation_ref 129410 // <realization>
 	  b parent class_ref 129154 // Stringify
+      end
+
+      operation 135554 "get_funcname"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 135682 "set_funcname"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" type class_ref 128130 // CallMeta
+	  param in name "name" explicit_type "string"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
       end
     end
 
@@ -202,18 +228,18 @@ ${docstring}${members}
     end
 
     class 128642 "Namiable"
-      abstract visibility public stereotype "interface"
+      visibility public 
       cpp_decl ""
-      java_decl "${comment}${@}${visibility}${static}interface ${name}${extends} {
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
 ${members}}
 "
-      php_decl "${comment}interface ${name}${extends} {
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
 ${members}}
 "
       python_2_2 python_decl "class ${name}${inherit}:
 ${docstring}${members}
 "
-      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+      idl_decl "${comment}${abstract}${custom}valuetype ${name}${inherit} {
 ${members}};
 "
       explicit_switch_type ""
@@ -222,12 +248,12 @@ ${members}};
       operation 128130 "set_name"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" explicit_type ""
+	  param in name "self" type class_ref 128642 // Namiable
 	  param in name "name" explicit_type "string"
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}, ${p1}${v1}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -236,11 +262,11 @@ ${docstring}${body}
       operation 128258 "get_name"
 	public explicit_return_type "string"
 	nparams 1
-	  param in name "self" explicit_type ""
+	  param in name "self" type class_ref 128642 // Namiable
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -248,7 +274,7 @@ ${docstring}${body}
     end
 
     class 128770 "Value"
-      abstract visibility public 
+      visibility public 
       cpp_decl ""
       java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
 ${members}}
@@ -274,13 +300,13 @@ ${members}};
       end
 
       operation 128514 "get_source"
-	abstract cpp_virtual public explicit_return_type "string"
+	cpp_virtual public explicit_return_type "string"
 	nparams 1
-	  param in name "self" explicit_type ""
+	  param in name "self" type class_ref 128770 // Value
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -362,12 +388,11 @@ ${members}};
       
       operation 128002 "stringify"
 	abstract force_body_gen cpp_virtual public explicit_return_type "string"
-	nparams 1
-	  param in name "self" explicit_type ""
+	nparams 0
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -545,7 +570,7 @@ ${docstring}${members}
     end
 
     class 130050 "WorkClient"
-      abstract visibility package 
+      abstract visibility public 
       cpp_decl ""
       java_decl ""
       php_decl ""
@@ -883,12 +908,6 @@ ${import}
 ${definition}"
       associated_elems
 	class_ref 130050 // WorkClient
-      end
-    end
-
-    artifact 136578 "example"
-      stereotype "executable"
-      associated_artifacts
       end
     end
   end

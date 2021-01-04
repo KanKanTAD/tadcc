@@ -1,7 +1,7 @@
 
-import bazel_base.Value
+import base.Value
 
-class SingleValue(bazel_base.Value.Value):
+class SingleValue(base.Value.Value):
     def __init__(self):
         super(SingleValue, self).__init__()
         pass
