@@ -15,20 +15,37 @@ import antlr4 as antlr
 
 class MyVisitor(BazelBuildVisitor):
     # Visit a parse tree produced by BazelBuildParser#prog.
-    def visitProg(self, ctx: BazelBuildParser.ProgContext):
-        return self.visitChildren(ctx)
+    def visitProg(self, ctx: BazelBuildParser.ProgContext) -> BazelBuild:
+        b = BazelBuild()
+        ms = ctx.stat()
+        ms = [] if ms is None else [self.visit(m) for m in ms]
+        b.set_call_metis(ms)
+        return b
 
     # Visit a parse tree produced by BazelBuildParser#stat.
     def visitStat(self, ctx: BazelBuildParser.StatContext):
-        return self.visitChildren(ctx)
+        name = ctx.ID()
+        name = "" if name is None else name.getText()
+        a_list = ctx.arglist()
+        a_list = [] if a_list is None else self.visit(a_list)
+        c = CallMeta()
+        c.set_funcname(name)
+        c.set_arglist(a_list)
+        return c
 
     # Visit a parse tree produced by BazelBuildParser#arglist.
     def visitArglist(self, ctx: BazelBuildParser.ArglistContext):
-        return self.visitChildren(ctx)
+        return [self.visit(a) for a in ctx.argument()]
 
     # Visit a parse tree produced by BazelBuildParser#argument.
     def visitArgument(self, ctx: BazelBuildParser.ArgumentContext):
-        return self.visitChildren(ctx)
+        name = ctx.ID()
+        name = "" if name is None else name.getText()
+        value = self.visit(ctx.value())
+        a = Argument()
+        a.set_name(name)
+        a.set_value(value)
+        return a
 
     # Visit a parse tree produced by BazelBuildParser#singleV.
     def visitSingleV(self, ctx: BazelBuildParser.SingleVContext):
@@ -37,25 +54,22 @@ class MyVisitor(BazelBuildVisitor):
 
     # Visit a parse tree produced by BazelBuildParser#multiV.
     def visitMultiV(self, ctx: BazelBuildParser.MultiVContext):
-        return self.visitChildren(ctx)
+        return self.visit(ctx.multi_value())
 
     # Visit a parse tree produced by BazelBuildParser#multi_value.
     def visitMulti_value(self, ctx: BazelBuildParser.Multi_valueContext):
-        value = self.visit(ctx.val_list())
-        return "" if value is None else value
+        v_list = ctx.val_list()
+        return [] if v_list is None else self.visit(v_list)
 
     # Visit a parse tree produced by BazelBuildParser#val_list.
     def visitVal_list(self, ctx: BazelBuildParser.Val_listContext):
         single_values = ctx.single_value()
-        return self.visitChildren(ctx)
+        return [self.visit(v) for v in single_values]
 
     # Visit a parse tree produced by BazelBuildParser#single_value.
     def visitSingle_value(self, ctx: BazelBuildParser.Single_valueContext):
         value = ctx.StringValue()
-        if value is None:
-            return ""
-        else:
-            return value.getText()
+        return "" if value is None else value.getText()
 
 
 def main(data=None):
@@ -68,8 +82,8 @@ def main(data=None):
     parser = BazelBuildParser(token_stream)
     tree = parser.prog()
     visitor = MyVisitor()
-    visitor.visit(tree)
-    pass
+    build = visitor.visit(tree)
+    print(build.stringify())
 
 
 if __name__ == "__main__":
