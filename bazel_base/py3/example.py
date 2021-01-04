@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 
-import antlr4 as antlr
-from dist.BazelBuildVisitor import BazelBuildVisitor
-from dist.BazelBuildParser import BazelBuildParser
-from dist.BazelBuildLexer import BazelBuildLexer
 import sys
 
 sys.path.append('./BazelBase/base/base/')
 
 from BazelBase.base.base.BazelBuild import BazelBuild
+from BazelBase.base.base.CallMeta import CallMeta
+from BazelBase.base.base.Value import Value
+from BazelBase.base.base.SingleValue import SingleValue
+from BazelBase.base.base.MultiValue import MultiValue
+from BazelBase.base.base.Argument import Argument
+import antlr4 as antlr
+from dist.BazelBuildVisitor import BazelBuildVisitor
+from dist.BazelBuildParser import BazelBuildParser
+from dist.BazelBuildLexer import BazelBuildLexer
+
 
 class MyVisitor(BazelBuildVisitor):
     # Visit a parse tree produced by BazelBuildParser#prog.
@@ -51,7 +57,8 @@ class MyVisitor(BazelBuildVisitor):
 
     # Visit a parse tree produced by BazelBuildParser#multiV.
     def visitMultiV(self, ctx: BazelBuildParser.MultiVContext):
-        return self.visit(ctx.multi_value())
+        values = self.visit(ctx.multi_value())
+        return MultiValue(values)
 
     # Visit a parse tree produced by BazelBuildParser#multi_value.
     def visitMulti_value(self, ctx: BazelBuildParser.Multi_valueContext):
