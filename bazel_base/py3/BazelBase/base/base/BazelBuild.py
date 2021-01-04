@@ -11,7 +11,8 @@ class BazelBuild(Stringify.Stringify):
         return self.__call_metis
         
     def stringify(self) -> str:
-        pass
+        metis = self.get_call_metis()
+        return '' + len(metis)
         
     def __init__(self):
         super(BazelBuild, self).__init__()

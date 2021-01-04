@@ -1,5 +1,8 @@
 class BazelBuild
-!!!136450.python!!!	set_call_metis(in self : , in call_metis : List[CallMeta] [*]) : void
+!!!136450.python!!!	set_call_metis(in self : , in call_metis :  [*]) : None
 self.__call_metis = call_metis
-!!!137090.python!!!	get_call_metis(in self : ) : List[CallMeta]
+!!!137090.python!!!	get_call_metis(in self : )
 return self.__call_metis
+!!!145154.python!!!	stringify(in self : ) : str
+metis = self.get_call_metis()
+return '' + len(metis)
