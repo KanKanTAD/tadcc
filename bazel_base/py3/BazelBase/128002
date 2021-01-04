@@ -1002,6 +1002,7 @@ ${definition}"
       stereotype "source"
       python_src "${comment}
 ${import}
+from typing import List,Set,Tuple,Dict
 ${definition}"
       associated_elems
 	class_ref 128130 // CallMeta
