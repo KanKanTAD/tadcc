@@ -188,7 +188,7 @@ ${docstring}${body}
       end
 
       operation 137474 "get_arglist"
-	public explicit_return_type "List[Argument]"
+	public explicit_return_type "List"
 	nparams 1
 	  param in name "self" explicit_type ""
 	
