@@ -5,7 +5,7 @@ import Stringify
 from typing import List,Set,Tuple,Dict
 class CallMeta(Stringify.Stringify):
     def get_funcname(self):
-        pass
+        return self.__func_name
         
     def set_funcname(self, name: str) -> None:
         self.__func_name = name

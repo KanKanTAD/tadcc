@@ -1,4 +1,6 @@
 class CallMeta
+!!!135554.python!!!	get_funcname(in self : ) : str
+return self.__func_name
 !!!135682.python!!!	set_funcname(in self : , in name : str) : None
 self.__func_name = name
 !!!137474.python!!!	get_arglist(in self : ) : List
