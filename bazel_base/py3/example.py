@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
-import base.BazelBuild
-
-import sys
-from dist.BazelBuildLexer import BazelBuildLexer
-from dist.BazelBuildParser import BazelBuildParser
-from dist.BazelBuildVisitor import BazelBuildVisitor
 import antlr4 as antlr
+from dist.BazelBuildVisitor import BazelBuildVisitor
+from dist.BazelBuildParser import BazelBuildParser
+from dist.BazelBuildLexer import BazelBuildLexer
+import sys
 
+sys.path.append('./BazelBase/base/base/')
+
+from BazelBase.base.base.BazelBuild import BazelBuild
 
 class MyVisitor(BazelBuildVisitor):
     # Visit a parse tree produced by BazelBuildParser#prog.
