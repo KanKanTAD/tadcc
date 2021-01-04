@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 
-from BazelBase.base.base.BazelBuild import BazelBuild
-from BazelBase.base.base.CallMeta import CallMeta
-from BazelBase.base.base.Value import Value
-from BazelBase.base.base.SingleValue import SingleValue
-from BazelBase.base.base.MultiValue import MultiValue
+import base.BazelBuild
 
 import sys
 from dist.BazelBuildLexer import BazelBuildLexer
