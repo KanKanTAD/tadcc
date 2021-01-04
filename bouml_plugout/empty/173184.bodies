@@ -1,0 +1,43 @@
+class UmlBaseReadIsClassifiedObjectAction
+!!!341248.cpp!!!	create(inout parent : UmlItem, inout s : str) : UmlReadIsClassifiedObjectAction
+  return (UmlReadIsClassifiedObjectAction *) parent->create_(aReadIsClassifiedObjectAction, s);
+!!!341248.java!!!	create(inout parent : UmlItem, inout s : str) : UmlReadIsClassifiedObjectAction
+  return (UmlReadIsClassifiedObjectAction) parent.create_(anItemKind.aReadIsClassifiedObjectAction, s);
+!!!341376.cpp!!!	kind() : anItemKind
+  return aReadIsClassifiedObjectAction;
+!!!341376.java!!!	kind() : anItemKind
+  return anItemKind.aReadIsClassifiedObjectAction;
+!!!341504.cpp!!!	isDirect() : bool
+  read_if_needed_();
+  return _direct;
+!!!341504.java!!!	isDirect() : bool
+  read_if_needed_();
+  return _direct;
+!!!341632.cpp!!!	set_isDirect(in v : bool) : bool
+  return set_it_(_direct, v, setFlagCmd);
+!!!341632.java!!!	set_isDirect(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setFlagCmd, (v) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+
+  _direct = v;
+!!!341760.cpp!!!	classifier() : string
+  read_if_needed_();
+  return _classifier;
+!!!341760.java!!!	classifier() : string
+  read_if_needed_();
+  return _classifier;
+!!!341888.cpp!!!	set_Classifier(in v : string) : bool
+  return set_it_(_classifier, v, setUmlActivityCmd);
+!!!341888.java!!!	set_Classifier(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setUmlActivityCmd, v);
+  UmlCom.check();
+
+  _classifier = v;
+!!!342144.cpp!!!	read_uml_() : void
+  UmlBaseActivityAction::read_uml_();
+  _direct = UmlCom::read_bool();
+  _classifier = UmlCom::read_string();
+!!!342144.java!!!	read_uml_() : void
+  super.read_uml_();
+  _direct = UmlCom.read_bool();
+  _classifier = UmlCom.read_string();

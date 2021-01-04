@@ -1,0 +1,9 @@
+class UmlBaseReadSelfAction
+!!!338432.cpp!!!	create(inout parent : UmlItem, inout s : str) : UmlReadSelfAction
+  return (UmlReadSelfAction *) parent->create_(aReadSelfAction, s);
+!!!338432.java!!!	create(inout parent : UmlItem, inout s : str) : UmlReadSelfAction
+  return (UmlReadSelfAction) parent.create_(anItemKind.aReadSelfAction, s);
+!!!338560.cpp!!!	kind() : anItemKind
+  return aReadSelfAction;
+!!!338560.java!!!	kind() : anItemKind
+  return anItemKind.aReadSelfAction;

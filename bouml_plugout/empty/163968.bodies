@@ -1,0 +1,64 @@
+class UmlBaseRolePart
+!!!315264.cpp!!!	create(inout parent : UmlClass, inout s : str) : UmlRolePart
+  return (UmlRolePart *) parent->create_(aRolePart, s);
+!!!315264.java!!!	create(inout parent : UmlClass, inout s : str) : UmlRolePart
+  return (UmlRolePart) parent.create_(anItemKind.aRolePart, s);
+!!!315392.cpp!!!	kind() : anItemKind
+  return aRolePart;
+!!!315392.java!!!	kind() : anItemKind
+  return anItemKind.aRolePart;
+!!!315520.cpp!!!	isPart() : bool
+  read_if_needed_();
+  return _isPart;
+!!!315520.java!!!	isPart() : bool
+  read_if_needed_();
+  return _isPart;
+!!!315648.cpp!!!	set_isPart(in v : bool) : bool
+  return set_it_(_isPart, v, setIsPartCmd);
+!!!315648.java!!!	set_isPart(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setIsPartCmd, (v) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+
+  _isPart = v;
+!!!315776.cpp!!!	type() : UmlClass
+  read_if_needed_();
+  return _type;
+!!!315776.java!!!	type() : UmlClass
+  read_if_needed_();
+  return _type;
+!!!315904.cpp!!!	set_Type(in v : UmlClass) : bool
+  UmlCom::send_cmd(_identifier, setTypeCmd, (v == 0) ? (void *) v : ((UmlBaseItem *) v)->_identifier);
+  if (UmlCom::read_bool()) {
+    _type = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!315904.java!!!	set_Type(in v : UmlClass) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setTypeCmd, (v == null) ? (long) 0 : v.identifier_());
+  UmlCom.check();
+
+  _type = v;
+!!!316032.cpp!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!316032.java!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!316160.cpp!!!	set_Multiplicity(in v : string) : bool
+  return set_it_(_multiplicity, v, setMultiplicityCmd);
+!!!316160.java!!!	set_Multiplicity(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setMultiplicityCmd, v);
+  UmlCom.check();
+
+  _multiplicity = v;
+!!!316416.cpp!!!	read_uml_() : void
+  UmlBaseItem::read_uml_();
+  _isPart = UmlCom::read_bool();
+  _type = (UmlClass *) UmlBaseItem::read_();
+  _multiplicity = UmlCom::read_string();
+!!!316416.java!!!	read_uml_() : void
+  super.read_uml_();
+  _isPart = UmlCom.read_bool();
+  _type = (UmlClass) UmlBaseItem.read_();
+  _multiplicity = UmlCom.read_string();

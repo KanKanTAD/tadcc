@@ -1,0 +1,266 @@
+class UmlBasePort
+!!!311552.cpp!!!	create(inout parent : UmlClass, inout s : str) : UmlPort
+  return (UmlPort *) parent->create_(aPort, s);
+!!!311552.java!!!	create(inout parent : UmlClass, inout s : str) : UmlPort
+  return (UmlPort) parent.create_(anItemKind.aPort, s);
+!!!311680.cpp!!!	kind() : anItemKind
+  return aPort;
+!!!311680.java!!!	kind() : anItemKind
+  return anItemKind.aPort;
+!!!311808.cpp!!!	isReadOnly() : bool
+  read_if_needed_();
+  return _isReadOnly;
+!!!311808.java!!!	isReadOnly() : bool
+  read_if_needed_();
+  return _isReadOnly;
+!!!311936.cpp!!!	set_isReadOnly(in v : bool) : bool
+  UmlCom::send_cmd(_identifier, setReadOnlyCmd, (char) v);
+  if (UmlCom::read_bool()) {
+    _isReadOnly = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!311936.java!!!	set_isReadOnly(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setReadOnlyCmd, (v) ? 1 : 0);
+  UmlCom.check();
+
+  _isReadOnly = v;
+!!!312064.cpp!!!	isDerived() : bool
+  read_if_needed_();
+  return _isDerived;
+!!!312064.java!!!	isDerived() : bool
+  read_if_needed_();
+  return _isDerived;
+!!!312192.cpp!!!	set_isDerived(in v : bool) : bool
+  UmlCom::send_cmd(_identifier, setDerivedCmd, (char) v);
+  if (UmlCom::read_bool()) {
+    _isDerived = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!312192.java!!!	set_isDerived(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setDerivedCmd, (v) ? 1 : 0);
+  UmlCom.check();
+
+  _isDerived = v;
+!!!312320.cpp!!!	isBehavior() : bool
+  read_if_needed_();
+  return _isBehavior;
+!!!312320.java!!!	isBehavior() : bool
+  read_if_needed_();
+  return _isBehavior;
+!!!312448.cpp!!!	set_isBehavior(in v : bool) : bool
+  UmlCom::send_cmd(_identifier, setUmlEntryBehaviorCmd, (char) v);
+  if (UmlCom::read_bool()) {
+    _isBehavior = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!312448.java!!!	set_isBehavior(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setUmlEntryBehaviorCmd, (v) ? 1 : 0);
+  UmlCom.check();
+
+  _isBehavior = v;
+!!!312576.cpp!!!	isConjugated() : bool
+  read_if_needed_();
+  return _isConjugated;
+!!!312576.java!!!	isConjugated() : bool
+  read_if_needed_();
+  return _isConjugated;
+!!!312704.cpp!!!	set_isConjugated(in v : bool) : bool
+  UmlCom::send_cmd(_identifier, setIsConjugatedCmd, (char) v);
+  if (UmlCom::read_bool()) {
+    _isConjugated = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!312704.java!!!	set_isConjugated(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setIsConjugatedCmd, (v) ? 1 : 0);
+  UmlCom.check();
+
+  _isConjugated = v;
+!!!312832.cpp!!!	isService() : bool
+  read_if_needed_();
+  return _isService;
+!!!312832.java!!!	isService() : bool
+  read_if_needed_();
+  return _isService;
+!!!312960.cpp!!!	set_isService(in v : bool) : bool
+  UmlCom::send_cmd(_identifier, setIsServiceCmd, (char) v);
+  if (UmlCom::read_bool()) {
+    _isService = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!312960.java!!!	set_isService(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setIsServiceCmd, (v) ? 1 : 0);
+  UmlCom.check();
+
+  _isService = v;
+!!!313088.cpp!!!	type() : UmlClass
+  read_if_needed_();
+  return _type;
+!!!313088.java!!!	type() : UmlClass
+  read_if_needed_();
+  return _type;
+!!!313216.cpp!!!	set_Type(in v : UmlClass) : bool
+  UmlCom::send_cmd(_identifier, setTypeCmd, (v == 0) ? (void *) v : ((UmlBaseItem *) v)->_identifier);
+  if (UmlCom::read_bool()) {
+    _type = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!313216.java!!!	set_Type(in v : UmlClass) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setTypeCmd, (v == null) ? (long) 0 : v.identifier_());
+  UmlCom.check();
+
+  _type = v;
+!!!313344.cpp!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!313344.java!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!313472.cpp!!!	set_Multiplicity(in v : string) : bool
+  return set_it_(_multiplicity, v, setMultiplicityCmd);
+!!!313472.java!!!	set_Multiplicity(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setMultiplicityCmd, v);
+  UmlCom.check();
+
+  _multiplicity = v;
+!!!313600.cpp!!!	protocol() : UmlState
+  read_if_needed_();
+  return _protocol;
+!!!313600.java!!!	protocol() : UmlState
+  read_if_needed_();
+  return _protocol;
+!!!313728.cpp!!!	set_Protocol(in v : UmlState) : bool
+  UmlCom::send_cmd(_identifier, setProtocolCmd, (v == 0) ? (void *) v : ((UmlBaseItem *) v)->_identifier);
+  if (UmlCom::read_bool()) {
+    _protocol = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!313728.java!!!	set_Protocol(in v : UmlState) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setProtocolCmd, (v == null) ? (long) 0 : v.identifier_());
+  UmlCom.check();
+
+  _protocol = v;
+!!!313856.cpp!!!	defaultValue() : string
+  read_if_needed_();
+  return _default_value;
+!!!313856.java!!!	defaultValue() : string
+  read_if_needed_();
+  return _default_value;
+!!!313984.cpp!!!	set_DefaultValue(in v : string) : bool
+  return set_it_(_default_value, v, setDefaultValueCmd);
+!!!313984.java!!!	set_DefaultValue(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setDefaultValueCmd, v);
+  UmlCom.check();
+
+  _default_value = v;
+!!!314112.cpp!!!	providedClasses() : UmlClass [*]
+  read_if_needed_();
+  
+  return _provided;
+!!!314112.java!!!	providedClasses() : UmlClass [*]
+  read_if_needed_();
+  
+  return (UmlClass[]) _provided.clone();
+!!!314240.cpp!!!	requiredClasses() : UmlClass [*]
+  read_if_needed_();
+  
+  return _required;
+!!!314240.java!!!	requiredClasses() : UmlClass [*]
+  read_if_needed_();
+  
+  return (UmlClass[]) _required.clone();
+!!!314368.cpp!!!	set_AssociatedClasses(in provided : UmlClass, in required : UmlClass) : bool
+  Q3PtrVector<UmlClass> empty;
+  
+  UmlCom::send_cmd(_identifier, setAssocClassesCmd,
+		   empty, provided, required);
+  if (UmlCom::read_bool()) {
+    if (_defined) {
+      _provided = provided;
+      _required = required;
+    }
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!314368.java!!!	set_AssociatedClasses(in provided : UmlClass, in required : UmlClass) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setAssocClassesCmd,
+		   UmlClass[0], provided, required);
+  UmlCom.check();
+  if (defined_()) {
+    _provided = provided;
+    _required = required;
+  }
+!!!314496.cpp!!!	unload(in rec : bool, in del : bool) : void
+  _provided.clear();
+  _required.clear();
+  UmlBaseItem::unload(rec, del);
+!!!314496.java!!!	unload(in rec : bool, in del : bool) : void
+  _provided = null;
+  _required = null;
+  super.unload(rec, del);
+!!!314752.cpp!!!	read_uml_() : void
+  UmlBaseItem::read_uml_();
+  _isReadOnly = UmlCom::read_bool();
+  _isDerived = UmlCom::read_bool();
+  _isBehavior = UmlCom::read_bool();
+  _isConjugated = UmlCom::read_bool();
+  _isService = UmlCom::read_bool();
+  _type = (UmlClass *) UmlBaseItem::read_();
+  _multiplicity = UmlCom::read_string();
+  _protocol = (UmlState *) UmlBaseItem::read_();
+  _default_value = UmlCom::read_string();
+  
+  unsigned n;
+  unsigned index;
+  
+  n = UmlCom::read_unsigned();
+  _provided.resize(n);
+  
+  for (index = 0; index != n; index += 1)
+  _provided.insert(index, (UmlClass *) UmlBaseItem::read_());
+  
+  n = UmlCom::read_unsigned();
+  _required.resize(n);
+  
+  for (index = 0; index != n; index += 1)
+    _required.insert(index, (UmlClass *) UmlBaseItem::read_());
+!!!314752.java!!!	read_uml_() : void
+  super.read_uml_();
+  _isReadOnly = UmlCom.read_bool();
+  _isDerived = UmlCom.read_bool();
+  _isBehavior = UmlCom.read_bool();
+  _isConjugated = UmlCom.read_bool();
+  _isService = UmlCom.read_bool();
+  _type = (UmlClass) UmlBaseItem.read_();
+  _multiplicity = UmlCom.read_string();
+  _protocol = (UmlState) UmlBaseItem.read_();
+  _default_value = UmlCom.read_string();
+  
+  int n;
+  int index;
+  
+  n = UmlCom.read_unsigned();
+  _provided = new UmlClass[n];
+  
+  for (index = 0; index != n; index += 1)
+  _provided[index] = (UmlClass) UmlBaseItem.read_();
+  
+  n = UmlCom.read_unsigned();
+  _required = new UmlClass[n];
+  
+  for (index = 0; index != n; index += 1)
+    _required[index] = (UmlClass) UmlBaseItem.read_();

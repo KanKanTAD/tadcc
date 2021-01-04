@@ -1,0 +1,447 @@
+format 5
+
+"IHM" // IHM
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributs default hide_operations default show_full_members_definition default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default
+  //use case diagram settings
+  package_name_in_tab default show_context default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontaly default drawing_language default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontaly default drawing_language default
+  //component diagram settings
+  package_name_in_tab default show_context default
+  
+  classview 128203 "IHM"
+    //class diagram settings
+    draw_all_relations default hide_attributs default hide_operations default show_full_members_definition default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default
+    //class settings
+    class 128203 "Dialog"
+      
+      cpp_decl "${comment}${template}class ${name} : public QDialog {
+${members}};
+
+${inlines}
+"
+      java_decl "${comment}${public}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      associated_component component_ref 128075 // Dialog
+      extra_member 128075 "Q_OBJECT"
+	
+	cpp "  Q_OBJECT" ""
+	java ""
+	idl ""
+      end
+
+      operation 128587 "Dialog"
+	public explicit_return_type ""
+	nparams 10
+	  param inout name "comp" explicit_type "UmlComponent"
+	  param in name "path_exe" explicit_type "string"
+	  param inout name "pro" explicit_type "string"
+	  param inout name "target" explicit_type "string"
+	  param inout name "tmplt" explicit_type "string"
+	  param inout name "config" explicit_type "string"
+	  param inout name "defines" explicit_type "string"
+	  param inout name "includepath" explicit_type "string"
+	  param inout name "dependpath" explicit_type "string"
+	  param inout name "objectsdir" explicit_type "string"
+	cpp_decl "    ${comment}${name}${(}${t0} * ${p0}, const ${t1} & ${p1},
+       ${t2} & ${p2}, ${t3} & ${p3}, ${t4} & ${p4}, ${t5} & ${p5},
+       ${t6} & ${p6}, ${t7} & ${p7}, ${t8} & ${p8},
+       ${t9} & ${p9}${)}${volatile}${throw};
+"
+	cpp_def "${inline}${class}::${name}${(}${t0} * ${p0}, const ${t1} & ${p1},
+               ${t2} & ${p2}, ${t3} & ${p3}, ${t4} & ${p4}, ${t5} & ${p5}, 
+               ${t6} & ${p6}, ${t7} & ${p7}, ${t8} & ${p8},
+               ${t9} & ${p9}${)}${volatile}${throw}
+  : QDialog(0, 0, TRUE), _comp(comp), _pro(pro), _target(target), _tmplt(tmplt),
+    _config(config), _defines(defines), _includepath(includepath), _dependpath(dependpath),
+    _objectsdir(objectsdir) {
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${synchronized}${name}${(}${)}${throws} {
+${body}}
+"
+	
+      end
+
+      attribut 128075 "_comp"
+	protected explicit_type "UmlComponent"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 128203 "_pro"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 128331 "_target"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 128459 "_tmplt"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 128587 "_config"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 128715 "_defines"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 128843 "_includepath"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 128971 "_dependpath"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129099 "_objectsdir"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} & ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129227 "edpro"
+	protected explicit_type "QLineEdit"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129355 "browsepro"
+	protected explicit_type "QPushButton"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129483 "edtarget"
+	protected explicit_type "QLineEdit"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129611 "browsetarget"
+	protected explicit_type "QPushButton"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129739 "cbtemplate"
+	protected explicit_type "QComboBox"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129867 "cbconf"
+	protected explicit_type "QComboBox"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}[5]${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 129995 "eddefines"
+	protected explicit_type "QLineEdit"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 130123 "edincludepath"
+	protected explicit_type "QLineEdit"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      classrelation 128203 // computeincludepath (<unidirectional association>)
+	relation 128203 --->
+	  a role_name "computeincludepath" multiplicity "" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 128203 // computeincludepath (<unidirectional association>)
+	  b parent class_ref 128459 // SmallPushButton
+      end
+
+      attribut 130251 "eddependpath"
+	protected explicit_type "QLineEdit"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 130379 "edobjectsdir"
+	protected explicit_type "QLineEdit"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      attribut 130507 "browseobjectsdir"
+	protected explicit_type "QPushButton"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl "  ${comment}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	idl_decl ""
+      end
+
+      extra_member 128203 "slots"
+	
+	cpp "  protected slots:" ""
+	java ""
+	idl ""
+      end
+
+      operation 128715 "accept"
+	cpp_virtual protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${virtual}${type} ${name}${(}${)}${const}${volatile}${abstract};"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+${body}}
+"
+	
+      end
+
+      operation 128843 "browse_pro"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${virtual}${type} ${name}${(}${)}${const}${volatile}${abstract};"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+${body}}
+"
+	
+      end
+
+      operation 128971 "browse_target"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${virtual}${type} ${name}${(}${)}${const}${volatile}${abstract};"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+${body}}
+"
+	
+      end
+
+      operation 129099 "compute_includepath"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${virtual}${type} ${name}${(}${)}${const}${volatile}${abstract};"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+${body}}
+"
+	
+      end
+
+      operation 129227 "browse_objectsdir"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${virtual}${type} ${name}${(}${)}${const}${volatile}${abstract};"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+${body}}
+"
+	
+      end
+    end
+
+    class 128459 "SmallPushButton"
+      
+      cpp_decl "${comment}${template}class ${name} : public QPushButton {
+${members}};
+
+${inlines}
+"
+      java_decl "${comment}${public}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      associated_component component_ref 128203 // SmallPushButton
+      operation 129355 "SmallPushButton"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "text" explicit_type "QString"
+	  param inout name "parent" explicit_type "QWidget"
+	cpp_decl "    ${comment}${name}${(}const ${t0} & ${p0}, ${t1} * ${p1}${)}${volatile};"
+	cpp_def "${inline}${class}::${name}${(}const ${t0} & ${p0}, ${t1} * ${p1}${)}
+  : QPushButton(text, parent) {}
+"
+	java_def "  ${comment}${visibility}${final}${synchronized}${name}${(}${)}${throws} {
+${body}}
+"
+	
+      end
+
+      operation 129483 "sizeHint"
+	const cpp_virtual public explicit_return_type "QSize"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${virtual}${type} ${name}${(}${)}${const}${volatile}${abstract};"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+${body}}
+"
+	
+      end
+    end
+  end
+
+  componentview 128203 "IHM"
+    //component diagram settings
+    package_name_in_tab default show_context default
+    component 128075 "Dialog"
+      stereotype "source"
+      cpp_h "#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${comment}
+${includes}
+#include <qdialog.h>
+#include <qcombobox.h>
+${declarations}
+class QLineEdit;
+class SmallPushButton;
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+#include <qlineedit.h>
+#include <qgrid.h>
+#include <qlayout.h>
+#include <qhbox.h>
+#include <qdir.h>
+#include <qlabel.h>
+#include <qfiledialog.h>
+
+#include \"SmallPushButton.h\"
+
+${namespace_start}
+${members}
+${namespace_end}"
+      java_src "${comment}
+${package}
+${definition}"
+    end
+
+    component 128203 "SmallPushButton"
+      stereotype "source"
+      cpp_h "#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${comment}
+${includes}
+#include <qpushbutton.h>
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+#include <qfontmetrics.h>
+${namespace_start}
+${members}
+${namespace_end}"
+      java_src "${comment}
+${package}
+${definition}"
+    end
+  end
+end

@@ -1,0 +1,29 @@
+class UmlReadExtentAction
+!!!408962.cpp!!!	sKind() : string
+  return "read extent activity action";
+!!!408962.java!!!	sKind() : string
+  return "read extent activity action";
+!!!408578.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  UmlActivityAction::html();
+
+  if (!classifier().isEmpty()){
+    fw.write("<p>Classifier : ");
+    fw.write(classifier());
+    fw.write("</p>");
+  }
+  
+  write_children(pfix, rank, level);
+
+  unload(FALSE, FALSE);
+!!!408578.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  super.html();
+
+  if (classifier().length() != 0) {
+    fw.write("<p>Classifier : ");
+    fw.write(classifier());
+    fw.write("</p>");
+  }
+  
+  write_children(pfix, rank, level);
+
+  unload(false, false);

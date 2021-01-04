@@ -1,0 +1,58 @@
+class UmlBaseReclassifyObjectAction
+!!!339840.cpp!!!	create(inout parent : UmlItem, inout s : str) : UmlReclassifyObjectAction
+  return (UmlReclassifyObjectAction *) parent->create_(aReclassifyObjectAction, s);
+!!!339840.java!!!	create(inout parent : UmlItem, inout s : str) : UmlReclassifyObjectAction
+  return (UmlReclassifyObjectAction) parent.create_(anItemKind.aReclassifyObjectAction, s);
+!!!339968.cpp!!!	kind() : anItemKind
+  return aReclassifyObjectAction;
+!!!339968.java!!!	kind() : anItemKind
+  return anItemKind.aReclassifyObjectAction;
+!!!340096.cpp!!!	isReplaceAll() : bool
+  read_if_needed_();
+  return _replace_all;
+!!!340096.java!!!	isReplaceAll() : bool
+  read_if_needed_();
+  return _replace_all;
+!!!340224.cpp!!!	set_isReplaceAll(in v : bool) : bool
+  return set_it_(_replace_all, v, setFlagCmd);
+!!!340224.java!!!	set_isReplaceAll(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setFlagCmd, (v) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+
+  _replace_all = v;
+!!!340352.cpp!!!	oldClassifier() : string
+  read_if_needed_();
+  return _old_classifier;
+!!!340352.java!!!	oldClassifier() : string
+  read_if_needed_();
+  return _old_classifier;
+!!!340480.cpp!!!	set_OldClassifier(in v : string) : bool
+  return set_it_(_old_classifier, v, setUmlActivityCmd);
+!!!340480.java!!!	set_OldClassifier(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setUmlActivityCmd, v);
+  UmlCom.check();
+
+  _old_classifier = v;
+!!!340608.cpp!!!	newClassifier() : string
+  read_if_needed_();
+  return _new_classifier;
+!!!340608.java!!!	newClassifier() : string
+  read_if_needed_();
+  return _new_classifier;
+!!!340736.cpp!!!	set_NewClassifier(in v : string) : bool
+  return set_it_(_new_classifier, v, setUmlGuardCmd);
+!!!340736.java!!!	set_NewClassifier(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setUmlGuardCmd, v);
+  UmlCom.check();
+
+  _new_classifier = v;
+!!!340992.cpp!!!	read_uml_() : void
+  UmlBaseActivityAction::read_uml_();
+  _replace_all = UmlCom::read_bool();
+  _old_classifier = UmlCom::read_string();
+  _new_classifier = UmlCom::read_string();
+!!!340992.java!!!	read_uml_() : void
+  super.read_uml_();
+  _replace_all = UmlCom.read_bool();
+  _old_classifier = UmlCom.read_string();
+  _new_classifier = UmlCom.read_string();

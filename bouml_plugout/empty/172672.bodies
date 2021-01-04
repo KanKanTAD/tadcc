@@ -1,0 +1,28 @@
+class UmlBaseReadExtentAction
+!!!338944.cpp!!!	create(inout parent : UmlItem, inout s : str) : UmlReadExtentAction
+  return (UmlReadExtentAction *) parent->create_(aReadExtentAction, s);
+!!!338944.java!!!	create(inout parent : UmlItem, inout s : str) : UmlReadExtentAction
+  return (UmlReadExtentAction) parent.create_(anItemKind.aReadExtentAction, s);
+!!!339072.cpp!!!	kind() : anItemKind
+  return aReadExtentAction;
+!!!339072.java!!!	kind() : anItemKind
+  return anItemKind.aReadExtentAction;
+!!!339200.cpp!!!	classifier() : string
+  read_if_needed_();
+  return _classifier;
+!!!339200.java!!!	classifier() : string
+  read_if_needed_();
+  return _classifier;
+!!!339328.cpp!!!	set_Classifier(in v : string) : bool
+  return set_it_(_classifier, v, setUmlActivityCmd);
+!!!339328.java!!!	set_Classifier(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setUmlActivityCmd, v);
+  UmlCom.check();
+
+  _classifier = v;
+!!!339584.cpp!!!	read_uml_() : void
+  UmlBaseActivityAction::read_uml_();
+  _classifier = UmlCom::read_string();
+!!!339584.java!!!	read_uml_() : void
+  super.read_uml_();
+  _classifier = UmlCom.read_string();

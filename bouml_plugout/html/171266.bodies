@@ -1,0 +1,35 @@
+class UmlReadIsClassifiedObjectAction
+!!!415618.cpp!!!	sKind() : string
+  return "read is classified object activity action";
+!!!415618.java!!!	sKind() : string
+  return "read is classified object activity action";
+!!!415490.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  UmlActivityAction::html();
+
+  if (isDirect())
+    fw.write("<p>Direct</p>");
+
+  if (!classifier().isEmpty()){
+    fw.write("<p>Classifier : ");
+    fw.write(classifier());
+    fw.write("</p>");
+  }
+  
+  write_children(pfix, rank, level);
+
+  unload(FALSE, FALSE);
+!!!415490.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  super.html();
+
+  if (isDirect())
+    fw.write("<p>Direct</p>");
+
+  if (classifier().length() != 0) {
+    fw.write("<p>Classifier : ");
+    fw.write(classifier());
+    fw.write("</p>");
+  }
+  
+  write_children(pfix, rank, level);
+
+  unload(false, false);

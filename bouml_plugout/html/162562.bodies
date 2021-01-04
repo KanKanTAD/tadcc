@@ -1,0 +1,35 @@
+class UmlPortRef
+!!!361858.cpp!!!	sKind() : string
+  return "port reference";
+
+!!!361858.java!!!	sKind() : string
+  return "port reference";
+!!!361730.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write("<table><tr><td><div class=\"element\">Port reference <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>");
+  
+  fw.write("<p>port :");
+  port()->write();
+  fw.write("</p>");
+  
+  write_children(pfix, rank, level);
+
+  unload(FALSE, FALSE);
+!!!361730.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write("<table><tr><td><div class=\"element\">Port reference <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>");
+  
+  fw.write("<p>port :");
+  port().write();
+  fw.write("</p>");
+
+  write_children(pfix, rank, level);
+
+  unload(false, false);
+

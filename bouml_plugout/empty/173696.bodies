@@ -1,0 +1,26 @@
+class UmlBaseStructuralFeatureAction
+!!!342912.cpp!!!	structuralFeature() : UmlItem
+  read_if_needed_();
+  return _structural_feature;
+!!!342912.java!!!	structuralFeature() : UmlItem
+  read_if_needed_();
+  return _structural_feature;
+!!!343040.cpp!!!	set_StructuralFeature(in v : UmlItem) : bool
+  UmlCom::send_cmd(_identifier, setDefCmd, (v == 0) ? (void *) v : ((UmlBaseItem *) v)->_identifier);
+  if (UmlCom::read_bool()) {
+    _structural_feature = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!343040.java!!!	set_StructuralFeature(in v : UmlItem) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setDefCmd, (v == null) ? (long) 0 : v.identifier_());
+  UmlCom.check();
+
+  _structural_feature = v;
+!!!343296.cpp!!!	read_uml_() : void
+  UmlBaseActivityAction::read_uml_();
+  _structural_feature = UmlBaseItem::read_();
+!!!343296.java!!!	read_uml_() : void
+  super.read_uml_();
+  _structural_feature = UmlBaseItem.read_();

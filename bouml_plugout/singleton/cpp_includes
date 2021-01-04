@@ -1,0 +1,17 @@
+// "a type" "needed cpp_includes"
+"Q3PtrVector" "#include <q3ptrvector.h>"
+
+"Q3PtrList" "#include <q3ptrlist.h>"
+
+"Q3ValueList" "#include <q3valuelist.h>"
+
+"Q3Dict" "#include <q3dict.h>"
+
+"QString" "#include <qstring.h>"
+
+"QByteArray" "#include <qbytearray.h>"
+
+"Q3PtrDict" "#include <q3ptrdict.h>"
+
+"Q3SocketDevice" "#include <q3socketdevice.h>"
+

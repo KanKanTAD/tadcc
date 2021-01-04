@@ -1,0 +1,19 @@
+class UmlStructuralFeatureAction
+!!!416002.cpp!!!	html() : void
+  UmlActivityAction::html();
+
+  if (structuralFeature() != 0){
+    fw.write("<p>structural feature : ");
+    structuralFeature()->write();
+    fw.write("</p>");
+  }
+
+!!!416002.java!!!	html() : void
+  super.html();
+
+  if (structuralFeature() != null){
+    fw.write("<p>structural feature : ");
+    structuralFeature().write();
+    fw.write("</p>");
+  }
+

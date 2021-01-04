@@ -1,0 +1,24 @@
+class UnresolvedComment
+!!!303874.cpp!!!	add(in ids : Q3ValueList<QByteArray>, in comment : string) : void
+  All.append(UnresolvedComment());
+  
+  UnresolvedComment & r = All.last();
+  
+  r.comment = comment;
+  r.ids = ids;
+!!!304002.cpp!!!	solveThem() : void
+  Q3ValueList<UnresolvedComment>::Iterator itc;
+  QMap<QByteArray, UmlItem *>::Iterator itui;
+  
+  for (itc = All.begin(); itc != All.end(); ++itc) {
+    UnresolvedComment & x = *itc;
+	
+    Q3ValueList<QByteArray>::Iterator itid;
+    
+    for (itid = x.ids.begin(); itid != x.ids.end(); ++itid) {
+      itui = UmlItem::All.find(*itid);
+      if (itui != UmlItem::All.end())
+	(*itui)->set_Description(x.comment);
+    }
+  }
+

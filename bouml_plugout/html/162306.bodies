@@ -1,0 +1,86 @@
+class UmlRolePartInstance
+!!!361346.cpp!!!	sKind() : string
+  return (type()->isPart()) ? "part instance" : "role instance";
+
+!!!361346.java!!!	sKind() : string
+  return (type().isPart()) ? "part instance" : "role instance";
+!!!361218.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write((type()->isPart())
+	   ? "<table><tr><td><div class=\"element\">Part instance  <b>"
+	   : "<table><tr><td><div class=\"element\">Role instance  <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>");
+  
+  write_description();
+
+  fw.write("<p>type :");
+  type()->write();
+  fw.write("</p>");
+  
+  Q3ValueList<SlotAttribute> va;
+  
+  attributesValue(va);
+  
+  if (!va.isEmpty()) {
+    fw.write("<p>attributes :</p><ul>\n");
+    
+    Q3ValueList<SlotAttribute>::Iterator it;
+    
+    for (it = va.begin(); it != va.end(); ++it) {
+      SlotAttribute & slot = *it;
+
+      fw.write("<li>");
+      slot.attribute->write();
+      fw.write(" = ");
+      writeq(slot.value);
+      fw.write("</li>\n");
+    }
+    fw.write("</ul>");
+  }
+
+  write_properties();
+
+  write_children(pfix, rank, level);
+
+  unload(FALSE, FALSE);
+!!!361218.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write((type().isPart())
+	   ? "<table><tr><td><div class=\"element\">Part instance  <b>"
+	   : "<table><tr><td><div class=\"element\">Role instance  <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>");
+  
+  write_description();
+
+  fw.write("<p>type :");
+  type().write();
+  fw.write("</p>");
+
+  SlotAttribute[] va = attributesValue();
+  int n = va.length;
+  
+  if (n != 0) {
+    fw.write("<p>attributes :</p><ul>\n");
+    
+    while (n-- > 0) {
+      SlotAttribute slot = va[n];
+
+      fw.write("<li>");
+      slot.attribute.write();
+      fw.write(" = ");
+      writeq(slot.value);
+      fw.write("</li>\n");
+    }
+    fw.write("</ul>");
+  }
+  
+  write_properties();
+
+  write_children(pfix, rank, level);
+
+  unload(false, false);
+

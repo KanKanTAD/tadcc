@@ -1,0 +1,156 @@
+class UmlBaseExtraArtifactDefinition
+!!!288640.cpp!!!	create(inout parent : UmlArtifact, inout s : str) : UmlExtraArtifactDefinition
+  return (UmlExtraArtifactDefinition *) parent->create_(anExtraArtifactDefinition, s);
+!!!288640.java!!!	create(inout parent : UmlArtifact, inout s : str) : UmlExtraArtifactDefinition
+  return (UmlExtraArtifactDefinition) parent.create_(anItemKind.anExtraArtifactDefinition, s);
+!!!288768.cpp!!!	kind() : anItemKind
+  return anExtraArtifactDefinition;
+!!!288768.java!!!	kind() : anItemKind
+  return anItemKind.anExtraArtifactDefinition;
+!!!289024.cpp!!!	cppDecl() : string
+  read_if_needed_();
+  return _cpp_decl;
+!!!289024.java!!!	cppDecl() : string
+  read_if_needed_();
+  return _cpp_decl;
+!!!289152.cpp!!!	set_CppDecl(in v : str) : bool
+  return set_it_(_cpp_decl, v, setCppDeclCmd);
+!!!289152.java!!!	set_CppDecl(in v : str) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setCppDeclCmd, v);
+  UmlCom.check();
+
+  _cpp_decl = v;
+!!!289280.cpp!!!	cppDef() : string
+  read_if_needed_();
+  return _cpp_def;
+!!!289280.java!!!	cppDef() : string
+  read_if_needed_();
+  return _cpp_def;
+!!!289408.cpp!!!	set_CppDef(in v : str) : bool
+  return set_it_(_cpp_def, v, setCppDefCmd);
+!!!289408.java!!!	set_CppDef(in v : str) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setCppDefCmd, v);
+  UmlCom.check();
+
+  _cpp_def = v;
+!!!289536.cpp!!!	javaDecl() : string
+  read_if_needed_();
+  return _java_decl;
+!!!289536.java!!!	javaDecl() : string
+  read_if_needed_();
+  return _java_decl;
+!!!289664.cpp!!!	set_JavaDecl(in v : str) : bool
+  return set_it_(_java_decl, v, setJavaDeclCmd);
+!!!289664.java!!!	set_JavaDecl(in v : str) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setJavaDeclCmd, v);
+  UmlCom.check();
+
+  _java_decl = v;
+!!!289792.cpp!!!	phpDecl() : string
+  read_if_needed_();
+  return _php_decl;
+!!!289792.java!!!	phpDecl() : string
+  read_if_needed_();
+  return _php_decl;
+!!!289920.cpp!!!	set_PhpDecl(in v : str) : bool
+  return set_it_(_php_decl, v, setPhpDeclCmd);
+!!!289920.java!!!	set_PhpDecl(in v : str) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setPhpDeclCmd, v);
+  UmlCom.check();
+
+  _php_decl = v;
+!!!290048.cpp!!!	pythonDecl() : string
+  read_if_needed_();
+  return _python_decl;
+!!!290048.java!!!	pythonDecl() : string
+  read_if_needed_();
+  return _python_decl;
+!!!290176.cpp!!!	set_PythonDecl(in v : str) : bool
+  return set_it_(_python_decl, v, setPhpDeclCmd);
+!!!290176.java!!!	set_PythonDecl(in v : str) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setPhpDeclCmd, v);
+  UmlCom.check();
+
+  _python_decl = v;
+!!!290304.cpp!!!	idlDecl() : string
+  read_if_needed_();
+  return _idl_decl;
+!!!290304.java!!!	idlDecl() : string
+  read_if_needed_();
+  return _idl_decl;
+!!!290432.cpp!!!	set_IdlDecl(in v : str) : bool
+  return set_it_(_idl_decl, v, setPhpDeclCmd);
+!!!290432.java!!!	set_IdlDecl(in v : str) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setPhpDeclCmd, v);
+  UmlCom.check();
+
+  _idl_decl = v;
+!!!290560.cpp!!!	mysqlDecl() : string
+  read_if_needed_();
+  return _mysql_decl;
+!!!290560.java!!!	mysqlDecl() : string
+  read_if_needed_();
+  return _mysql_decl;
+!!!290688.cpp!!!	set_MysqlDecl(in v : str) : bool
+  return set_it_(_mysql_decl, v, setPhpDeclCmd);
+!!!290688.java!!!	set_MysqlDecl(in v : str) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setPhpDeclCmd, v);
+  UmlCom.check();
+
+  _mysql_decl = v;
+!!!290816.cpp!!!	unload(in rec : bool, in del : bool) : void
+#ifdef WITHCPP
+  _cpp_def = 0;
+  _cpp_decl = 0;
+#endif
+#ifdef WITHJAVA
+  _java_decl = 0;
+#endif
+#ifdef WITHPHP
+  _php_decl = 0;
+#endif
+#ifdef WITHPYTHON
+  _python_decl = 0;
+#endif
+#ifdef WITHIDL
+  _idl_decl = 0;
+#endif
+#ifdef WITHMYSQL
+  _mysql_decl = 0;
+#endif
+  UmlBaseItem::unload(rec, del);
+!!!290816.java!!!	unload(in rec : bool, in del : bool) : void
+  _cpp_def = null;
+  _cpp_decl = null;
+  _java_decl = null;
+  _idl_decl = null;
+  _php_decl = null;
+  _python_decl = null;
+  _mysql_decl = null;
+  super.unload(rec, del);
+!!!290944.cpp!!!	read_cpp_() : void
+  _cpp_decl = UmlCom::read_string();
+  _cpp_def = UmlCom::read_string();
+!!!290944.java!!!	read_cpp_() : void
+  _cpp_decl = UmlCom.read_string();
+  _cpp_def = UmlCom.read_string();
+!!!291072.cpp!!!	read_java_() : void
+  _java_decl = UmlCom::read_string();
+!!!291072.java!!!	read_java_() : void
+  _java_decl = UmlCom.read_string();
+!!!291200.cpp!!!	read_php_() : void
+  _php_decl = UmlCom::read_string();
+!!!291200.java!!!	read_php_() : void
+  _php_decl = UmlCom.read_string();
+!!!291328.cpp!!!	read_python_() : void
+  _python_decl = UmlCom::read_string();
+!!!291328.java!!!	read_python_() : void
+  _python_decl = UmlCom.read_string();
+!!!291456.cpp!!!	read_idl_() : void
+  _idl_decl = UmlCom::read_string();
+!!!291456.java!!!	read_idl_() : void
+  _idl_decl = UmlCom.read_string();
+!!!291584.cpp!!!	read_mysql_() : void
+  _mysql_decl = UmlCom::read_string();
+!!!291584.java!!!	read_mysql_() : void
+  _mysql_decl = UmlCom.read_string();

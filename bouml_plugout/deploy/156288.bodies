@@ -1,0 +1,172 @@
+class MysqlSettings
+!!!260736.cpp!!!	useDefaults() : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, getMysqlUseDefaultsCmd);
+  return UmlCom::read_bool();
+!!!260736.java!!!	useDefaults() : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._getMysqlUseDefaultsCmd);
+  return UmlCom.read_bool();
+!!!260864.cpp!!!	set_UseDefaults(in y : bool) : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, setMysqlUseDefaultsCmd, (char) y);
+  return UmlCom::read_bool();
+!!!260864.java!!!	set_UseDefaults(in y : bool) : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._setMysqlUseDefaultsCmd,
+		  (y) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+!!!260992.cpp!!!	rootDir() : string
+  read_if_needed_();
+
+  return _root;
+!!!260992.java!!!	rootDir() : string
+  read_if_needed_();
+
+  return _root;
+!!!261120.cpp!!!	set_RootDir(in v : string) : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, setMysqlRootDirCmd, v);
+  if (UmlCom::read_bool()) {
+    _root = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!261120.java!!!	set_RootDir(in v : string) : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._setMysqlRootDirCmd, v);
+  UmlCom.check();
+
+  _root = v;
+!!!261248.cpp!!!	sourceContent() : string
+  read_if_needed_();
+
+  return _src_content;
+!!!261248.java!!!	sourceContent() : string
+  read_if_needed_();
+
+  return _src_content;
+!!!261376.cpp!!!	set_SourceContent(in v : string) : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, setMysqlSourceContentCmd, v);
+  if (UmlCom::read_bool()) {
+    _src_content = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!261376.java!!!	set_SourceContent(in v : string) : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._setMysqlSourceContentCmd, v);
+  UmlCom.check();
+
+  _src_content = v;
+!!!261504.cpp!!!	sourceExtension() : string
+  read_if_needed_();
+
+  return _ext;
+!!!261504.java!!!	sourceExtension() : string
+  read_if_needed_();
+
+  return _ext;
+!!!261632.cpp!!!	set_SourceExtension(in v : string) : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, setMysqlSourceExtensionCmd, v);
+  if (UmlCom::read_bool()) {
+    _ext = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!261632.java!!!	set_SourceExtension(in v : string) : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._setMysqlSourceExtensionCmd, v);
+  UmlCom.check();
+
+  _ext = v;
+!!!261760.cpp!!!	tableDecl() : string
+  read_if_needed_();
+
+  return _table_def;
+!!!261760.java!!!	tableDecl() : string
+  read_if_needed_();
+
+  return _table_def;
+!!!261888.cpp!!!	set_TableDecl(in v : string) : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, setMysqlTableDeclCmd, v);
+  if (UmlCom::read_bool()) {
+    _table_def = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!261888.java!!!	set_TableDecl(in v : string) : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._setMysqlTableDeclCmd, v);
+  UmlCom.check();
+
+  _table_def = v;
+!!!262016.cpp!!!	columnDecl() : string
+  read_if_needed_();
+
+  return _column_def;
+!!!262016.java!!!	columnDecl() : string
+  read_if_needed_();
+
+  return _column_def;
+!!!262144.cpp!!!	set_ColumnDecl(in v : string) : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, setMysqlColumnDeclCmd, v);
+  if (UmlCom::read_bool()) {
+    _column_def = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!262144.java!!!	set_ColumnDecl(in v : string) : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._setMysqlColumnDeclCmd, v);
+  UmlCom.check();
+
+  _column_def = v;
+!!!262272.cpp!!!	keyDecl() : string
+  read_if_needed_();
+
+  return _key_def;
+!!!262272.java!!!	keyDecl() : string
+  read_if_needed_();
+
+  return _key_def;
+!!!262400.cpp!!!	set_KeyDecl(in v : string) : bool
+  UmlCom::send_cmd(mysqlSettingsCmd, setMysqlKeyDeclCmd, v);
+  if (UmlCom::read_bool()) {
+    _key_def = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!262400.java!!!	set_KeyDecl(in v : string) : bool
+  UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._setMysqlKeyDeclCmd, v);
+  UmlCom.check();
+
+  _key_def = v;
+!!!262656.cpp!!!	read_() : void
+  _root = UmlCom::read_string();
+  
+  _src_content = UmlCom::read_string();
+  _ext = UmlCom::read_string();
+
+  _table_def = UmlCom::read_string();
+  _column_def = UmlCom::read_string();
+  _key_def = UmlCom::read_string();
+!!!262656.java!!!	read_() : void
+  _root = UmlCom.read_string();
+  
+  _src_content = UmlCom.read_string();
+  _ext = UmlCom.read_string();
+
+  _table_def = UmlCom.read_string();
+  _column_def = UmlCom.read_string();
+  _key_def = UmlCom.read_string();
+!!!262784.cpp!!!	read_if_needed_() : void
+  UmlSettings::read_if_needed_();
+  if (!_defined) {
+    UmlCom::send_cmd(mysqlSettingsCmd, getMysqlSettingsCmd);
+    read_();
+    _defined = TRUE;
+  }
+!!!262784.java!!!	read_if_needed_() : void
+  UmlSettings.read_if_needed_();
+  if (!_defined) {
+    UmlCom.send_cmd(CmdFamily.mysqlSettingsCmd, MysqlSettingsCmd._getMysqlSettingsCmd);
+    read_();
+    _defined = true;
+  }

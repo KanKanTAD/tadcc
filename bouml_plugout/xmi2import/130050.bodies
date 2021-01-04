@@ -1,0 +1,38 @@
+class UmlInitialPseudoState
+!!!197634.cpp!!!	init() : void
+  declareFct("connectionPoint", "uml:Pseudostate", &importIt);
+
+!!!197506.cpp!!!	importIt(inout in : FileIn, inout token : Token, inout where : UmlItem) : void
+  where = where->container(anInitialPseudoState, token, in);
+    
+  if (where != 0) {
+    QByteArray s = token.valueOf("name");
+    
+    if (s.isEmpty()) {
+      static unsigned n = 0;
+      char sn[16];
+      
+      sprintf(sn, "%u", ++n);
+      s = "anonymous_initial_pseudo_state_";
+      s += sn;
+    }
+    
+    Uml? * cp;
+    
+    
+    = create((UmlState *) where, s);
+    
+    if (cp == 0)
+      in.error("cannot create initial pseudo state '" + s +
+	       "' in '" + where->name() + "'");
+    
+    cp->addItem(token.xmiId(), in);
+    
+    if (! token.closed()) {
+      QByteArray k = token.what();
+      const char * kstr = k;
+      
+      while (in.read(), !token.close(kstr))
+	cp->UmlItem::import(in, token);
+    }
+  }

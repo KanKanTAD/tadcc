@@ -1,0 +1,17 @@
+class UmlReadStructuralFeatureAction
+!!!416386.cpp!!!	sKind() : string
+  return "read structural feature activity action";
+!!!416386.java!!!	sKind() : string
+  return "read structural feature activity action";
+!!!416258.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  UmlStructuralFeatureAction::html();
+  
+  write_children(pfix, rank, level);
+
+  unload(FALSE, FALSE);
+!!!416258.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  super.html();
+  
+  write_children(pfix, rank, level);
+
+  unload(false, false);

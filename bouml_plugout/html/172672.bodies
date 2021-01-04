@@ -1,0 +1,28 @@
+class UmlBaseAddStructuralFeatureValueAction
+!!!393216.cpp!!!	create(inout parent : UmlWriteStructuralFeatureAction, inout s : str) : UmlAddStructuralFeatureValueAction
+  return (UmlAddStructuralFeatureValueAction *) parent->create_(anAddStructuralFeatureValueAction, s);
+!!!393216.java!!!	create(inout parent : UmlWriteStructuralFeatureAction, inout s : str) : UmlAddStructuralFeatureValueAction
+  return (UmlAddStructuralFeatureValueAction) parent.create_(anItemKind.anAddStructuralFeatureValueAction, s);
+!!!393344.cpp!!!	kind() : anItemKind
+  return anAddStructuralFeatureValueAction;
+!!!393344.java!!!	kind() : anItemKind
+  return anItemKind.anAddStructuralFeatureValueAction;
+!!!393472.cpp!!!	isReplaceAll() : bool
+  read_if_needed_();
+  return _replace_all;
+!!!393472.java!!!	isReplaceAll() : bool
+  read_if_needed_();
+  return _replace_all;
+!!!393600.cpp!!!	set_isReplaceAll(in v : bool) : bool
+  return set_it_(_replace_all, v, setFlagCmd);
+!!!393600.java!!!	set_isReplaceAll(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setFlagCmd, (v) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+
+  _replace_all = v;
+!!!393856.cpp!!!	read_uml_() : void
+  UmlBaseWriteStructuralFeatureAction::read_uml_();
+  _replace_all = UmlCom::read_bool();
+!!!393856.java!!!	read_uml_() : void
+  super.read_uml_();
+  _replace_all = UmlCom.read_bool();

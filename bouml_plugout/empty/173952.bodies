@@ -1,0 +1,9 @@
+class UmlBaseReadStructuralFeatureAction
+!!!343552.cpp!!!	create(inout parent : UmlStructuralFeatureAction, inout s : str) : UmlReadStructuralFeatureAction
+  return (UmlReadStructuralFeatureAction *) parent->create_(aReadStructuralFeatureAction, s);
+!!!343552.java!!!	create(inout parent : UmlStructuralFeatureAction, inout s : str) : UmlReadStructuralFeatureAction
+  return (UmlReadStructuralFeatureAction) parent.create_(anItemKind.aReadStructuralFeatureAction, s);
+!!!343680.cpp!!!	kind() : anItemKind
+  return aReadStructuralFeatureAction;
+!!!343680.java!!!	kind() : anItemKind
+  return anItemKind.aReadStructuralFeatureAction;

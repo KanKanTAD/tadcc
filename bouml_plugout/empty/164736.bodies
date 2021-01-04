@@ -1,0 +1,92 @@
+class UmlBaseConnector
+!!!318464.cpp!!!	create(in c1 : UmlConnectable, in c2 : UmlConnectable) : UmlConnector
+  UmlCom::send_cmd(c1->_identifier, createCmd, aConnector, c2->_identifier);
+  UmlConnector * result = (UmlConnector *) UmlBaseItem::read_();
+  
+  if (result != 0) {
+    c1->reread_children_if_needed_();
+    c2->reread_children_if_needed_();
+  }
+  
+  return result;
+!!!318464.java!!!	create(in c1 : UmlConnectable, in c2 : UmlConnectable) : UmlConnector
+  UmlCom.send_cmd(c1.identifier_(), OnInstanceCmd.createCmd,
+		  anItemKind.aConnector, c2.identifier_());
+    UmlConnector result = (UmlConnector) UmlBaseItem.read_();
+    
+    if (result != null) {
+      c1.reread_children_if_needed_();
+      c2.reread_children_if_needed_();
+      return result;
+    }
+    else
+      throw new RuntimeException("can't be created");
+!!!318592.cpp!!!	kind() : anItemKind
+  return aConnector;
+!!!318592.java!!!	kind() : anItemKind
+  return anItemKind.aConnector;
+!!!318720.cpp!!!	set_Name(in s : string) : bool
+  if (UmlBaseItem::set_Name(s)) {
+    ((UmlBaseConnector *) UmlBaseItem::read_())->_name = s;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!318720.java!!!	set_Name(in s : string) : bool
+  if (!name().equals(s)) {
+    super.set_Name(s);
+    ((UmlBaseConnector) UmlBaseItem.read_()).set_Name(s);
+  }
+!!!318848.cpp!!!	set_Stereotype(in s : string) : bool
+  if (UmlBaseItem::set_Stereotype(s)) {
+    UmlBaseConnector * other = (UmlBaseConnector *) UmlBaseItem::read_();
+    
+    if (other != 0)
+      other->_stereotype = s;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!318848.java!!!	set_Stereotype(in s : string) : bool
+  super.set_Stereotype(s);
+  
+  UmlBaseConnector other = (UmlBaseConnector) UmlBaseItem.read_();
+  
+  if (other != null)
+    other._stereotype = s;
+!!!318976.cpp!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!318976.java!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!319104.cpp!!!	set_Multiplicity(in v : string) : bool
+  return set_it_(_multiplicity, v, setMultiplicityCmd);
+!!!319104.java!!!	set_Multiplicity(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setMultiplicityCmd, v);
+  UmlCom.check();
+
+  _multiplicity = v;
+!!!319232.cpp!!!	connectable() : UmlConnectable
+  read_if_needed_();
+  return _connectable;
+!!!319232.java!!!	connectable() : UmlConnectable
+  read_if_needed_();
+  return _connectable;
+!!!319360.cpp!!!	side(in first : bool) : UmlConnector
+  UmlCom::send_cmd(_identifier, sideCmd, (char) first);
+
+  return (UmlConnector *) UmlBaseItem::read_();
+!!!319360.java!!!	side(in first : bool) : UmlConnector
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.sideCmd,
+		  (first) ? (byte) 1 : (byte) 0);
+  
+  return (UmlConnector) UmlBaseItem.read_();
+!!!319616.cpp!!!	read_uml_() : void
+  UmlBaseItem::read_uml_();
+  _multiplicity = UmlCom::read_string();
+  _connectable = (UmlConnectable *) UmlBaseItem::read_();
+!!!319616.java!!!	read_uml_() : void
+  super.read_uml_();
+  _multiplicity = UmlCom.read_string();
+  _connectable = (UmlConnectable) UmlBaseItem.read_();

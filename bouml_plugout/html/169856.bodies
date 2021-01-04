@@ -1,0 +1,99 @@
+class UmlBaseVariable
+!!!383360.cpp!!!	create(inout parent : UmlItem, inout s : str) : UmlVariable
+  return (UmlVariable *) parent->create_(aVariable, s);
+!!!383360.java!!!	create(inout parent : UmlItem, inout s : str) : UmlVariable
+  return (UmlVariable) parent.create_(anItemKind.aVariable, s);
+!!!383488.cpp!!!	kind() : anItemKind
+  return aVariable;
+!!!383488.java!!!	kind() : anItemKind
+  return anItemKind.aVariable;
+!!!383616.cpp!!!	type() : UmlTypeSpec
+  read_if_needed_();
+  return _type;
+!!!383616.java!!!	type() : UmlTypeSpec
+  read_if_needed_();
+  return _type;
+!!!383744.cpp!!!	set_Type(in v : UmlTypeSpec) : bool
+  return set_it_(_type, v, setTypeCmd);
+!!!383744.java!!!	set_Type(in v : UmlTypeSpec) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setTypeCmd, v);
+  UmlCom.check();
+
+  _type = v;
+!!!383872.cpp!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!383872.java!!!	multiplicity() : string
+  read_if_needed_();
+  return _multiplicity;
+!!!384000.cpp!!!	set_Multiplicity(in v : string) : bool
+  return set_it_(_multiplicity, v, setMultiplicityCmd);
+!!!384000.java!!!	set_Multiplicity(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setMultiplicityCmd, v);
+  UmlCom.check();
+
+  _multiplicity = v;
+!!!384128.cpp!!!	isOrdered() : bool
+  read_if_needed_();
+  return _ordered;
+!!!384128.java!!!	isOrdered() : bool
+  read_if_needed_();
+  return _ordered;
+!!!384256.cpp!!!	set_isOrdered(in v : bool) : bool
+  return set_it_(_ordered, v, setOrderingCmd);
+!!!384256.java!!!	set_isOrdered(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setOrderingCmd, (v) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+
+  _ordered = v;
+!!!384384.cpp!!!	isUnique() : bool
+  read_if_needed_();
+  return _unique;
+!!!384384.java!!!	isUnique() : bool
+  read_if_needed_();
+  return _unique;
+!!!384512.cpp!!!	set_isUnique(in v : bool) : bool
+  return set_it_(_unique, v, setUniqueCmd);
+!!!384512.java!!!	set_isUnique(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setUniqueCmd, (v) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+
+  _unique = v;
+!!!384640.cpp!!!	visibility() : aVisibility
+  read_if_needed_();
+  return _visibility;
+!!!384640.java!!!	visibility() : aVisibility
+  read_if_needed_();
+  return _visibility;
+!!!384768.cpp!!!	set_Visibility(in v : aVisibility) : bool
+  UmlCom::send_cmd(_identifier, setVisibilityCmd, (char) v);
+  if (UmlCom::read_bool()) {
+    _visibility = v;
+    return TRUE;
+  }
+  else
+    return FALSE;
+!!!384768.java!!!	set_Visibility(in v : aVisibility) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setVisibilityCmd, (byte) v.value());
+  UmlCom.check();
+
+  _visibility = v;
+!!!385024.cpp!!!	read_uml_() : void
+  UmlBaseItem::read_uml_();
+  _type.type = (UmlClass *) UmlBaseItem::read_();
+  if (_type.type == 0)
+    _type.explicit_type = UmlCom::read_string();
+  _multiplicity = UmlCom::read_string();
+  _ordered = UmlCom::read_bool();
+  _unique = UmlCom::read_bool();
+  _visibility = (aVisibility) UmlCom::read_char();
+!!!385024.java!!!	read_uml_() : void
+  super.read_uml_();
+  _type = new UmlTypeSpec();
+  _type.type = (UmlClass) UmlBaseItem.read_();
+  if (_type.type == null)
+    _type.explicit_type = UmlCom.read_string();
+  _multiplicity = UmlCom.read_string();
+  _ordered = UmlCom.read_bool();
+  _unique = UmlCom.read_bool();
+  _visibility = aVisibility.fromInt(UmlCom.read_char());

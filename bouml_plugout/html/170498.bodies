@@ -1,0 +1,17 @@
+class UmlReadSelfAction
+!!!259587.cpp!!!	sKind() : string
+  return "read self activity action";
+!!!259587.java!!!	sKind() : string
+  return "read self activity action";
+!!!259459.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  UmlActivityAction::html();
+  
+  write_children(pfix, rank, level);
+
+  unload(FALSE, FALSE);
+!!!259459.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  super.html();
+  
+  write_children(pfix, rank, level);
+
+  unload(false, false);

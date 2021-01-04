@@ -1,0 +1,28 @@
+class UmlBaseUnmarshallAction
+!!!166656.cpp!!!	create(inout parent : UmlItem, inout s : str) : UmlUnmarshallAction
+  return (UmlUnmarshallAction *) parent->create_(anUnmarshallAction, s);
+!!!166656.java!!!	create(inout parent : UmlItem, inout s : str) : UmlUnmarshallAction
+  return (UmlUnmarshallAction) parent.create_(anItemKind.anUnmarshallAction, s);
+!!!166784.cpp!!!	kind() : anItemKind
+  return anUnmarshallAction;
+!!!166784.java!!!	kind() : anItemKind
+  return anItemKind.anUnmarshallAction;
+!!!385536.cpp!!!	classifier() : string
+  read_if_needed_();
+  return _classifier;
+!!!385536.java!!!	classifier() : string
+  read_if_needed_();
+  return _classifier;
+!!!385664.cpp!!!	set_Classifier(in v : string) : bool
+  return set_it_(_classifier, v, setUmlActivityCmd);
+!!!385664.java!!!	set_Classifier(in v : string) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setUmlActivityCmd, v);
+  UmlCom.check();
+
+  _classifier = v;
+!!!385792.cpp!!!	read_uml_() : void
+  UmlBaseActivityAction::read_uml_();
+  _classifier = UmlCom::read_string();
+!!!385792.java!!!	read_uml_() : void
+  super.read_uml_();
+  _classifier = UmlCom.read_string();

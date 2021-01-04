@@ -1,0 +1,84 @@
+class UmlVariable
+!!!401538.cpp!!!	sKind() : string
+  return "variable";
+!!!401538.java!!!	sKind() : string
+  return "variable";
+!!!401410.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write("<table><tr><td><div class=\"element\">Variable <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>\n");
+  
+  fw.write("<p>");
+  write(visibility(), umlLanguage);
+  if (isOrdered())
+    fw.write(" ordered");
+
+  if (isUnique())
+    fw.write(" unique");
+  fw.write("</p>");
+  
+  write_description();
+  
+  fw.write("<p>type :");
+  write(type());
+  fw.write("</p>");
+
+  if (! multiplicity().isEmpty()) {
+    fw.write("<p>Multiplicity : ");
+    writeq(multiplicity());
+    fw.write("</p>");
+  }
+
+  write_properties();
+  
+  unload(FALSE, FALSE);
+!!!401410.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write("<table><tr><td><div class=\"element\">Variable <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>\n");
+  
+  fw.write("<p>");
+  write(visibility(), aLanguage.umlLanguage);
+  if (isOrdered())
+    fw.write(" ordered");
+
+  if (isUnique())
+    fw.write(" unique");
+  fw.write("</p>");
+  
+  write_description();
+  
+  fw.write("<p>type :");
+  write(type());
+  fw.write("</p>");
+  
+  if (multiplicity().length() != 0) {
+    fw.write("<p>Multiplicity : ");
+    writeq(multiplicity());
+    fw.write("</p>");
+  }
+
+  write_properties();
+
+  unload(false, false);
+!!!423938.cpp!!!	memo_ref() : void
+  variables.addElement(this);
+  UmlItem::memo_ref();
+!!!423938.java!!!	memo_ref() : void
+  variables.addElement(this);
+  super.memo_ref();
+
+!!!423810.cpp!!!	ref_index() : void
+  if (!variables.isEmpty())
+    fw.write("<a href=\"variables.html\" target = \"projectFrame\"><b> -Variables- </b></a>");
+!!!423810.java!!!	ref_index() : void
+  if (!variables.isEmpty())
+    fw.write("<a href=\"variables.html\" target = \"projectFrame\"><b> -Variables- </b></a>");
+!!!423682.cpp!!!	generate_index() : void
+  UmlItem::generate_index(variables, "Variables", "variables");
+!!!423682.java!!!	generate_index() : void
+  generate_index(variables, "Variables", "variables");

@@ -1,0 +1,122 @@
+class UmlExtraArtifactDefinition
+!!!331010.cpp!!!	sKind() : string
+  return "extra artifact definition";
+!!!331010.java!!!	sKind() : string
+  return "extra artifact definition";
+!!!330882.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write("<table><tr><td><div class=\"element\">Extra Class Member <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>");
+
+  QByteArray s;
+  
+  if (!cppDef().isEmpty() || !cppDecl().isEmpty() || !javaDecl().isEmpty()
+      || !phpDecl().isEmpty() || !pythonDecl().isEmpty()) {
+    fw.write("<p>Definition :</p><ul>");
+  
+    s = cppDecl();
+    
+    if (!s.isEmpty()) {
+      fw.write("<li>C++ (decl): <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = cppDef();
+    
+    if (!s.isEmpty()) {
+      fw.write("<li>C++ (def): <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = javaDecl();
+    
+    if (!s.isEmpty()) {
+      fw.write("<li>Java : <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = phpDecl();
+    
+    if (!s.isEmpty()) {
+      fw.write("<li>Php : <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = pythonDecl();
+    
+    if (!s.isEmpty()) {
+      fw.write("<li>Python : <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    fw.write("</ul>");
+  }
+ 
+  write_description();
+
+  unload(FALSE, FALSE);
+!!!330882.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  define();
+
+  fw.write("<table><tr><td><div class=\"element\">Extra Class Member <b>");
+  writeq(name());
+  fw.write("</b></div></td></tr></table>");
+
+  String s;
+
+  if ((cppDef().length() != 0) || (cppDecl().length() != 0) || (javaDecl().length() != 0)) {
+    fw.write("<p>Definition :</p><ul>");
+    
+    s = cppDecl();
+    
+    if (s.length() != 0) {
+      fw.write("<li>C++ (decl): <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = cppDef();
+    
+    if (s.length() != 0) {
+      fw.write("<li>C++ (def): <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = javaDecl();
+    
+    if (s.length() != 0) {
+      fw.write("<li>Java : <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = phpDecl();
+    
+    if (s.length() != 0) {
+      fw.write("<li>Php : <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+    
+    s = pythonDecl();
+    
+    if (s.length() != 0) {
+      fw.write("<li>Python : <pre>\n");
+      writeq(s);
+      fw.write("</pre></li>");
+    }
+
+    fw.write("</ul>");
+  }
+ 
+  write_description();
+
+  unload(false, false);

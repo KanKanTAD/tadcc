@@ -1,0 +1,13 @@
+class UmlItem
+!!!267522.cpp!!!	deploy() : void
+  UmlCom::trace("Error : must be applied on a <i>class view</i><br>");
+!!!267522.java!!!	deploy() : void
+  UmlCom.trace("Error : must be applied on a <i>class view</i><br>");
+!!!267650.java!!!	deploy(inout view : UmlDeploymentView) : void
+
+!!!267778.cpp!!!	deployable() : int
+return 0;
+
+!!!267778.java!!!	deployable() : int
+return 0;
+

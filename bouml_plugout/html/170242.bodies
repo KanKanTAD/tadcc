@@ -1,0 +1,23 @@
+class UmlStartObjectBehaviorAction
+!!!408194.cpp!!!	sKind() : string
+  return "start object behavior activity action";
+!!!408194.java!!!	sKind() : string
+  return "start object behavior activity action";
+!!!408066.cpp!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  UmlActivityAction::html();
+
+  if (isSynchronous())
+    fw.write("<p>Synchronous</p>");
+
+  write_children(pfix, rank, level);
+
+  unload(FALSE, FALSE);
+!!!408066.java!!!	html(in pfix : string, in rank : uint, in level : uint) : void
+  super.html();
+
+  if (isSynchronous())
+    fw.write("<p>Synchronous</p>");
+
+  write_children(pfix, rank, level);
+
+  unload(false, false);

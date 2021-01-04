@@ -1,0 +1,65 @@
+class UmlBaseRolePartInstance
+!!!316672.cpp!!!	create(inout parent : UmlClassInstance, inout s : str, in type : UmlRolePart) : UmlRolePartInstance
+  UmlCom::send_cmd(parent->_identifier, createCmd, aRolePartInstance,
+		   type->_identifier);
+  UmlRolePartInstance * result = (UmlRolePartInstance *) UmlBaseItem::read_();
+
+  if (result != 0) {
+    parent->reread_children_if_needed_();
+    if (s != 0) result->set_Name(s);
+  }
+  return result;
+!!!316672.java!!!	create(inout parent : UmlClassInstance, inout s : str, in type : UmlRolePart) : UmlRolePartInstance
+  UmlCom.send_cmd(parent.identifier_(), OnInstanceCmd.createCmd, anItemKind.aRolePartInstance,
+		  type.identifier_());
+  UmlRolePartInstance result = (UmlRolePartInstance) UmlBaseItem.read_();
+  
+  if (result != null) {
+    parent.reread_children_if_needed_();
+    if (s != null) result.set_Name(s);
+  }
+  else
+    throw new RuntimeException("Cannot create the role/part instance");
+  return result;
+!!!316800.cpp!!!	kind() : anItemKind
+  return aRolePartInstance;
+!!!316800.java!!!	kind() : anItemKind
+  return anItemKind.aRolePartInstance;
+!!!316928.cpp!!!	type() : UmlRolePart
+  read_if_needed_();
+  return _type;
+!!!316928.java!!!	type() : UmlRolePart
+  read_if_needed_();
+  return _type;
+!!!317056.cpp!!!	attributesValue(out result : SlotAttribute) : SlotAttribute
+  UmlCom::send_cmd(_identifier, attributesCmd, (char) 0);
+
+  unsigned n = UmlCom::read_unsigned();
+
+  result.clear();
+  while (n--) {
+    UmlAttribute * at = (UmlAttribute *) UmlBaseItem::read_();
+
+    result.append(SlotAttribute(at, UmlCom::read_string()));
+  }
+!!!317056.java!!!	attributesValue(out result : SlotAttribute) : SlotAttribute
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.attributesCmd, (byte) 0);
+
+  int n = UmlCom.read_unsigned();
+  SlotAttribute[] v = new SlotAttribute[n];
+
+  for (int index = 0; index != n; index += 1) {
+    UmlAttribute at = (UmlAttribute) UmlBaseItem.read_();
+
+    v[index] = new SlotAttribute(at, UmlCom.read_string());
+  }
+  return v;
+!!!317184.cpp!!!	set_AttributeValue(in attribute : UmlAttribute, in value : str) : bool
+  UmlCom::send_cmd(_identifier, setAttributeCmd, attribute->_identifier, value);
+  return UmlCom::read_bool();
+!!!317440.cpp!!!	read_uml_() : void
+  UmlBaseItem::read_uml_();
+  _type = (UmlRolePart *) UmlBaseItem::read_();
+!!!317440.java!!!	read_uml_() : void
+  super.read_uml_();
+  _type = (UmlRolePart) UmlBaseItem.read_();

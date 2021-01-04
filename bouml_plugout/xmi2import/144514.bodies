@@ -1,0 +1,65 @@
+class AssociationClass
+!!!216578.cpp!!!	init() : void
+  UmlItem::declareFct("ownedelement", "uml:AssociationClass", &importIt);
+  UmlItem::declareFct("ownedmember", "uml:AssociationClass", &importIt);
+  UmlItem::declareFct("packagedelement", "uml:AssociationClass", &importIt);
+!!!215682.cpp!!!	importIt(inout in : FileIn, inout token : Token, inout where : UmlItem) : void
+  QCString ref1;
+  QCString ref2;
+  
+  if (! token.closed()) {
+    QCString k = token.what();
+    const char * kstr = k;
+    
+    while (in.read(), !token.close(kstr)) {
+      QCString s = token.what();
+      
+      if (s == "memberend") {
+	if (ref1.isEmpty())
+	  ref1 = token.xmiIdref();
+	else
+	  ref2 = token.xmiIdref();
+      }
+      if (! token.closed())
+	in.finish(s);
+    }
+  }
+      
+  if (ref1.isEmpty() || ref2.isEmpty())
+    in.warning("association class not fully defined");
+  else
+    All.append(AssociationClass(ref1, ref2));
+!!!216322.cpp!!!	solveThem() : void
+  QValueList<AssociationClass>::Iterator it;
+  
+  for (it = All.begin(); it != All.end(); ++it)
+    (*it).solve();
+    
+  All.clear();
+!!!215938.cpp!!!	solve() : void
+  QMap<QCString, UmlItem*>::Iterator it1 = UmlItem::All.find(ref1);
+  QMap<QCString, UmlItem*>::Iterator it2 = UmlItem::All.find(ref2);
+  UmlTypeSpec t;
+    
+  if (it1 == UmlItem::All.end())
+    UmlCom::trace("association class : unknown reference '" + ref1 + "'<br>");
+  else if (it2 == UmlItem::All.end())
+    UmlCom::trace("association class : unknown reference '" + ref2 + "'<br>");
+  else if ((*it1)->kind() == aRelation) {
+    if ((*it2)->kind() != aClass)
+      UmlCom::trace("'" + ref2 + "' must be a class<br>");
+    else {
+      t.type = (UmlClass *) *it2;
+      ((UmlRelation *) *it1)->set_Association(t);
+    }
+  }
+  else if ((*it1)->kind() == aClass) {
+    if ((*it2)->kind() != aRelation)
+      UmlCom::trace("'" + ref2 + "' must be an association<br>");
+    else {
+      t.type = (UmlClass *) *it1;
+      ((UmlRelation *) *it2)->set_Association(t);
+    }
+  }
+  else
+    UmlCom::trace("'" + ref1 + "' must be a class or an association<br>");

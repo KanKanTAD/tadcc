@@ -1,0 +1,19 @@
+class UnresolvedConstraint
+!!!297090.cpp!!!	add(in id : string, in constraint : string) : void
+  All.append(UnresolvedConstraint(id, constraint));
+!!!297346.cpp!!!	solveThem() : void
+  Q3ValueList<UnresolvedConstraint>::Iterator it;
+      
+  for (it = All.begin(); it != All.end(); ++it) {
+    QMap<QByteArray, UmlItem *>::Iterator who = UmlItem::All.find((*it).constrained);
+    
+    if (who != UmlItem::All.end()) {
+      UmlClassMember * cm = dynamic_cast<UmlClassMember *>(*who);
+      
+      if (cm != 0)
+	cm->set_Constraint((*it).constraint);
+    }
+    else if (!FileIn::isBypassedId((*it).constrained))
+      UmlCom::trace("constraint : unknown constrainedElement '" + (*it).constrained + "'<br>");
+  }
+  All.clear();

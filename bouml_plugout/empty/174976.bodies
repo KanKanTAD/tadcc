@@ -1,0 +1,28 @@
+class UmlBaseRemoveStructuralFeatureValueAction
+!!!345728.cpp!!!	create(inout parent : UmlWriteStructuralFeatureAction, inout s : str) : UmlRemoveStructuralFeatureValueAction
+  return (UmlRemoveStructuralFeatureValueAction *) parent->create_(aRemoveStructuralFeatureValueAction, s);
+!!!345728.java!!!	create(inout parent : UmlWriteStructuralFeatureAction, inout s : str) : UmlRemoveStructuralFeatureValueAction
+  return (UmlRemoveStructuralFeatureValueAction) parent.create_(anItemKind.aRemoveStructuralFeatureValueAction, s);
+!!!345856.cpp!!!	kind() : anItemKind
+  return aRemoveStructuralFeatureValueAction;
+!!!345856.java!!!	kind() : anItemKind
+  return anItemKind.aRemoveStructuralFeatureValueAction;
+!!!345984.cpp!!!	isRemoveDuplicates() : bool
+  read_if_needed_();
+  return _remove_duplicates;
+!!!345984.java!!!	isRemoveDuplicates() : bool
+  read_if_needed_();
+  return _remove_duplicates;
+!!!346112.cpp!!!	set_isRemoveDuplicates(in v : bool) : bool
+  return set_it_(_remove_duplicates, v, setFlagCmd);
+!!!346112.java!!!	set_isRemoveDuplicates(in v : bool) : bool
+  UmlCom.send_cmd(identifier_(), OnInstanceCmd.setFlagCmd, (v) ? (byte) 1 : (byte) 0);
+  UmlCom.check();
+
+  _remove_duplicates = v;
+!!!346368.cpp!!!	read_uml_() : void
+  UmlBaseWriteStructuralFeatureAction::read_uml_();
+  _remove_duplicates = UmlCom::read_bool();
+!!!346368.java!!!	read_uml_() : void
+  super.read_uml_();
+  _remove_duplicates = UmlCom.read_bool();
