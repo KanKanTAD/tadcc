@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+from BazelBase.base.base.BazelBuild import BazelBuild
+from BazelBase.base.base.CallMeta import CallMeta
+from BazelBase.base.base.Value import Value
+
 import sys
 from dist.BazelBuildLexer import BazelBuildLexer
 from dist.BazelBuildParser import BazelBuildParser
@@ -24,13 +28,20 @@ class MyVisitor(BazelBuildVisitor):
     def visitArgument(self, ctx: BazelBuildParser.ArgumentContext):
         return self.visitChildren(ctx)
 
-    # Visit a parse tree produced by BazelBuildParser#value.
-    def visitValue(self, ctx: BazelBuildParser.ValueContext):
-        return self.visitChildren(ctx)
+    # Visit a parse tree produced by BazelBuildParser#singleValue.
+    def visitSingleValue(self, ctx: BazelBuildParser.SingleValueContext):
+        value = self.visit(ctx.single_value())
+        return value
+
+    # Visit a parse tree produced by BazelBuildParser#multiValue.
+    def visitMultiValue(self, ctx: BazelBuildParser.MultiValueContext):
+        value = self.visit(ctx.multi_value())
+        return value
 
     # Visit a parse tree produced by BazelBuildParser#multi_value.
     def visitMulti_value(self, ctx: BazelBuildParser.Multi_valueContext):
-        return self.visitChildren(ctx)
+        value = self.visit(ctx.val_list())
+        return "" if value is None else value
 
     # Visit a parse tree produced by BazelBuildParser#val_list.
     def visitVal_list(self, ctx: BazelBuildParser.Val_listContext):
@@ -38,10 +49,8 @@ class MyVisitor(BazelBuildVisitor):
 
     # Visit a parse tree produced by BazelBuildParser#single_value.
     def visitSingle_value(self, ctx: BazelBuildParser.Single_valueContext):
-        token = ctx.StringValue()
-        if token:
-            print(token.getText())
-        return self.visitChildren(ctx)
+        value = ctx.StringValue()
+        return value if value is not None else ""
 
 
 def main(data=None):

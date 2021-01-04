@@ -11,7 +11,9 @@ arglist: argument ( ',' argument )*? ','?
 
 argument: ( ID '=' ) value ;
 
-value : single_value | multi_value ;
+value : single_value     # singleValue
+		|multi_value     # multiValue
+		;
 
 multi_value:'[' val_list? ']'
 	;

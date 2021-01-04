@@ -29,8 +29,13 @@ class BazelBuildVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BazelBuildParser#value.
-    def visitValue(self, ctx:BazelBuildParser.ValueContext):
+    # Visit a parse tree produced by BazelBuildParser#singleValue.
+    def visitSingleValue(self, ctx:BazelBuildParser.SingleValueContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BazelBuildParser#multiValue.
+    def visitMultiValue(self, ctx:BazelBuildParser.MultiValueContext):
         return self.visitChildren(ctx)
 
 

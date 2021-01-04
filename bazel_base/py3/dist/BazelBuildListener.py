@@ -44,12 +44,21 @@ class BazelBuildListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BazelBuildParser#value.
-    def enterValue(self, ctx:BazelBuildParser.ValueContext):
+    # Enter a parse tree produced by BazelBuildParser#singleValue.
+    def enterSingleValue(self, ctx:BazelBuildParser.SingleValueContext):
         pass
 
-    # Exit a parse tree produced by BazelBuildParser#value.
-    def exitValue(self, ctx:BazelBuildParser.ValueContext):
+    # Exit a parse tree produced by BazelBuildParser#singleValue.
+    def exitSingleValue(self, ctx:BazelBuildParser.SingleValueContext):
+        pass
+
+
+    # Enter a parse tree produced by BazelBuildParser#multiValue.
+    def enterMultiValue(self, ctx:BazelBuildParser.MultiValueContext):
+        pass
+
+    # Exit a parse tree produced by BazelBuildParser#multiValue.
+    def exitMultiValue(self, ctx:BazelBuildParser.MultiValueContext):
         pass
 
 
