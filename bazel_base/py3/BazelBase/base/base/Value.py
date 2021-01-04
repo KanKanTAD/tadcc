@@ -2,7 +2,6 @@
 import Stringify
 
 class Value(Stringify.Stringify):
-    @abstractmethod
     def get_valuetype(self) -> int:
         pass
         
