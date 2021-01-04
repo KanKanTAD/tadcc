@@ -3,3 +3,5 @@ class SingleValue
 return ValueType.Single
 !!!136194.python!!!	value(in self : SingleValue) : string
 return self.__value
+!!!138242.python!!!	__init__(inout self : SingleValue, in value : str)
+self.__value = value

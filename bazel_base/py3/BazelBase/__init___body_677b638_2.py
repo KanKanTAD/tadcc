@@ -1,0 +1,1 @@
+self.__values = values

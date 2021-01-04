@@ -14,7 +14,8 @@ class MultiValue(base.Value.Value):
     def stringify() -> str:
         pass
         
-    def __init__(self):
+    def __init__(self: MultiValue, values: List[str]):
         super(MultiValue, self).__init__()
-        pass
+        self.__values = values
+        
     

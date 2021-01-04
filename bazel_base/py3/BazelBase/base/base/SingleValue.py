@@ -11,7 +11,8 @@ class SingleValue(base.Value.Value):
     def stringify() -> str:
         pass
         
-    def __init__(self):
+    def __init__(self: SingleValue, value: str):
         super(SingleValue, self).__init__()
-        pass
+        self.__value = value
+        
     

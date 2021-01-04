@@ -483,6 +483,21 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 138242 "__init__"
+	public explicit_return_type ""
+	nparams 2
+	  param inout name "self" type class_ref 128898 // SingleValue
+	  param in name "value" explicit_type "str"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}super(${class}, ${p0}).__init__()
+${body}
+"
+	
+      end
     end
 
     class 129026 "MultiValue"
@@ -554,6 +569,21 @@ ${docstring}${body}
 	
 	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
 ${docstring}${body}
+"
+	
+      end
+
+      operation 138370 "__init__"
+	public explicit_return_type ""
+	nparams 2
+	  param inout name "self" type class_ref 129026 // MultiValue
+	  param in name "values" explicit_type "List[str]"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}super(${class}, ${p0}).__init__()
+${body}
 "
 	
       end
