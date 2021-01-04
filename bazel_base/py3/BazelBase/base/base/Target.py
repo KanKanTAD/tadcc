@@ -12,7 +12,7 @@ class Target(CallMeta.CallMeta, Namiable.Namiable):
         return -1,None 
             
         
-    def __init__(self, proto: CallMeta.CallMeta):
+    def __init__(self, proto):
         super(Target, self).__init__()
         self.__proto = None
         self.__proto = proto

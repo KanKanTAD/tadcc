@@ -3,7 +3,7 @@ import Namiable
 import Value
 
 class Argument(Namiable.Namiable):
-    def set_value(self, value: Value.Value) -> None:
+    def set_value(self, value) -> None:
         self.__value= value
         
     def get_value(self) -> Value.Value:

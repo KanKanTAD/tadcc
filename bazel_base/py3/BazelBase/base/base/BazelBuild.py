@@ -4,7 +4,7 @@ import Stringify
 
 from typing import List,Set,Tuple,Dict
 class BazelBuild(Stringify.Stringify):
-    def set_call_metis(self, call_metis: List[CallMeta]) -> None:
+    def set_call_metis(self, call_metis) -> None:
         self.__call_metis = call_metis
         
     def get_call_metis(self) -> List[CallMeta]:

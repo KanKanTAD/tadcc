@@ -8,10 +8,10 @@ class MultiValue(Value.Value):
     def list(self) -> List[str]:
         pass
         
-    def init_by_singlevalues(self, values: List[SingleValue]) -> None:
+    def init_by_singlevalues(self, values) -> None:
         pass
         
-    def __init__(self, values: List[str]):
+    def __init__(self, values):
         super(MultiValue, self).__init__()
         self.__values = values
         

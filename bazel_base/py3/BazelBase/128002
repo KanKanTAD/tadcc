@@ -92,7 +92,7 @@ ${docstring}${members}
 	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
-	  param in name "call_metis" explicit_type "List[CallMeta]"
+	  param in name "call_metis" explicit_type ""
 	multiplicity "*"
 	
 	
@@ -204,7 +204,7 @@ ${docstring}${body}
 	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
-	  param in name "arg_list" explicit_type "List"
+	  param in name "arg_list" explicit_type ""
 	
 	
 	
@@ -270,7 +270,7 @@ ${docstring}${members}
 	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
-	  param in name "value" type class_ref 128770 // Value
+	  param in name "value" explicit_type ""
 	
 	
 	
@@ -369,7 +369,7 @@ ${docstring}${body}
 	public explicit_return_type ""
 	nparams 2
 	  param inout name "self" explicit_type ""
-	  param in name "proto" type class_ref 128130 // CallMeta
+	  param in name "proto" explicit_type ""
 	
 	
 	
@@ -601,7 +601,7 @@ ${docstring}${body}
 	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
-	  param in name "values" explicit_type "List[SingleValue]"
+	  param in name "values" explicit_type ""
 	
 	
 	
@@ -615,7 +615,7 @@ ${docstring}${body}
 	public explicit_return_type ""
 	nparams 2
 	  param inout name "self" explicit_type ""
-	  param in name "values" explicit_type "List[str]"
+	  param in name "values" explicit_type ""
 	
 	
 	
@@ -811,7 +811,7 @@ ${members}};
 	nparams 3
 	  param in name "self" explicit_type ""
 	  param in name "idx" explicit_type "int"
-	  param in name "call_meta" type class_ref 128130 // CallMeta
+	  param in name "call_meta" explicit_type ""
 	
 	
 	
@@ -924,7 +924,7 @@ ${docstring}${members}
 	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
-	  param in name "build" type class_ref 128002 // BazelBuild
+	  param in name "build" explicit_type ""
 	
 	
 	

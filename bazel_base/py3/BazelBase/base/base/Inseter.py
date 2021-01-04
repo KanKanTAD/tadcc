@@ -1,9 +1,8 @@
 
 import WorkClient
-import CallMeta
 
 class Inseter(WorkClient.WorkClient):
-    def into(self, idx: int, call_meta: CallMeta.CallMeta) -> None:
+    def into(self, idx: int, call_meta) -> None:
         pass
         
     def __init__(self):

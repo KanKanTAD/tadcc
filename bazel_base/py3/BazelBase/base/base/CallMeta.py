@@ -13,7 +13,7 @@ class CallMeta(Stringify.Stringify):
     def get_arglist(self) -> List:
         return self.__arg_list
         
-    def set_arglist(self, arg_list: List) -> None:
+    def set_arglist(self, arg_list) -> None:
         self.__arg_list = arg_list
         
     def stringify(self) -> str:
