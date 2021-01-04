@@ -1,7 +1,7 @@
 
 
 class Namiable(object):
-    def set_name(self, name: str) -> void:
+    def set_name(self, name: str) -> None:
         self.__name=name
         
     def get_name(self) -> str:

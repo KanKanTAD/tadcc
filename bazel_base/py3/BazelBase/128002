@@ -89,7 +89,7 @@ ${docstring}${members}
       end
 
       operation 136450 "set_call_metis"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "call_metis" explicit_type "List[CallMeta]"
@@ -174,7 +174,7 @@ ${docstring}${body}
       end
 
       operation 135682 "set_funcname"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "name" explicit_type "str"
@@ -201,7 +201,7 @@ ${docstring}${body}
       end
 
       operation 138498 "set_arglist"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "arg_list" explicit_type "List[Argument]"
@@ -258,7 +258,7 @@ ${docstring}${members}
       end
 
       operation 137602 "set_value"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "value" type class_ref 128770 // Value
@@ -391,7 +391,7 @@ ${members}};
       mysql_decl ""
       
       operation 128130 "set_name"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "name" explicit_type "str"
@@ -500,7 +500,7 @@ ${docstring}${body}
       end
 
       operation 136194 "value"
-	public explicit_return_type "string"
+	public explicit_return_type "str"
 	nparams 1
 	  param in name "self" explicit_type ""
 	
@@ -589,7 +589,7 @@ ${docstring}${body}
       end
 
       operation 137858 "init_by_singlevalues"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "values" explicit_type "List[SingleValue]"
@@ -798,7 +798,7 @@ ${members}};
       end
 
       operation 136578 "into"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 3
 	  param in name "self" explicit_type ""
 	  param in name "idx" explicit_type "int"
@@ -855,7 +855,7 @@ ${docstring}${members}
       end
 
       operation 136834 "deep_remove_target"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "target_name" explicit_type "str"
@@ -912,7 +912,7 @@ ${docstring}${members}
       end
 
       operation 128386 "set_bazelbuild"
-	public explicit_return_type "void"
+	public explicit_return_type "None"
 	nparams 2
 	  param in name "self" explicit_type ""
 	  param in name "build" type class_ref 128002 // BazelBuild

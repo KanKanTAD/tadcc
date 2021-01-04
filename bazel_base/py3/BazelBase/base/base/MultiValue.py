@@ -8,7 +8,7 @@ class MultiValue(Value.Value):
     def list(self) -> List[str]:
         pass
         
-    def init_by_singlevalues(self, values: List[SingleValue]) -> void:
+    def init_by_singlevalues(self, values: List[SingleValue]) -> None:
         pass
         
     def __init__(self, values: List[str]):

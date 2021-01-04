@@ -7,13 +7,13 @@ class CallMeta(Stringify.Stringify):
     def get_funcname(self):
         pass
         
-    def set_funcname(self, name: str) -> void:
+    def set_funcname(self, name: str) -> None:
         self.__func_name = name
         
     def get_arglist(self) -> List[Argument]:
         return self.__arg_list
         
-    def set_arglist(self, arg_list: List[Argument]) -> void:
+    def set_arglist(self, arg_list: List[Argument]) -> None:
         self.__arg_list = arg_list
         
     def stringify(self) -> str:

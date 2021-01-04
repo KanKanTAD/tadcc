@@ -5,7 +5,7 @@ class SingleValue(Value.Value):
     def get_valuetype(self) -> int:
         return ValueType.Single
         
-    def value(self) -> string:
+    def value(self) -> str:
         return self.__value
         
     def __init__(self, value: str):
