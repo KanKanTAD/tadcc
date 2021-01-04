@@ -371,7 +371,7 @@ class BazelBuildParser ( Parser ):
 
 
 
-    class SingleValueContext(ValueContext):
+    class SingleVContext(ValueContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a BazelBuildParser.ValueContext
             super().__init__(parser)
@@ -382,21 +382,21 @@ class BazelBuildParser ( Parser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSingleValue" ):
-                listener.enterSingleValue(self)
+            if hasattr( listener, "enterSingleV" ):
+                listener.enterSingleV(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSingleValue" ):
-                listener.exitSingleValue(self)
+            if hasattr( listener, "exitSingleV" ):
+                listener.exitSingleV(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSingleValue" ):
-                return visitor.visitSingleValue(self)
+            if hasattr( visitor, "visitSingleV" ):
+                return visitor.visitSingleV(self)
             else:
                 return visitor.visitChildren(self)
 
 
-    class MultiValueContext(ValueContext):
+    class MultiVContext(ValueContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a BazelBuildParser.ValueContext
             super().__init__(parser)
@@ -407,16 +407,16 @@ class BazelBuildParser ( Parser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMultiValue" ):
-                listener.enterMultiValue(self)
+            if hasattr( listener, "enterMultiV" ):
+                listener.enterMultiV(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMultiValue" ):
-                listener.exitMultiValue(self)
+            if hasattr( listener, "exitMultiV" ):
+                listener.exitMultiV(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitMultiValue" ):
-                return visitor.visitMultiValue(self)
+            if hasattr( visitor, "visitMultiV" ):
+                return visitor.visitMultiV(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -431,13 +431,13 @@ class BazelBuildParser ( Parser ):
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [BazelBuildParser.StringValue]:
-                localctx = BazelBuildParser.SingleValueContext(self, localctx)
+                localctx = BazelBuildParser.SingleVContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 50
                 self.single_value()
                 pass
             elif token in [BazelBuildParser.T__4]:
-                localctx = BazelBuildParser.MultiValueContext(self, localctx)
+                localctx = BazelBuildParser.MultiVContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 51
                 self.multi_value()
