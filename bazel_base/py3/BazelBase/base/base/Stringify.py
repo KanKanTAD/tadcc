@@ -1,7 +1,6 @@
 
 
 class Stringify(object):
-    @abstractmethod
     def stringify(self) -> str:
         pass
         
