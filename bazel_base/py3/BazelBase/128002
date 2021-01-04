@@ -1,6 +1,6 @@
 format 223
 "bazel_base" // bazel_base
-  revision 6
+  revision 7
   modified_by 2 "v_fantnzeng"
   // class settings
   
@@ -91,7 +91,7 @@ ${docstring}${members}
       operation 136450 "set_call_metis"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 128002 // BazelBuild
+	  param in name "self" explicit_type ""
 	  param in name "call_metis" explicit_type "List[CallMeta]"
 	multiplicity "*"
 	
@@ -106,7 +106,7 @@ ${docstring}${body}
       operation 137090 "get_call_metis"
 	public explicit_return_type "List[CallMeta]"
 	nparams 1
-	  param in name "self" type class_ref 128002 // BazelBuild
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -116,13 +116,14 @@ ${docstring}${body}
 	
       end
 
-      operation 138626 "stringify"
+      operation 145154 "stringify"
 	force_body_gen cpp_virtual public explicit_return_type "str"
-	nparams 0
+	nparams 1
+	  param in name "self" explicit_type ""
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -161,11 +162,12 @@ ${docstring}${members}
 
       operation 135554 "get_funcname"
 	public explicit_return_type "str"
-	nparams 0
+	nparams 1
+	  param in name "self" explicit_type ""
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
 ${docstring}${body}
 "
 	
@@ -174,7 +176,7 @@ ${docstring}${body}
       operation 135682 "set_funcname"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 128130 // CallMeta
+	  param in name "self" explicit_type ""
 	  param in name "name" explicit_type "str"
 	
 	
@@ -188,7 +190,7 @@ ${docstring}${body}
       operation 137474 "get_arglist"
 	public explicit_return_type "List[Argument]"
 	nparams 1
-	  param in name "self" type class_ref 128130 // CallMeta
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -201,12 +203,25 @@ ${docstring}${body}
       operation 138498 "set_arglist"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 128130 // CallMeta
+	  param in name "self" explicit_type ""
 	  param in name "arg_list" explicit_type "List[Argument]"
 	
 	
 	
 	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 145282 "stringify"
+	force_body_gen cpp_virtual public explicit_return_type "str"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -245,7 +260,7 @@ ${docstring}${members}
       operation 137602 "set_value"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 128258 // Argument
+	  param in name "self" explicit_type ""
 	  param in name "value" type class_ref 128770 // Value
 	
 	
@@ -259,7 +274,7 @@ ${docstring}${body}
       operation 137730 "get_value"
 	public return_type class_ref 128770 // Value
 	nparams 1
-	  param in name "self" type class_ref 128258 // Argument
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -322,7 +337,7 @@ ${docstring}${members}
       operation 137218 "get_deps"
 	public explicit_return_type "Tuple[int,Argument]"
 	nparams 1
-	  param in name "self" type class_ref 128130 // CallMeta
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -344,7 +359,7 @@ ${docstring}${body}
       operation 137346 "__init__"
 	public explicit_return_type ""
 	nparams 2
-	  param inout name "self" type class_ref 128514 // Target
+	  param inout name "self" explicit_type ""
 	  param in name "proto" type class_ref 128130 // CallMeta
 	
 	
@@ -378,7 +393,7 @@ ${members}};
       operation 128130 "set_name"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 128642 // Namiable
+	  param in name "self" explicit_type ""
 	  param in name "name" explicit_type "str"
 	
 	
@@ -392,7 +407,7 @@ ${docstring}${body}
       operation 128258 "get_name"
 	public explicit_return_type "str"
 	nparams 1
-	  param in name "self" type class_ref 128642 // Namiable
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -487,7 +502,7 @@ ${docstring}${body}
       operation 136194 "value"
 	public explicit_return_type "string"
 	nparams 1
-	  param in name "self" type class_ref 128898 // SingleValue
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -497,22 +512,10 @@ ${docstring}${body}
 	
       end
 
-      operation 138114 "stringify"
-	force_body_gen cpp_virtual public explicit_return_type "str"
-	nparams 0
-	
-	
-	
-	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
-${docstring}${body}
-"
-	
-      end
-
       operation 138242 "__init__"
 	public explicit_return_type ""
 	nparams 2
-	  param inout name "self" type class_ref 128898 // SingleValue
+	  param inout name "self" explicit_type ""
 	  param in name "value" explicit_type "str"
 	
 	
@@ -520,6 +523,19 @@ ${docstring}${body}
 	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
 ${docstring}super(${class}, ${p0}).__init__()
 ${body}
+"
+	
+      end
+
+      operation 145410 "stringify"
+	force_body_gen cpp_virtual public explicit_return_type "str"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}${type}:
+${docstring}${body}
 "
 	
       end
@@ -562,7 +578,7 @@ ${docstring}${body}
 	force_body_gen public explicit_return_type "List[str]"
 	multiplicity "*"
 	nparams 1
-	  param in name "self" type class_ref 129026 // MultiValue
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -575,7 +591,7 @@ ${docstring}${body}
       operation 137858 "init_by_singlevalues"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 129026 // MultiValue
+	  param in name "self" explicit_type ""
 	  param in name "values" explicit_type "List[SingleValue]"
 	
 	
@@ -586,22 +602,10 @@ ${docstring}${body}
 	
       end
 
-      operation 137986 "stringify"
-	force_body_gen cpp_virtual public explicit_return_type "str"
-	nparams 0
-	
-	
-	
-	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
-${docstring}${body}
-"
-	
-      end
-
       operation 138370 "__init__"
 	public explicit_return_type ""
 	nparams 2
-	  param inout name "self" type class_ref 129026 // MultiValue
+	  param inout name "self" explicit_type ""
 	  param in name "values" explicit_type "List[str]"
 	
 	
@@ -609,6 +613,19 @@ ${docstring}${body}
 	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
 ${docstring}super(${class}, ${p0}).__init__()
 ${body}
+"
+	
+      end
+
+      operation 145538 "stringify"
+	force_body_gen cpp_virtual public explicit_return_type "str"
+	nparams 1
+	  param in name "self" explicit_type ""
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}${type}:
+${docstring}${body}
 "
 	
       end
@@ -634,11 +651,12 @@ ${members}};
       
       operation 128002 "stringify"
 	abstract force_body_gen cpp_virtual public explicit_return_type "str"
-	nparams 0
+	nparams 1
+	  param in name "self" explicit_type ""
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -687,7 +705,7 @@ ${docstring}${body}
       operation 136706 "list"
 	public explicit_return_type "List[CallMeta]"
 	nparams 1
-	  param in name "self" type class_ref 129282 // Searcher
+	  param in name "self" explicit_type ""
 	
 	
 	
@@ -700,7 +718,7 @@ ${docstring}${body}
       operation 136962 "by_index"
 	public return_type class_ref 128130 // CallMeta
 	nparams 2
-	  param in name "self" type class_ref 129282 // Searcher
+	  param in name "self" explicit_type ""
 	  param in name "idx" explicit_type "int"
 	
 	
@@ -740,12 +758,13 @@ ${members}};
 
       operation 128898 "by_index"
 	cpp_virtual public explicit_return_type "bool"
-	nparams 1
+	nparams 2
+	  param in name "self" explicit_type ""
 	  param in name "idx" explicit_type "int"
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${v1}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -781,7 +800,7 @@ ${members}};
       operation 136578 "into"
 	public explicit_return_type "void"
 	nparams 3
-	  param in name "self" type class_ref 129538 // Inseter
+	  param in name "self" explicit_type ""
 	  param in name "idx" explicit_type "int"
 	  param in name "call_meta" type class_ref 128130 // CallMeta
 	
@@ -838,7 +857,7 @@ ${docstring}${members}
       operation 136834 "deep_remove_target"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 129410 // Deleter
+	  param in name "self" explicit_type ""
 	  param in name "target_name" explicit_type "str"
 	
 	
@@ -895,7 +914,7 @@ ${docstring}${members}
       operation 128386 "set_bazelbuild"
 	public explicit_return_type "void"
 	nparams 2
-	  param in name "self" type class_ref 130050 // WorkClient
+	  param in name "self" explicit_type ""
 	  param in name "build" type class_ref 128002 // BazelBuild
 	
 	

@@ -2,7 +2,7 @@
 
 class Stringify(object):
     @abstractmethod
-    def stringify() -> str:
+    def stringify(self) -> str:
         pass
         
     def __init__(self):

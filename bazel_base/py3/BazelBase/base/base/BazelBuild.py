@@ -4,13 +4,13 @@ import CallMeta
 import Stringify
 
 class BazelBuild(Stringify.Stringify):
-    def set_call_metis(self: BazelBuild, call_metis: List[CallMeta]) -> void:
+    def set_call_metis(self, call_metis: List[CallMeta]) -> void:
         self.__call_metis = call_metis
         
-    def get_call_metis(self: BazelBuild) -> List[CallMeta]:
+    def get_call_metis(self) -> List[CallMeta]:
         return self.__call_metis
         
-    def stringify() -> str:
+    def stringify(self) -> str:
         pass
         
     def __init__(self):

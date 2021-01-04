@@ -4,10 +4,10 @@ import Value
 
 from typing import List,Set,Dict,Tuple
 class Argument(Namiable.Namiable):
-    def set_value(self: Argument, value: Value.Value) -> void:
+    def set_value(self, value: Value.Value) -> void:
         self.__value= value
         
-    def get_value(self: Argument) -> Value.Value:
+    def get_value(self) -> Value.Value:
         return self.__value
         
     def __init__(self):

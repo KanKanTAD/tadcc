@@ -1,7 +1,7 @@
 class SingleValue
 !!!135938.python!!!	get_valuetype(in self : ) : int
 return ValueType.Single
-!!!136194.python!!!	value(in self : SingleValue) : string
+!!!136194.python!!!	value(in self : ) : string
 return self.__value
-!!!138242.python!!!	__init__(inout self : SingleValue, in value : str)
+!!!138242.python!!!	__init__(inout self : , in value : str)
 self.__value = value

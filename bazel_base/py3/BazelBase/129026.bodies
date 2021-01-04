@@ -1,5 +1,5 @@
 class MultiValue
 !!!136066.python!!!	get_valuetype(in self : ) : int
 return ValueType.Multi
-!!!138370.python!!!	__init__(inout self : MultiValue, in values : List[str])
+!!!138370.python!!!	__init__(inout self : , in values : List[str])
 self.__values = values

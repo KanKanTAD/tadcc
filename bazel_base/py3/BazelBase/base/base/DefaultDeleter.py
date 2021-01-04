@@ -2,7 +2,7 @@
 import Deleter
 
 class DefaultDeleter(Deleter.Deleter):
-    def deep_remove_target(self: Deleter.Deleter, target_name: str) -> void:
+    def deep_remove_target(self, target_name: str) -> void:
         ls = self.__build.get_call_metis()
         i = 0
         while i < len(ls):

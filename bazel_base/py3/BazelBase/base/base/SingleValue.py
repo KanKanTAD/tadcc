@@ -5,14 +5,14 @@ class SingleValue(Value.Value):
     def get_valuetype(self) -> int:
         return ValueType.Single
         
-    def value(self: SingleValue) -> string:
+    def value(self) -> string:
         return self.__value
         
-    def stringify() -> str:
-        pass
-        
-    def __init__(self: SingleValue, value: str):
+    def __init__(self, value: str):
         super(SingleValue, self).__init__()
         self.__value = value
+        
+    def stringify(self) -> str:
+        pass
         
     
