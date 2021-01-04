@@ -208,6 +208,7 @@ ${members}}
   ${body}}
 "
   php_param_typed php_out_inout_by_ref python_2_2
+  python_3_operation
   python_indent_step "    "
   python_default_src_content "${comment}
 ${import}

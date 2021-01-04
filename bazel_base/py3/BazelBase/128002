@@ -104,13 +104,13 @@ ${docstring}${body}
       end
 
       operation 137090 "get_call_metis"
-	public explicit_return_type "List[CallMeta]"
+	public explicit_return_type ""
 	nparams 1
 	  param in name "self" explicit_type ""
 	
 	
 	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
 ${docstring}${body}
 "
 	
