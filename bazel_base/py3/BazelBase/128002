@@ -404,19 +404,6 @@ ${members}};
 	  b parent class_ref 129154 // Stringify
       end
 
-      operation 128514 "get_source"
-	cpp_virtual public explicit_return_type "str"
-	nparams 1
-	  param in name "self" type class_ref 128770 // Value
-	
-	
-	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
-${docstring}${body}
-"
-	
-      end
-
       operation 128642 "get_valuetype"
 	abstract cpp_virtual public explicit_return_type "int"
 	nparams 1
@@ -425,20 +412,6 @@ ${docstring}${body}
 	
 	
 	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
-${docstring}${body}
-"
-	
-      end
-
-      operation 135810 "set_source"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "self" type class_ref 128770 // Value
-	  param in name "source" explicit_type "str"
-	
-	
-	
-	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
 ${docstring}${body}
 "
 	
@@ -498,6 +471,18 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 138114 "stringify"
+	force_body_gen cpp_virtual public explicit_return_type "str"
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
+${docstring}${body}
+"
+	
+      end
     end
 
     class 129026 "MultiValue"
@@ -542,6 +527,32 @@ ${docstring}${body}
 	
 	
 	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 137858 "init_by_singlevalues"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" type class_ref 129026 // MultiValue
+	  param in name "values" explicit_type "List[SingleValue]"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 137986 "stringify"
+	force_body_gen cpp_virtual public explicit_return_type "str"
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}${type}:
 ${docstring}${body}
 "
 	

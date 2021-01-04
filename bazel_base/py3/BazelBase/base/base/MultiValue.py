@@ -8,6 +8,12 @@ class MultiValue(base.Value.Value):
     def list(self: MultiValue) -> List[str]:
         pass
         
+    def init_by_singlevalues(self: MultiValue, values: List[SingleValue]) -> void:
+        pass
+        
+    def stringify() -> str:
+        pass
+        
     def __init__(self):
         super(MultiValue, self).__init__()
         pass
