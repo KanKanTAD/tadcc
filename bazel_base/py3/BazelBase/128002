@@ -186,6 +186,20 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 138498 "set_arglist"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "self" type class_ref 128130 // CallMeta
+	  param in name "arg_list" explicit_type "List[Argument]"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${t0}${v0}, ${p1}${t1}${v1}${)}${type}:
+${docstring}${body}
+"
+	
+      end
     end
 
     class 128258 "Argument"
