@@ -12,7 +12,7 @@ class BazelBuild(Stringify.Stringify):
         
     def stringify(self) -> str:
         metis = self.get_call_metis()
-        return '' + len(metis)
+        return '' + str(len(metis))
         
     def __init__(self):
         super(BazelBuild, self).__init__()

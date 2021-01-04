@@ -5,4 +5,4 @@ self.__call_metis = call_metis
 return self.__call_metis
 !!!145154.python!!!	stringify(in self : ) : str
 metis = self.get_call_metis()
-return '' + len(metis)
+return '' + str(len(metis))

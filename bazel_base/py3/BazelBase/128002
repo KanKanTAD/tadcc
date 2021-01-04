@@ -1042,31 +1042,9 @@ ${definition}"
 
     artifact 128642 "Namiable"
       stereotype "source"
-      java_src "${comment}
-${package}
-${imports}
-${definition}"
-      php_src "<?php
-${comment}
-${namespace}
-${require_once}
-${use}
-${definition}
-?>
-"
       python_src "${comment}
 ${import}
 ${definition}"
-      idl_src "#ifndef ${MODULE}_${NAME}_H
-#define ${MODULE}_${NAME}_H
-
-${comment}
-${includes}
-${module_start}
-${definition}
-${module_end}
-#endif
-"
       associated_elems
 	class_ref 128642 // Namiable
       end
