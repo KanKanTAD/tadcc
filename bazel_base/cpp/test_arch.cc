@@ -5,6 +5,13 @@
 #include <iostream>
 #include <set>
 
+#define Run_Test(func_name)                                                    \
+  try {                                                                        \
+    func_name();                                                               \
+  } catch (std::exception & e) {                                               \
+    std::cout << e.what() << std::endl;                                        \
+  }
+
 void test_gen_id() {
   std::set<long> id_s;
   int c = 100;
@@ -13,13 +20,8 @@ void test_gen_id() {
   }
   assert(id_s.size() == c);
 }
+
 int main(int argc, char *argv[]) {
-
-  try {
-    test_gen_id();
-  } catch (std::exception &e) {
-    std::cout << e.what() << std::endl;
-  }
-
+  Run_Test(test_gen_id);
   return 0;
 }
