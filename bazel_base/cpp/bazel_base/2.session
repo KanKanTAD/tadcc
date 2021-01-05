@@ -8,9 +8,6 @@ show_stereotypes
 selected 
   package_ref 129 // bazel_base
 open
-  class_ref 128002 // Erasible
-  class_ref 129666 // Treify
-  class_ref 136194 // Appendeble
 end
 end
 verbose

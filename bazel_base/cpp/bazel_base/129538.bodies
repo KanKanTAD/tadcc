@@ -1,3 +1,7 @@
 class ComContext
+!!!128770.cpp!!!	instance() : ComContext
+
+  static ComContext inst_;
+  return inst_;
 !!!130050.cpp!!!	gen_id() : long
 return id_inc_.fetch_add(1);

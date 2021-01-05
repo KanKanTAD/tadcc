@@ -1,6 +1,6 @@
 format 223
 "bazel_base"
-  revision 6
+  revision 7
   modified_by 2 "v_fantnzeng"
   cpp_root_dir "bazel_base/"
 
@@ -328,7 +328,7 @@ ${inlines}
 
       classrelation 128258 // value_ (<directional aggregation>)
 	relation 128258 o-->
-	  a role_name "value_" multiplicity "1" init_value "=     nullptr" private
+	  a role_name "value_" multiplicity "1" init_value "=      nullptr" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	    classrelation_ref 128258 // value_ (<directional aggregation>)
@@ -527,7 +527,7 @@ ${body}}
 
       attribute 128258 "id_"
 	private explicit_type "long"
-	init_value "=     0L"
+	init_value "=      0L"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
 "
 	java_decl ""
@@ -581,7 +581,7 @@ ${inlines}
       mysql_decl ""
       
       operation 128770 "instance"
-	class_operation const public return_type class_ref 129538 // ComContext
+	class_operation preserve_cpp_body_indent const public return_type class_ref 129538 // ComContext
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -747,7 +747,7 @@ ${members}};
       
       attribute 141442 "father"
 	public explicit_type "T"
-	init_value "=  nullptr"
+	init_value "=   nullptr"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	java_decl ""
