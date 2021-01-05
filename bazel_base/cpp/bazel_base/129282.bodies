@@ -1,5 +1,5 @@
 class Namiable
 !!!128258.cpp!!!	set_name(in name : string) : void
-this->name_ = name
+this->name_ = name;
 !!!128386.cpp!!!	get_name() : string
 	return this->name_;
