@@ -1,0 +1,7 @@
+class SingleValue
+!!!145282.cpp!!!	stringify() : string
+	return "";
+!!!145410.cpp!!!	erase(in id : long) : void
+	return;
+!!!145538.cpp!!!	append(in obj : T) : void
+	return;

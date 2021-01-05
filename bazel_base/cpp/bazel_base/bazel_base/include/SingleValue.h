@@ -22,9 +22,11 @@ class SingleValue : public Value {
 
 };
 inline void SingleValue::erase(long id) {
+	return;
 }
 
 inline void SingleValue::append(T * obj) {
+	return;
 }
 
 

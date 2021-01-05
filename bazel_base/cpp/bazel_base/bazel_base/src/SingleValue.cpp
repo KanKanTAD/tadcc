@@ -10,6 +10,7 @@ SingleValue::~SingleValue(){
 }
 
 string SingleValue::stringify() {
+	return "";
 }
 
 
