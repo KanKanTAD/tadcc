@@ -9,5 +9,8 @@ SingleValue::SingleValue():Value(){
 SingleValue::~SingleValue(){
 }
 
+string SingleValue::stringify() {
+}
+
 
 } // namespace bazel_base

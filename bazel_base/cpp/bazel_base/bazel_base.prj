@@ -245,7 +245,7 @@ ${body}}
 	nparams 0
 	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}:Indentify()${throw}{
 ${body}}
 "
 	
@@ -342,7 +342,7 @@ ${inlines}
 
       classrelation 128258 // value_ (<directional aggregation>)
 	relation 128258 o-->
-	  a role_name "value_" multiplicity "1" init_value "=           nullptr" private
+	  a role_name "value_" multiplicity "1" init_value "=              nullptr" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	    classrelation_ref 128258 // value_ (<directional aggregation>)
@@ -376,7 +376,7 @@ ${inlines}
 	nparams 0
 	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}:Com()${throw}{
 ${body}}
 "
 	
@@ -426,7 +426,7 @@ ${inlines}
 	nparams 0
 	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}:Value()${throw}{
 ${body}}
 "
 	
@@ -441,6 +441,50 @@ ${body}}
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145282 "stringify"
+	cpp_virtual public explicit_return_type "string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145410 "erase"
+	cpp_virtual cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "id" explicit_type "long"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145538 "append"
+	cpp_virtual cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "obj" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}
 "
 	
@@ -597,7 +641,7 @@ ${body}}
 
       attribute 128258 "id_"
 	private explicit_type "long"
-	init_value "=           0L"
+	init_value "=              0L"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
 "
 	java_decl ""
@@ -636,13 +680,6 @@ ${body}}
 	
       end
 
-      classrelation 144002 // <dependency>
-	relation 143874 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 144002 // <dependency>
-	  b parent class_ref 129538 // ComContext
-      end
     end
 
     class 129538 "ComContext"
@@ -766,12 +803,13 @@ ${body}}
 
       operation 130434 "make_com"
 	stereotype "template"
-	preserve_cpp_body_indent const public explicit_return_type "T"
+	preserve_cpp_body_indent const cpp_inline public explicit_return_type "T"
 	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-${body}}
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+            auto o = new T;
+            this->con_.insert(std::make_pair(o->get_id(), (Com *)o));
+            return o;
+          };
 "
 	nformals 1
 	formal name "T" type "class" explicit_default_value ""
@@ -855,7 +893,7 @@ ${members}};
       
       attribute 141442 "father"
 	public explicit_type "T"
-	init_value "=        nullptr"
+	init_value "=           nullptr"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	java_decl ""
