@@ -30,6 +30,7 @@ include_directories(
 )
 
 set(Arch_SRC
+	${BAZEL_BASE_PATH}/src/Appendeble.cpp
 	${BAZEL_BASE_PATH}/src/Argument.cpp
 	${BAZEL_BASE_PATH}/src/BazelBuild.cpp
 	${BAZEL_BASE_PATH}/src/CallMeta.cpp
@@ -56,6 +57,10 @@ set(Parser_SRC
 add_executable(example 
 	example.cc 
 	${Parser_SRC})
+add_executable(test_arch 
+	./test_arch.cc
+	${Arch_SRC}
+	)
 
 target_link_libraries(example 
 	${ANTRL_RUNTIME_LINK})
