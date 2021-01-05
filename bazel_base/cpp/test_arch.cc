@@ -1,5 +1,6 @@
 #include "BazelBuild.h"
 #include "ComContext.h"
+#include "MultiValue.h"
 #include "SingleValue.h"
 
 #include <cassert>
@@ -14,13 +15,19 @@
     std::cout << e.what() << std::endl;                                        \
   }
 
+void test_multi_value_show() {
+
+  auto m_value =
+      bazel_base::ComContext::instance().make_com<bazel_base::MultiValue>();
+}
 void test_gen_obj() {
   int i = 100;
   while (i--) {
     auto value =
         bazel_base::ComContext::instance().make_com<bazel_base::SingleValue>();
-    std::cout << value->get_id() << std::endl;
+    // std::cout << value->get_id() << std::endl;
   }
+  assert(false);
 }
 
 void test_gen_id() {
@@ -35,5 +42,6 @@ void test_gen_id() {
 int main(int argc, char *argv[]) {
   Run_Test(test_gen_id);
   Run_Test(test_gen_obj);
+  Run_Test(test_multi_value_show);
   return 0;
 }
