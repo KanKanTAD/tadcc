@@ -3,10 +3,10 @@
 
 namespace bazel_base {
 
-Value::Value() {
+Value::Value(){
 }
 
-Value::~Value() {
+Value::~Value(){
 }
 
 

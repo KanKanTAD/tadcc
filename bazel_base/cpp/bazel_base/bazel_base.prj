@@ -243,10 +243,10 @@ ${body}}
       operation 145154 "Com"
 	public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -342,7 +342,7 @@ ${inlines}
 
       classrelation 128258 // value_ (<directional aggregation>)
 	relation 128258 o-->
-	  a role_name "value_" multiplicity "1" init_value "=          nullptr" private
+	  a role_name "value_" multiplicity "1" init_value "=           nullptr" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	    classrelation_ref 128258 // value_ (<directional aggregation>)
@@ -374,10 +374,10 @@ ${inlines}
       operation 144642 "Value"
 	public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -388,10 +388,10 @@ ${inlines}
       operation 144770 "~Value"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -424,10 +424,10 @@ ${inlines}
       operation 144898 "SingleValue"
 	public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -438,10 +438,10 @@ ${inlines}
       operation 145026 "~SingleValue"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -597,7 +597,7 @@ ${body}}
 
       attribute 128258 "id_"
 	private explicit_type "long"
-	init_value "=          0L"
+	init_value "=           0L"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
 "
 	java_decl ""
@@ -634,6 +634,14 @@ ${body}}
 	
 	
 	
+      end
+
+      classrelation 144002 // <dependency>
+	relation 143874 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 144002 // <dependency>
+	  b parent class_ref 129538 // ComContext
       end
     end
 
@@ -780,8 +788,8 @@ ${body}}
 	  param in name "id" explicit_type "long"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
 "
 	
 	
@@ -795,8 +803,8 @@ ${body}}
 	  param inout name "obj" type class_ref 128258 // Com
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
 "
 	
 	
@@ -847,7 +855,7 @@ ${members}};
       
       attribute 141442 "father"
 	public explicit_type "T"
-	init_value "=       nullptr"
+	init_value "=        nullptr"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	java_decl ""

@@ -3,10 +3,10 @@
 
 namespace bazel_base {
 
-SingleValue::SingleValue() {
+SingleValue::SingleValue(){
 }
 
-SingleValue::~SingleValue() {
+SingleValue::~SingleValue(){
 }
 
 

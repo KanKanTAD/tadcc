@@ -1,5 +1,6 @@
 
 #include "Identify.h"
+#include "ComContext.h"
 
 namespace bazel_base {
 
