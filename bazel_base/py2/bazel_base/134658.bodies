@@ -1,0 +1,7 @@
+class CallMeta
+!!!129026.python!!!	stringify(in self : , in spaces :  = '') : str
+    res = spaces + str(self.name) + '('
+    body = ', '.join([c.stringify(spaces) for c in self.children])
+    res += body
+    res += spaces + ')'
+    return res 

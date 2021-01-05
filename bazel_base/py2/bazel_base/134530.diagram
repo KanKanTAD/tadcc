@@ -1,0 +1,26 @@
+format 223
+
+classinstancecanvas 128002 classinstance_ref 128002 // BazelBuild
+  xyz 353 69 2000
+end
+classinstancecanvas 128130 classinstance_ref 128130 // 
+  xyz 389 188 2000
+end
+classinstancecanvas 128386 classinstance_ref 128258 // 
+  xyz 414 325 2000
+end
+classinstancecanvas 128642 classinstance_ref 128386 // 
+  xyz 403 446 2000
+end
+objectlinkcanvas 128258 norel
+  from ref 128002 z 2001 to ref 128130
+  no_role_a no_role_b
+objectlinkcanvas 128514 norel
+  decenter_begin 293
+  from ref 128130 z 2001 to ref 128386
+  no_role_a no_role_b
+objectlinkcanvas 128770 norel
+  decenter_end 169
+  from ref 128386 z 2001 to ref 128642
+  no_role_a no_role_b
+end

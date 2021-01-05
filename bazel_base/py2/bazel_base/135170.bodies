@@ -1,0 +1,8 @@
+class MultiValue
+!!!129410.python!!!	stringify(in self : , in spaces :  = '') : str
+    _spaces = spaces + (' '*2)
+    split = '\n'+_spaces
+    res = '['+split
+    res += split.join([c.stringify() for c in self.children])
+    res += spaces + ']'
+    return res

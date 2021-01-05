@@ -1,0 +1,4 @@
+class SingleValue
+!!!129282.python!!!	stringify(in self : , in spaces :  = '') : str
+    return '' if self.value is None else str(self.value)
+    
