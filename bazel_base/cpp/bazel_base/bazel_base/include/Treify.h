@@ -9,7 +9,7 @@ namespace bazel_base {
 
 template<class T>
 struct Treify {
-    T * father=   nullptr;
+    T * father=    nullptr;
 
     list<T*> children;
 

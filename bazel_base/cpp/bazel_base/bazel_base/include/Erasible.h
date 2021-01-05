@@ -15,7 +15,7 @@ class Erasible {
 template<class T>
 inline void Erasible<T>::erase(T * obj) {
   	if(obj == nullptr){return;}
-  	this->earse(obj.get_id());
+  	this->erase(obj->get_id());
 }
 
 
