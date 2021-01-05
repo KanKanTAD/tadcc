@@ -1,0 +1,3 @@
+class Namiable
+!!!128258.cpp!!!	set_name(in name : string) : void
+this.name_ = name

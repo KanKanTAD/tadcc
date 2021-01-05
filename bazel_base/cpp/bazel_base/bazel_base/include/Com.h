@@ -11,7 +11,7 @@
 
 namespace bazel_base {
 
-class Com : public Stringify, public Namiable, public Identify, public Removible, public Treify<>, public Erasible<><Com> {
+class Com : public Stringify, public Namiable, public Identify, public Removible, public Treify<Com>, public Erasible<Com>, public Appendeble<Com> {
   public:
     virtual ~Com();
 

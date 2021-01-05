@@ -7,17 +7,15 @@ namespace bazel_base {
 template<class T>
 class Erasible {
   public:
-    inline virtual  erase(long id);
+    inline virtual void erase(long id) = 0;
 
-    inline virtual  erase(const T & obj);
+    inline virtual void erase(T * obj);
 
 };
 template<class T>
-inline  Erasible<T>::erase(long id) {
-}
-
-template<class T>
-inline  Erasible<T>::erase(const T & obj) {
+inline void Erasible<T>::erase(T * obj) {
+  	if(obj == nullptr){return;}
+  	this->earse(obj.get_id());
 }
 
 

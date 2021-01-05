@@ -2,9 +2,9 @@
 #define BAZEL_BASE_CALLMETA_H
 
 
+#include "Com.h"
 #include <list>
 using namespace std;
-#include "Com.h"
 
 namespace bazel_base { class Argument; } 
 
@@ -12,7 +12,7 @@ namespace bazel_base {
 
 class CallMeta : public Com {
   private:
-    list<Argument *> arguments_;
+    list<Argument*> arguments_;
 
 };
 

@@ -7,11 +7,11 @@ using namespace std;
 
 namespace bazel_base {
 
-template<class >
+template<class T>
 struct Treify {
-    Treify<> * father = nullptr;
+    T* father = nullptr;
 
-    list<Treify<> *> children;
+    list<T*> children;
 
 };
 

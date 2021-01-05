@@ -3,7 +3,8 @@
 
 namespace bazel_base {
 
- Namiable::set_name(const string & name) {
+void Namiable::set_name(const string & name) {
+this.name_ = name
 }
 
 string Namiable::get_name() const {

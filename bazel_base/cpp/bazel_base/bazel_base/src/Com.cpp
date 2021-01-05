@@ -3,7 +3,7 @@
 
 namespace bazel_base {
 
-Com::~Com() {
+Com::~Com(){
 }
 
 

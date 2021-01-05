@@ -10,7 +10,13 @@ class Identify {
 
 
   private:
-    long id_ = 0L;
+    long id_=    0L;
+
+
+  public:
+    explicit Identify();
+
+    virtual ~Identify();
 
 };
 

@@ -9,7 +9,7 @@ namespace bazel_base {
 
 class Namiable {
   public:
-    virtual  set_name(const string & name);
+    virtual void set_name(const string & name);
 
     virtual string get_name() const;
 

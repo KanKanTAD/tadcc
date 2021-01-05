@@ -12,7 +12,7 @@ namespace bazel_base {
 
 class MultiValue : public Value {
   private:
-    list<SingleValue *> values_;
+    list<SingleValue*> values_;
 
 };
 

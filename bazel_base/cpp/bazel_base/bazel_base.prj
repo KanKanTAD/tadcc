@@ -1,6 +1,6 @@
 format 223
 "bazel_base"
-  revision 2
+  revision 5
   modified_by 2 "v_fantnzeng"
   cpp_root_dir "bazel_base/"
 
@@ -72,11 +72,14 @@ format 223
     associated_deployment_view deploymentview_ref 128002 // base
     classdiagram 128002 "Diagram"
       classdiagramsettings draw_all_relations yes hide_getset_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml member_max_width 0 show_parameter_dir yes show_parameter_name yes end
-      size Legal-Landscape
+      size B-Landscape
     end
 
     class 128002 "Erasible"
-      visibility public 
+      abstract visibility public 
+      nformals 1
+      formal name "T" type "class" explicit_default_value ""
+        explicit_extends ""
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -88,14 +91,11 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      operation 129794 "erase"
-	cpp_virtual cpp_inline public explicit_return_type ""
+      operation 137346 "erase"
+	abstract cpp_virtual cpp_inline public explicit_return_type "void"
 	nparams 1
 	  param in name "id" explicit_type "long"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
 "
 	
 	
@@ -103,14 +103,14 @@ ${inlines}
 	
       end
 
-      operation 129922 "erase"
-	cpp_virtual cpp_inline public explicit_return_type ""
+      operation 137474 "erase"
+	preserve_cpp_body_indent cpp_virtual cpp_inline public explicit_return_type "void"
 	nparams 1
 	  param in name "obj" explicit_type "T"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
 "
 	
 	
@@ -138,7 +138,7 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+${body}}
 "
 	
 	
@@ -149,6 +149,13 @@ ${inlines}
 
     class 128258 "Com"
       visibility public 
+      nactuals 3
+      actual class class_ref 129666 // Treify
+        rank 0 value class_ref 128258 // Com
+      actual class class_ref 128002 // Erasible
+        rank 0 value class_ref 128258 // Com
+      actual class class_ref 136194 // Appendeble
+        rank 0 value class_ref 128258 // Com
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -160,20 +167,6 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      operation 128002 "~Com"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
       classrelation 129666 // <realization>
 	relation 129538 -_-|>
 	  a public
@@ -206,20 +199,45 @@ ${inlines}
 	  b parent class_ref 128130 // Removible
       end
 
-      classrelation 130434 // <generalisation>
-	relation 130306 ---|>
+      classrelation 130434 // <realization>
+	relation 130306 -_-|>
+	  stereotype "bind"
 	  a public
 	    cpp default "${type}"
-	    classrelation_ref 130434 // <generalisation>
+	    classrelation_ref 130434 // <realization>
 	  b parent class_ref 129666 // Treify
       end
 
       classrelation 130818 // <generalisation>
 	relation 130690 ---|>
+	  stereotype "bind"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 130818 // <generalisation>
 	  b parent class_ref 128002 // Erasible
+      end
+
+      classrelation 137474 // <realization>
+	relation 137346 -_-|>
+	  stereotype "bind"
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 137474 // <realization>
+	  b parent class_ref 136194 // Appendeble
+      end
+
+      operation 128002 "~Com"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -236,22 +254,22 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 128002 // call_metis_ (<directional aggregation>)
-	relation 128002 o-->
-	  stereotype "list"
-	  a role_name "call_metis_" multiplicity "*" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
-"
-	    classrelation_ref 128002 // call_metis_ (<directional aggregation>)
-	  b parent class_ref 128514 // CallMeta
-      end
-
       classrelation 128898 // <generalisation>
 	relation 128770 ---|>
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128898 // <generalisation>
 	  b parent class_ref 128258 // Com
+      end
+
+      classrelation 128002 // call_metis_ (<directional aggregation>)
+	relation 128002 o-->
+	  stereotype "list"
+	  a role_name "call_metis_" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
+"
+	    classrelation_ref 128002 // call_metis_ (<directional aggregation>)
+	  b parent class_ref 128514 // CallMeta
       end
     end
 
@@ -268,22 +286,22 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 128130 // arguments_ (<directional aggregation>)
-	relation 128130 o-->
-	  stereotype "list"
-	  a role_name "arguments_" multiplicity "*" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
-"
-	    classrelation_ref 128130 // arguments_ (<directional aggregation>)
-	  b parent class_ref 128642 // Argument
-      end
-
       classrelation 128770 // <generalisation>
 	relation 128642 ---|>
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128770 // <generalisation>
 	  b parent class_ref 128258 // Com
+      end
+
+      classrelation 128130 // arguments_ (<directional aggregation>)
+	relation 128130 o-->
+	  stereotype "list"
+	  a role_name "arguments_" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
+"
+	    classrelation_ref 128130 // arguments_ (<directional aggregation>)
+	  b parent class_ref 128642 // Argument
       end
     end
 
@@ -300,21 +318,21 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 128258 // value_ (<directional aggregation>)
-	relation 128258 o-->
-	  a role_name "value_" multiplicity "1" init_value "nullptr" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 128258 // value_ (<directional aggregation>)
-	  b parent class_ref 128770 // Value
-      end
-
       classrelation 128642 // <generalisation>
 	relation 128514 ---|>
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128642 // <generalisation>
 	  b parent class_ref 128258 // Com
+      end
+
+      classrelation 128258 // value_ (<directional aggregation>)
+	relation 128258 o-->
+	  a role_name "value_" multiplicity "1" init_value "=     nullptr" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
+"
+	    classrelation_ref 128258 // value_ (<directional aggregation>)
+	  b parent class_ref 128770 // Value
       end
     end
 
@@ -387,7 +405,7 @@ ${inlines}
 	relation 129410 o-->
 	  stereotype "list"
 	  a role_name "values_" multiplicity "*" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
 "
 	    classrelation_ref 129538 // values_ (<directional aggregation>)
 	  b parent class_ref 128898 // SingleValue
@@ -439,13 +457,13 @@ ${inlines}
       mysql_decl ""
       
       operation 128258 "set_name"
-	cpp_virtual public explicit_return_type ""
+	cpp_virtual public explicit_return_type "void"
 	nparams 1
 	  param in name "name" explicit_type "string"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+${body}}
 "
 	
 	
@@ -459,7 +477,7 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+${body}}
 "
 	
 	
@@ -499,7 +517,7 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+${body}}
 "
 	
 	
@@ -509,8 +527,8 @@ ${inlines}
 
       attribute 128258 "id_"
 	private explicit_type "long"
-	init_value "0L"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+	init_value "=     0L"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
 "
 	java_decl ""
 	php_decl ""
@@ -523,10 +541,10 @@ ${inlines}
       operation 130178 "Identify"
 	public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -537,10 +555,10 @@ ${inlines}
       operation 130306 "~Identify"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -562,21 +580,13 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 130050 // <dependency>
-	relation 129922 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 130050 // <dependency>
-	  b parent class_ref 128258 // Com
-      end
-
       operation 128770 "instance"
-	class_operation const public explicit_return_type "ComContext&"
+	class_operation const public return_type class_ref 129538 // ComContext
 	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${type} & ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
 "
 	
 	
@@ -587,10 +597,10 @@ ${inlines}
       operation 128898 "ComContext"
 	private explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -601,10 +611,10 @@ ${inlines}
       operation 129026 "~ComContext"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${throw}{
+${body}}
 "
 	
 	
@@ -614,13 +624,10 @@ ${inlines}
 
       operation 129154 "ComContext"
 	stereotype "copy"
-	cpp_deleted private explicit_return_type ""
+	private explicit_return_type ""
 	nparams 1
 	  param inout name "source" type class_ref 129538 // ComContext
-	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}${t0} & ${p0}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${t0} & ${p0}${)}${volatile}${throw} {
-  ${body}}
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract};
 "
 	
 	
@@ -630,13 +637,10 @@ ${inlines}
 
       operation 129282 "ComContext"
 	stereotype "copy"
-	cpp_deleted private explicit_return_type ""
+	private explicit_return_type ""
 	nparams 1
 	  param in name "source" type class_ref 129538 // ComContext
-	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
-  ${body}}
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract};
 "
 	
 	
@@ -644,14 +648,11 @@ ${inlines}
 	
       end
 
-      operation 129410 "operator="
+      operation 136962 "operator ="
 	cpp_deleted private return_type class_ref 129538 // ComContext
 	nparams 1
 	  param inout name "source" type class_ref 129538 // ComContext
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} & ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	
 	
@@ -659,14 +660,11 @@ ${inlines}
 	
       end
 
-      operation 129538 "operator="
+      operation 137090 "operator ="
 	cpp_deleted private return_type class_ref 129538 // ComContext
 	nparams 1
 	  param in name "source" type class_ref 129538 // ComContext
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} & ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	
 	
@@ -680,7 +678,7 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+${body}}
 "
 	
 	
@@ -689,12 +687,13 @@ ${inlines}
       end
 
       operation 130434 "make_com"
-	const cpp_virtual cpp_inline public explicit_return_type "T*"
+	stereotype "template"
+	const cpp_virtual cpp_inline public explicit_return_type "T"
 	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
 "
 	nformals 1
 	formal name "T" type "class" explicit_default_value ""
@@ -705,18 +704,14 @@ ${inlines}
 	
       end
 
-      attribute 128386 "con_"
-	private explicit_type "long ,Com*"
-	multiplicity "*"
-	stereotype "map"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+      classrelation 137346 // con_ (<unidirectional association>)
+	relation 137218 --->
+	  stereotype "map"
+	  a role_name "con_" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<long,${type}*> ${name}${value};
 "
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
+	    classrelation_ref 137346 // con_ (<unidirectional association>)
+	  b parent class_ref 128258 // Com
       end
 
       attribute 134914 "id_inc_"
@@ -734,6 +729,9 @@ ${inlines}
 
     class 129666 "Treify"
       visibility public stereotype "struct"
+      nformals 1
+      formal name "T" type "class" explicit_default_value ""
+        explicit_extends ""
       cpp_decl "${comment}${template}struct ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -747,23 +745,65 @@ ${members}};
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 130562 // father (<directional aggregation>)
-	relation 130434 o-->
-	  a role_name "father" init_value "nullptr" public
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+      attribute 141442 "father"
+	public explicit_type "T"
+	init_value "=  nullptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
-	    classrelation_ref 130562 // father (<directional aggregation>)
-	  b parent class_ref 129666 // Treify
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
 
-      classrelation 130690 // children (<directional aggregation>)
-	relation 130562 o-->
-	  stereotype "list"
-	  a role_name "children" multiplicity "*" public
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+      attribute 141570 "children"
+	public explicit_type "T*"
+	stereotype "list"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
 "
-	    classrelation_ref 130690 // children (<directional aggregation>)
-	  b parent class_ref 129666 // Treify
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 136194 "Appendeble"
+      abstract visibility public stereotype "interface"
+      nformals 1
+      formal name "T" type "class" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}interface ${name}${extends} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 137218 "append"
+	abstract cpp_virtual cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "obj" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
       end
     end
   end
@@ -1126,5 +1166,6 @@ ${module_end}
       end
     end
   end
+add_operation_profile
 
 end

@@ -1,14 +1,16 @@
-window_sizes 1288 839 324 959 697 96
+window_sizes 1477 839 324 1148 697 96
 
 diagrams
   active  classdiagram_ref 128002 // Diagram
-    959 697 82 Legal-Landscape 0 241
-  objectdiagram_ref 134530 // o
-    114 82 100 A4 0 0
+    1148 697 81 B-Landscape 0 270
 end
 show_stereotypes
-selected attribute_ref 134914 // id_inc_
+selected 
+  package_ref 129 // bazel_base
 open
-  class_ref 129538 // ComContext
+  class_ref 128002 // Erasible
+  class_ref 129666 // Treify
+  class_ref 136194 // Appendeble
 end
 end
+verbose

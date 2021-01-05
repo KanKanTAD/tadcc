@@ -2,13 +2,18 @@
 #define BAZEL_BASE_COMCONTEXT_H
 
 
+#include <map>
+using namespace std;
+#include <atomic>
+using namespace std;
+
 namespace bazel_base { class Com; } 
 
 namespace bazel_base {
 
 class ComContext {
   public:
-    static ComContext& get_instance() const;
+    static ComContext & instance() const;
 
 
   private:
@@ -24,11 +29,28 @@ class ComContext {
 
     ComContext(const ComContext & source);
 
-    ComContext & operator=(ComContext & source) = delete;
+    ComContext & operator =(ComContext & source) = delete;
 
-    ComContext & operator=(const ComContext & source) = delete;
+    ComContext & operator =(const ComContext & source) = delete;
+
+
+  public:
+    virtual long gen_id() const;
+
+    template<class T>
+    inline virtual T * make_com() const;
+
+
+  private:
+    map<long,Com*> con_;
+
+    atomic_long id_inc_;
 
 };
+template<class T>
+inline T * ComContext::make_com() const {
+}
+
 
 } // namespace bazel_base
 #endif
