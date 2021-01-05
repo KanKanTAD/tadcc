@@ -15,9 +15,12 @@
   }
 
 void test_gen_obj() {
-  auto value =
-      bazel_base::ComContext::instance().make_com<bazel_base::SingleValue>();
-  std::cout << value->get_id() << std::endl;
+  int i = 100;
+  while (i--) {
+    auto value =
+        bazel_base::ComContext::instance().make_com<bazel_base::SingleValue>();
+    std::cout << value->get_id() << std::endl;
+  }
 }
 
 void test_gen_id() {
@@ -31,5 +34,6 @@ void test_gen_id() {
 
 int main(int argc, char *argv[]) {
   Run_Test(test_gen_id);
+  Run_Test(test_gen_obj);
   return 0;
 }
