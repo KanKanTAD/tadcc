@@ -2,6 +2,8 @@
 #define BAZEL_BASE_IDENTIFY_H
 
 
+namespace bazel_base { class ComContext; } 
+
 namespace bazel_base {
 
 class Identify {
@@ -10,7 +12,7 @@ class Identify {
 
 
   private:
-    long id_=    0L;
+    long id_=     0L;
 
 
   public:
@@ -18,7 +20,10 @@ class Identify {
 
     virtual ~Identify();
 
-  friend class ComContext;
+
+  private:
+    ComContext * _include_ = nullptr;
+
 };
 
 } // namespace bazel_base
