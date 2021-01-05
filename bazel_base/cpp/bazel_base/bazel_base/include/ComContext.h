@@ -1,55 +1,54 @@
 #ifndef BAZEL_BASE_COMCONTEXT_H
 #define BAZEL_BASE_COMCONTEXT_H
 
-
-#include <map>
-using namespace std;
 #include <atomic>
+#include <map>
+#include <tuple>
+#include <utility>
 using namespace std;
 
-namespace bazel_base { class Com; } 
+namespace bazel_base {
+class Com;
+}
 
 namespace bazel_base {
 
 class ComContext {
-  public:
-    static ComContext & instance();
+public:
+  static ComContext &instance();
 
+private:
+  explicit ComContext();
 
-  private:
-    explicit ComContext();
+public:
+  virtual ~ComContext();
 
+private:
+  ComContext(ComContext &source);
 
-  public:
-    virtual ~ComContext();
+  ComContext(const ComContext &source);
 
+  ComContext &operator=(ComContext &source) = delete;
 
-  private:
-    ComContext(ComContext & source);
+  ComContext &operator=(const ComContext &source) = delete;
 
-    ComContext(const ComContext & source);
+public:
+  virtual long gen_id() const;
 
-    ComContext & operator =(ComContext & source) = delete;
+  template <class T> T *make_com() const {
+    auto o = new T;
+    this->con_.insert(std::make_pair(o->get_id(), (Com *)o));
+    return o;
+  }
 
-    ComContext & operator =(const ComContext & source) = delete;
+  void _release(long id) const;
 
+  void _release(Com *obj) const;
 
-  public:
-    virtual long gen_id() const;
+private:
+  mutable map<long, Com *> con_;
 
-    template<class T>
-    T * make_com() const;
-
-    void _release(long id) const;
-
-    void _release(Com * obj) const;
-
-
-  private:
-    mutable map<long,Com*> con_;
-
-    mutable atomic_long id_inc_;
-
+  mutable atomic_long id_inc_;
 };
 
 } // namespace bazel_base
