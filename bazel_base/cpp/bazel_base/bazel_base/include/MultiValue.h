@@ -1,37 +1,28 @@
 #ifndef BAZEL_BASE_MULTIVALUE_H
 #define BAZEL_BASE_MULTIVALUE_H
 
-
-#include "Value.h"
 #include "Appendeble.h"
-#include <list>
-using namespace std;
 #include "SingleValue.h"
-#include <string>
-using namespace std;
+#include "Value.h"
 #include <iostream>
+#include <list>
+#include <string>
 using namespace std;
 
 namespace bazel_base {
 
 class MultiValue : public Value, public Appendeble<SingleValue> {
-  private:
-    list<SingleValue*> values_;
+private:
+  mutable list<SingleValue *> values_;
 
+public:
+  virtual void append(SingleValue *obj) const override;
 
-  public:
-    virtual void append(SingleValue * obj) const override;
+  inline virtual void erase(long id);
 
-    virtual string stringify();
-
-    inline virtual void erase(long id);
-
-    virtual void stringify(ostream out) const;
-
+  virtual void stringify(ostream &out) const override;
 };
-inline void MultiValue::erase(long id) {
-}
-
+inline void MultiValue::erase(long id) {}
 
 } // namespace bazel_base
 #endif

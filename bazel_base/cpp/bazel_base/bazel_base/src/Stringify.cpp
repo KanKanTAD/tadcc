@@ -1,13 +1,13 @@
 
 #include "Stringify.h"
+#include <sstream>
 
 namespace bazel_base {
 
 string Stringify::stringify() const {
-  	sstream ss;
-  	this->stringify(ss);
-  	return ss.str();
+  std::stringstream ss;
+  this->stringify(ss);
+  return ss.str();
 }
-
 
 } // namespace bazel_base
