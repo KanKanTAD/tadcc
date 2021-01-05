@@ -12,8 +12,6 @@ using namespace std;
 namespace bazel_base {
 
 class MultiValue : public Value, public Appendeble<SingleValue> {
-private:
-  mutable list<SingleValue *> values_;
 
 public:
   virtual void append(SingleValue *obj) const override;
