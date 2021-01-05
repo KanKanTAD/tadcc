@@ -1,1 +1,0 @@
-self.__value = value[:]
