@@ -13,7 +13,7 @@ namespace bazel_base {
 
 class ComContext {
   public:
-    static ComContext & instance() const;
+    static ComContext & instance();
 
 
   private:
@@ -38,7 +38,7 @@ class ComContext {
     virtual long gen_id() const;
 
     template<class T>
-    inline virtual T * make_com() const;
+    T * make_com() const;
 
 
   private:
@@ -47,10 +47,6 @@ class ComContext {
     atomic_long id_inc_;
 
 };
-template<class T>
-inline T * ComContext::make_com() const {
-}
-
 
 } // namespace bazel_base
 #endif
