@@ -19,6 +19,10 @@ void test_multi_value_show() {
 
   auto m_value =
       bazel_base::ComContext::instance().make_com<bazel_base::MultiValue>();
+  for (int i = 0; i < 10; i++) {
+    m_value->append(SingleValue * obj)
+  }
+  m_value->stringify(std::cout);
 }
 void test_gen_obj() {
   int i = 100;
