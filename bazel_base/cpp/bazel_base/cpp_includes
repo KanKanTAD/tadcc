@@ -17,3 +17,6 @@ using namespace std;"
 "atomic_long" "#include <atomic>
 using namespace std;"
 
+"ostream" "#include <iostream>
+using namespace std;"
+

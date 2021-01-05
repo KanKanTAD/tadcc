@@ -5,6 +5,8 @@
 #include "Value.h"
 #include <string>
 using namespace std;
+#include <iostream>
+using namespace std;
 
 namespace bazel_base {
 
@@ -13,8 +15,6 @@ class SingleValue : public Value {
     explicit SingleValue();
 
     virtual ~SingleValue();
-
-    virtual string stringify() override;
 
     inline virtual void erase(long id) override;
 
@@ -27,6 +27,8 @@ class SingleValue : public Value {
 
   public:
     SingleValue(const string & value);
+
+    virtual void stringify(ostream out) const;
 
 };
 inline void SingleValue::erase(long id) {

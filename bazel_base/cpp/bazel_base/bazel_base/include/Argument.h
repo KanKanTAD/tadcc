@@ -10,7 +10,7 @@ namespace bazel_base {
 
 class Argument : public Com {
   private:
-    Value * value_=                     nullptr;
+    Value * value_=                      nullptr;
 
 };
 

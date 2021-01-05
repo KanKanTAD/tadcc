@@ -4,12 +4,16 @@
 
 #include <string>
 using namespace std;
+#include <iostream>
+using namespace std;
 
 namespace bazel_base {
 
 class Stringify {
   public:
-    virtual string stringify() = 0;
+    virtual string stringify() const;
+
+    virtual void stringify(ostream out) const = 0;
 
 };
 

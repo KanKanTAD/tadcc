@@ -12,7 +12,7 @@ class Identify {
 
 
   private:
-    long id_=        0L;
+    long id_=         0L;
 
 
   public:
@@ -22,7 +22,7 @@ class Identify {
 
 
   private:
-    ComContext * _include_=    nullptr;
+    ComContext * _include_=     nullptr;
 
 };
 

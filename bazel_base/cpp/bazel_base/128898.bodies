@@ -1,6 +1,4 @@
 class SingleValue
-!!!145282.cpp!!!	stringify() : string
-	return "";
 !!!145410.cpp!!!	erase(in id : long) : void
 	return;
 !!!152194.cpp!!!	set_value(in value : string) : void

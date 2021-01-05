@@ -9,6 +9,8 @@ using namespace std;
 #include "SingleValue.h"
 #include <string>
 using namespace std;
+#include <iostream>
+using namespace std;
 
 namespace bazel_base {
 
@@ -23,6 +25,8 @@ class MultiValue : public Value, public Appendeble<SingleValue> {
     virtual string stringify();
 
     inline virtual void erase(long id);
+
+    virtual void stringify(ostream out) const;
 
 };
 inline void MultiValue::erase(long id) {
