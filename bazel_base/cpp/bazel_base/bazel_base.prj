@@ -2,7 +2,7 @@ format 223
 "bazel_base"
   revision 1
   modified_by 2 "v_fantnzeng"
-  cpp_root_dir "D:\\other_projects\\tadcc\\tadcc\\bazel_base\\cpp\\bazel_base\\bazel_base\\"
+  cpp_root_dir "bazel_base/"
 
 
   

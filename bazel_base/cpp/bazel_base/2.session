@@ -1,0 +1,13 @@
+window_sizes 1522 925 345 1172 778 96
+
+diagrams
+  active  classdiagram_ref 128002 // Diagram
+    1172 778 83 Legal-Landscape 0 0
+end
+show_stereotypes
+selected 
+  package_ref 129 // bazel_base
+open
+  deploymentview_ref 128002 // base
+end
+end
