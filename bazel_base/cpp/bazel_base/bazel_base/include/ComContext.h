@@ -44,7 +44,7 @@ class ComContext {
   private:
     map<long,Com*> con_;
 
-    atomic_long id_inc_;
+    mutable atomic_long id_inc_;
 
 };
 
