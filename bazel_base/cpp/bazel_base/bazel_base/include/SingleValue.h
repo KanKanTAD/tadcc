@@ -7,8 +7,11 @@
 namespace bazel_base {
 
 class SingleValue : public Value {
-	public:
-		SingleValue();
+  public:
+    explicit SingleValue();
+
+    virtual ~SingleValue();
+
 };
 
 } // namespace bazel_base

@@ -3,8 +3,11 @@
 
 namespace bazel_base {
 
-Com::Com() : Identify() {}
+Com::~Com(){
+}
 
-Com::~Com() {}
+Com::Com() {
+}
+
 
 } // namespace bazel_base

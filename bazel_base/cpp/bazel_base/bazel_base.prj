@@ -239,6 +239,20 @@ ${body}}
 	
 	
       end
+
+      operation 145154 "Com"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 128386 "BazelBuild"
@@ -328,7 +342,7 @@ ${inlines}
 
       classrelation 128258 // value_ (<directional aggregation>)
 	relation 128258 o-->
-	  a role_name "value_" multiplicity "1" init_value "=         nullptr" private
+	  a role_name "value_" multiplicity "1" init_value "=          nullptr" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	    classrelation_ref 128258 // value_ (<directional aggregation>)
@@ -356,6 +370,34 @@ ${inlines}
 	    classrelation_ref 128514 // <generalisation>
 	  b parent class_ref 128258 // Com
       end
+
+      operation 144642 "Value"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 144770 "~Value"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 128898 "SingleValue"
@@ -377,6 +419,34 @@ ${inlines}
 	    cpp default "${type}"
 	    classrelation_ref 129282 // <generalisation>
 	  b parent class_ref 128770 // Value
+      end
+
+      operation 144898 "SingleValue"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${typeprefix}explicit ${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145026 "~SingleValue"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -527,7 +597,7 @@ ${body}}
 
       attribute 128258 "id_"
 	private explicit_type "long"
-	init_value "=         0L"
+	init_value "=          0L"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
 "
 	java_decl ""
@@ -539,7 +609,7 @@ ${body}}
       end
 
       operation 130178 "Identify"
-	public explicit_return_type ""
+	preserve_cpp_body_indent public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
@@ -609,7 +679,7 @@ ${body}}
       end
 
       operation 129026 "~ComContext"
-	cpp_virtual public explicit_return_type ""
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
 "
@@ -688,7 +758,7 @@ ${body}}
 
       operation 130434 "make_com"
 	stereotype "template"
-	const public explicit_return_type "T"
+	preserve_cpp_body_indent const public explicit_return_type "T"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -704,11 +774,41 @@ ${body}}
 	
       end
 
+      operation 144130 "_release"
+	preserve_cpp_body_indent const public explicit_return_type "void"
+	nparams 1
+	  param in name "id" explicit_type "long"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 144258 "_release"
+	preserve_cpp_body_indent const public explicit_return_type "void"
+	nparams 1
+	  param inout name "obj" type class_ref 128258 // Com
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
       classrelation 137346 // con_ (<unidirectional association>)
 	relation 137218 --->
 	  stereotype "map"
 	  a role_name "con_" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<long,${type}*> ${name}${value};
+	    cpp mutable default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<long,${type}*> ${name}${value};
 "
 	    classrelation_ref 137346 // con_ (<unidirectional association>)
 	  b parent class_ref 128258 // Com
@@ -747,7 +847,7 @@ ${members}};
       
       attribute 141442 "father"
 	public explicit_type "T"
-	init_value "=      nullptr"
+	init_value "=       nullptr"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	java_decl ""
