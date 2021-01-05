@@ -8,6 +8,7 @@
 #include "Removible.h"
 #include "Treify.h"
 #include "Erasible.h"
+#include "Appendeble.h"
 
 namespace bazel_base {
 

@@ -1,6 +1,6 @@
 format 223
 "bazel_base"
-  revision 5
+  revision 6
   modified_by 2 "v_fantnzeng"
   cpp_root_dir "bazel_base/"
 
@@ -1163,6 +1163,51 @@ ${module_end}
 "
       associated_elems
 	class_ref 129666 // Treify
+      end
+    end
+
+    artifact 136194 "Appendeble"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${use}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_elems
+	class_ref 136194 // Appendeble
       end
     end
   end
