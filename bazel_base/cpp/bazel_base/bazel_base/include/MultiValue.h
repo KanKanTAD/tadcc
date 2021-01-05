@@ -3,18 +3,31 @@
 
 
 #include "Value.h"
+#include "Appendeble.h"
 #include <list>
 using namespace std;
-
-namespace bazel_base { class SingleValue; } 
+#include "SingleValue.h"
+#include <string>
+using namespace std;
 
 namespace bazel_base {
 
-class MultiValue : public Value {
+class MultiValue : public Value, public Appendeble<SingleValue> {
   private:
     list<SingleValue*> values_;
 
+
+  public:
+    virtual void append(SingleValue * obj) const override;
+
+    virtual string stringify();
+
+    inline virtual void erase(long id);
+
 };
+inline void MultiValue::erase(long id) {
+}
+
 
 } // namespace bazel_base
 #endif

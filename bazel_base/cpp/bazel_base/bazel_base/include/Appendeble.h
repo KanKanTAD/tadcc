@@ -7,7 +7,7 @@ namespace bazel_base {
 template<class T>
 class Appendeble {
   public:
-    inline virtual void append(T * obj) = 0;
+    virtual void append(T * obj) const = 0;
 
 };
 

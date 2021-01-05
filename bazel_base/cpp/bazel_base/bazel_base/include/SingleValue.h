@@ -6,8 +6,6 @@
 #include <string>
 using namespace std;
 
-namespace bazel_base { class Com; } 
-
 namespace bazel_base {
 
 class SingleValue : public Value {
@@ -20,14 +18,18 @@ class SingleValue : public Value {
 
     inline virtual void erase(long id) override;
 
-    inline virtual void append(Com * obj) override;
+    virtual void set_value(const string & value);
+
+
+  private:
+    string value_;
+
+
+  public:
+    SingleValue(const string & value);
 
 };
 inline void SingleValue::erase(long id) {
-	return;
-}
-
-inline void SingleValue::append(Com * obj) {
 	return;
 }
 

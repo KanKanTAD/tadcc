@@ -3,5 +3,5 @@ class SingleValue
 	return "";
 !!!145410.cpp!!!	erase(in id : long) : void
 	return;
-!!!145538.cpp!!!	append(in obj : T) : void
-	return;
+!!!152194.cpp!!!	set_value(in value : string) : void
+	this->value_ = value;
