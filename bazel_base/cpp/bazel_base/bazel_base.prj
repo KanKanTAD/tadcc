@@ -1,6 +1,6 @@
 format 223
 "bazel_base"
-  revision 1
+  revision 2
   modified_by 2 "v_fantnzeng"
   cpp_root_dir "bazel_base/"
 
@@ -718,6 +718,18 @@ ${inlines}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      attribute 134914 "id_inc_"
+	private explicit_type "atomic_long"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
 
     class 129666 "Treify"
@@ -1114,4 +1126,5 @@ ${module_end}
       end
     end
   end
+
 end
