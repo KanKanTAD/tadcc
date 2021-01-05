@@ -1,5 +1,6 @@
 
 #include "SingleValue.h"
+#include "Com.h"
 
 namespace bazel_base {
 

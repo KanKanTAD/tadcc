@@ -39,10 +39,10 @@ class ComContext {
 
     template<class T>
     inline T * make_com() const {
-                auto o = new T;
-                this->con_.insert(std::make_pair(o->get_id(), (Com *)o));
-                return o;
-              };
+                            auto o = new T;
+                            this->con_.insert(std::make_pair(o->get_id(), (Com *)o));
+                            return o;
+                          };
 
     void _release(long id) const;
 
