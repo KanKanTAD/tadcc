@@ -1,14 +1,17 @@
-window_sizes 1477 839 288 1184 697 96
+window_sizes 1667 862 405 1257 720 96
 
 diagrams
   active  classdiagram_ref 128002 // Diagram
-    1184 697 67 B-Landscape 0 0
+    1257 720 55 A3-Landscape 0 0
 end
 show_stereotypes
 selected 
   package_ref 129 // bazel_base
 open
+  class_ref 128258 // Com
   class_ref 128898 // SingleValue
+  class_ref 129026 // MultiValue
+  class_ref 136194 // Appendeble
 end
 end
 verbose

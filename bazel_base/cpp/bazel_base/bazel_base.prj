@@ -72,7 +72,7 @@ format 223
     associated_deployment_view deploymentview_ref 128002 // base
     classdiagram 128002 "Diagram"
       classdiagramsettings draw_all_relations yes hide_getset_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml member_max_width 0 show_parameter_dir yes show_parameter_name yes end
-      size B-Landscape
+      size A3-Landscape
     end
 
     class 128002 "Erasible"
@@ -332,7 +332,7 @@ ${inlines}
 
       classrelation 128258 // value_ (<directional aggregation>)
 	relation 128258 o-->
-	  a role_name "value_" multiplicity "1" init_value "=                      nullptr" private
+	  a role_name "value_" multiplicity "1" init_value "=                       nullptr" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	    classrelation_ref 128258 // value_ (<directional aggregation>)
@@ -416,7 +416,7 @@ ${inlines}
 	nparams 0
 	cpp_decl "    ${comment}${inline}explicit ${name}${(}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}:SingleValue(\"\")${throw}{
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)} : SingleValue(\"\") ${throw}{
 ${body}}
 "
 	
@@ -487,7 +487,7 @@ ${body}}
 	  param in name "value" explicit_type "string"
 	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}${)}:Value() ${throw}{
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}${)} : Value() ${throw}{
 ${body}}
 "
 	
@@ -497,13 +497,13 @@ ${body}}
       end
 
       operation 153090 "stringify"
-	const cpp_virtual public explicit_return_type "void"
+	preserve_cpp_body_indent const cpp_virtual public explicit_return_type "void"
 	nparams 1
 	  param in name "out" explicit_type "ostream"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
 "
 	
 	
@@ -545,37 +545,13 @@ ${inlines}
 	  b parent class_ref 136194 // Appendeble
       end
 
-      classrelation 129538 // values_ (<directional aggregation>)
-	relation 129410 o-->
-	  stereotype "list"
-	  a role_name "values_" multiplicity "*" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
-"
-	    classrelation_ref 129538 // values_ (<directional aggregation>)
-	  b parent class_ref 128898 // SingleValue
-      end
-
       operation 152450 "append"
-	const cpp_virtual cpp_override public explicit_return_type "void"
+	preserve_cpp_body_indent const cpp_virtual cpp_override public explicit_return_type "void"
 	nparams 1
 	  param in name "obj" type class_ref 128898 // SingleValue
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
-${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 152706 "stringify"
-	cpp_virtual public explicit_return_type "string"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}
 "
 	
@@ -600,19 +576,20 @@ ${body}}
       end
 
       operation 153218 "stringify"
-	const cpp_virtual public explicit_return_type "void"
+	preserve_cpp_body_indent const cpp_virtual cpp_override public explicit_return_type "void"
 	nparams 1
 	  param in name "out" explicit_type "ostream"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}
 "
 	
 	
 	
 	
       end
+
     end
 
     class 129154 "Stringify"
@@ -635,12 +612,12 @@ ${members}};
       mysql_decl ""
       
       operation 128130 "stringify"
-	const cpp_virtual public explicit_return_type "string"
+	preserve_cpp_body_indent const cpp_virtual public explicit_return_type "string"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
+${body}}
 "
 	
 	
@@ -652,7 +629,7 @@ ${members}};
 	abstract const cpp_virtual public explicit_return_type "void"
 	nparams 1
 	  param in name "out" explicit_type "ostream"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	
 	
@@ -745,7 +722,7 @@ ${body}}
 
       attribute 128258 "id_"
 	private explicit_type "long"
-	init_value "=         0L"
+	init_value "=          0L"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
 "
 	java_decl ""
@@ -786,7 +763,7 @@ ${body}}
 
       classrelation 144258 // _include_ (<directional aggregation>)
 	relation 144130 o-->
-	  a role_name "_include_" multiplicity "1" init_value "=     nullptr" private
+	  a role_name "_include_" multiplicity "1" init_value "=      nullptr" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	    classrelation_ref 144258 // _include_ (<directional aggregation>)
@@ -918,10 +895,10 @@ ${body}}
 	preserve_cpp_body_indent const cpp_inline public explicit_return_type "T"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
-                                            auto o = new T;
-                                            this->con_.insert(std::make_pair(o->get_id(), (Com *)o));
-                                            return o;
-                                          };
+                                                auto o = new T;
+                                                this->con_.insert(std::make_pair(o->get_id(), (Com *)o));
+                                                return o;
+                                              };
 "
 	nformals 1
 	formal name "T" type "class" explicit_default_value ""
@@ -1005,8 +982,8 @@ ${members}};
       
       attribute 141442 "father"
 	public explicit_type "T"
-	init_value "=                   nullptr"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
+	init_value "=  nullptr"
+	cpp_mutable cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${h_value};
 "
 	java_decl ""
 	php_decl ""
@@ -1017,9 +994,9 @@ ${members}};
       end
 
       attribute 141570 "children"
-	public explicit_type "T*"
+	public explicit_type "T *"
 	stereotype "list"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+	cpp_mutable cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
 "
 	java_decl ""
 	php_decl ""
