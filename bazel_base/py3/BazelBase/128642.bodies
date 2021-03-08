@@ -1,5 +1,0 @@
-class Namiable
-!!!128130.python!!!	set_name(in self : , in name : string) : void
-self.__name=name
-!!!128258.python!!!	get_name(in self : ) : string
-return self.__name

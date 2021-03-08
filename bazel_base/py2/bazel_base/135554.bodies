@@ -1,3 +1,0 @@
-class Deleter
-!!!128258.python!!!	__init__(inout self : , in build : )
-    self.build = build

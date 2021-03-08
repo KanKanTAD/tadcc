@@ -1,7 +1,0 @@
-class BazelBuild
-!!!128898.python!!!	stringify(in self : , in spaces :  = '') : str
-    split='\n'+spaces
-    return spaces + (split.join([c.stringify() for c in self.children]))
-    
-    
-    

@@ -1,5 +1,0 @@
-class Identify
-!!!128514.cpp!!!	get_id() : long
- return this->id_;
-!!!130178.cpp!!!	Identify()
- this->id_ = ComContext::instance().gen_id();

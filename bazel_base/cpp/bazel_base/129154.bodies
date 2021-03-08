@@ -1,6 +1,0 @@
-class Stringify
-!!!128130.cpp!!!	stringify() : string
-
-  std::stringstream ss;
-  this->stringify(ss);
-  return ss.str();

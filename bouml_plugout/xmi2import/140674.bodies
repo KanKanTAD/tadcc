@@ -1,9 +1,0 @@
-class UmlDecisionActivityNode
-!!!283650.cpp!!!	init() : void
-  declareFct("decisioninputflow", "", &decisionInputFlow);
-
-!!!283522.cpp!!!	decisionInputFlow(inout in : FileIn, inout token : Token, inout where : UmlItem) : void
-  UmlFlow::addDecisionInputFlow(token.xmiIdref());
-  
-  incoming(in, token, where);
-

@@ -1,9 +1,0 @@
-class UmlBaseStartClassifierBehaviorAction
-!!!390784.cpp!!!	create(inout parent : UmlItem, inout s : str) : UmlStartClassifierBehaviorAction
-  return (UmlStartClassifierBehaviorAction *) parent->create_(aStartClassifierBehaviorAction, s);
-!!!390784.java!!!	create(inout parent : UmlItem, inout s : str) : UmlStartClassifierBehaviorAction
-  return (UmlStartClassifierBehaviorAction) parent.create_(anItemKind.aStartClassifierBehaviorAction, s);
-!!!390912.cpp!!!	kind() : anItemKind
-  return aStartClassifierBehaviorAction;
-!!!390912.java!!!	kind() : anItemKind
-  return anItemKind.aStartClassifierBehaviorAction;

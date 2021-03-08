@@ -1,9 +1,0 @@
-class UmlBaseClearStructuralFeatureAction
-!!!392448.cpp!!!	create(inout parent : UmlStructuralFeatureAction, inout s : str) : UmlClearStructuralFeatureAction
-  return (UmlClearStructuralFeatureAction *) parent->create_(aClearStructuralFeatureAction, s);
-!!!392448.java!!!	create(inout parent : UmlStructuralFeatureAction, inout s : str) : UmlClearStructuralFeatureAction
-  return (UmlClearStructuralFeatureAction) parent.create_(anItemKind.aClearStructuralFeatureAction, s);
-!!!392576.cpp!!!	kind() : anItemKind
-  return aClearStructuralFeatureAction;
-!!!392576.java!!!	kind() : anItemKind
-  return anItemKind.aClearStructuralFeatureAction;

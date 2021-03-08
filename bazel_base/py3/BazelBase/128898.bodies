@@ -1,9 +1,0 @@
-class SingleValue
-!!!135938.python!!!	get_valuetype(in self : ) : int
-return ValueType.Single
-!!!136194.python!!!	value(in self : ) : str
-return self.__value
-!!!138242.python!!!	__init__(inout self : , in value : str)
-self.__value = value[:]
-!!!145410.python!!!	stringify(in self : ) : str
-return self.__value

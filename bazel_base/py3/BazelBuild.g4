@@ -1,1 +1,0 @@
-../py2/BazelBuild.g4

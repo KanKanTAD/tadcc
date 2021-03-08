@@ -1,7 +1,0 @@
-class SingleValue
-!!!145410.cpp!!!	erase(in id : long) : void
-	return;
-!!!152194.cpp!!!	set_value(in value : string) : void
-	this->value_ = value;
-!!!153090.cpp!!!	stringify(in out : ostream) : void
- cout << this->value_;
