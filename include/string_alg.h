@@ -5,13 +5,13 @@
 
 namespace tadcc {
 
-void str_upper(std::string &s);
+std::string &str_upper(std::string &s);
 void str_upper(const std::string &s, std::string &result);
-std::string str_upper(const std::string &s);
+std::string strUpper(const std::string &s);
 
-void str_lower(std::string &s);
+std::string &str_lower(std::string &s);
 void str_lower(const std::string &s, std::string &result);
-std::string str_lower(const std::string &s);
+std::string strLower(const std::string &s);
 
 void trim(std::string &cont__, const std::string &s = " \t\r\n");
 void rtrim(std::string &cont__, const std::string &s = " \t\r\n");

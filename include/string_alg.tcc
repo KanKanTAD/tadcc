@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <cctype>
 #include <regex>
 
 namespace tadcc {
@@ -111,10 +112,11 @@ void str_join(const std::string &seq, const std::vector<Ty> &vk,
   str_join(seq, vk.begin(), vk.end(), result);
 }
 
-void str_upper(std::string &s) {
+std::string &str_upper(std::string &s) {
   for (auto &c : s) {
     c = std::toupper(c);
   }
+  return s;
 }
 
 void str_upper(const std::string &s, std::string &result) {
@@ -122,9 +124,25 @@ void str_upper(const std::string &s, std::string &result) {
   str_upper(result);
 }
 
-std::string str_upper(const std::string &s) {
+std::string strUpper(const std::string &s) {
   auto res = s;
   str_upper(res);
+  return res;
+}
+
+std::string &str_lower(std::string &s) {
+  for (auto &c : s) {
+    c = std::tolower(c);
+  }
+  return s;
+}
+void str_lower(const std::string &s, std::string &result) {
+  result = s;
+  str_lower(result);
+}
+std::string strLower(const std::string &s) {
+  auto res = s;
+  str_lower(res);
   return res;
 }
 
