@@ -13,9 +13,9 @@ std::string &str_lower(std::string &s);
 void str_lower(const std::string &s, std::string &result);
 std::string strLower(const std::string &s);
 
-void trim(std::string &cont__, const std::string &s = " \t\r\n");
-void rtrim(std::string &cont__, const std::string &s = " \t\r\n");
-void ltrim(std::string &cont__, const std::string &s = " \t\r\n");
+std::string& trim(std::string &cont__, const std::string &s = " \t\r\n");
+std::string& rtrim(std::string &cont__, const std::string &s = " \t\r\n");
+std::string& ltrim(std::string &cont__, const std::string &s = " \t\r\n");
 
 std::string strip(const std::string &cont__, const std::string &s = " \t\r\n");
 std::string rstrip(const std::string &cont__, const std::string &s = " \t\r\n");
