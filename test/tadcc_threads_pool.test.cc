@@ -1,5 +1,5 @@
+#include <iostream>
 #include <tadcc/tadcc.hpp>
-#include <thread>
 
 void test_thread_pool() {
   tadcc::thread_pool pool(3);
