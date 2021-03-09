@@ -15,10 +15,11 @@ public:
   using TaskType = std::function<void()>;
 
 public:
-  explicit thread_pool(size_t);
+  explicit thread_pool(size_t pool_size = 16);
   virtual ~thread_pool();
 
   virtual void emqueue(const TaskType &);
+  virtual void spin(const time_t t = 20) const;
   // virtual void clear();
   // virtual void join();
 

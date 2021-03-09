@@ -1,12 +1,20 @@
 #pragma once
 
+#include <chrono>
 #include <mutex>
+#include <thread>
 namespace tadcc {
 
 thread_pool::thread_pool(size_t pool_size) : pool_size_(pool_size) {
   this->work_();
 }
 thread_pool::~thread_pool() { this->running_ = false; }
+
+void thread_pool::spin(const time_t t) const {
+  while (!this->task_queue_.empty()) {
+    std::this_thread::sleep_for(std::chrono::microseconds(t));
+  }
+}
 
 void thread_pool::work_() {
   for (int i = 0; i < pool_size_; ++i) {
