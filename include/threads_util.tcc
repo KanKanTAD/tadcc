@@ -40,6 +40,6 @@ void thread_pool::work_() {
 
 void thread_pool::emqueue(const TaskType &task) {
   std::lock_guard<std::mutex> lk_(this->queue_mutex_);
-  this->task_queue_.push_back(task);
+  this->task_queue_.push(task);
 }
 } // namespace tadcc

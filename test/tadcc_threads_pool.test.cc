@@ -1,5 +1,5 @@
+#include "tadcc.hpp"
 #include <iostream>
-#include <tadcc/tadcc.hpp>
 
 void test_thread_pool() {
   tadcc::thread_pool pool(3);
@@ -14,4 +14,7 @@ void test_thread_pool() {
   }
   pool.spin();
 }
-int main() { return 0; }
+int main() {
+  test_thread_pool();
+  return 0;
+}
