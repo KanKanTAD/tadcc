@@ -1,4 +1,11 @@
 #pragma once
+
+#ifdef __linux__
+#include <sys/file.h>
+#include <unistd.h>
+#endif
+
+#include <cassert>
 #include <chrono>
 #include <condition_variable>
 #include <functional>
@@ -49,6 +56,33 @@ public:
   virtual void emqueue(const TaskType &);
 };
 **/
+
+class flock_guard {
+  int fd_;
+
+public:
+  flock_guard(const std::string &filepath,
+              int lock_type /* LOCK_EX  || LOCK_SH)*/) {
+    assert((fd_ = open(filepath.c_str(), O_RDONLY | O_CREAT)) > 0);
+    assert(0 == flock(fd_, lock_type));
+  }
+  virtual ~flock_guard() {
+    flock(fd_, LOCK_UN);
+    close(fd_);
+  }
+};
+
+// read lock
+class rflock_guard : public flock_guard {
+public:
+  rflock_guard(const std::string &filepath) : flock_guard(filepath, LOCK_SH) {}
+};
+
+// write lock
+class wflock_guard : public flock_guard {
+public:
+  wflock_guard(const std::string &filepath) : flock_guard(filepath, LOCK_EX) {}
+};
 
 } // namespace tadcc
 
